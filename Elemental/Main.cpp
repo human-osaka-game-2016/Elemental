@@ -63,15 +63,20 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLin
 
 	ShowWindow(hWnd, SW_SHOW);
 
+	// オブジェクトやデバイスを初期化と生成をしている関数(ライブラリ関数)
 	Init_Direct(hWnd);
 
+	// キーを取得するためのダイレクトインプットというものを初期化している(ライブラリ関数)
 	Init_Direct_Input(hWnd);
 
+	// 描画の初期化している(ライブラリ関数)
 	Init_Draw();
 
+	// Draw_Displayで描画はしたが画像がないのでこの関数でどの画像をはるか指定いている
 	Load_Texture("ワールドチップ.png", &g_pTexture[MAP_GROUND_TEX]);
 	Load_Texture("RabbitHouse.png", &g_pTexture[BACKGROUND_TEX]);
 
+	// csvマップの呼び出し
 	Map_Load("ElementalWorld.csv");
 
 	DWORD SyncOld = timeGetTime();	//	システム時間を取得
@@ -100,6 +105,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLin
 	}
 	timeEndPeriod(1);
 
+	/*
+	使用したDirectXの型を解放している
+	これを忘れないこと
+	*/
 	for (int i = 0; i < TEX_MAX; i++)
 	{
 		g_pTexture[i]->Release();
