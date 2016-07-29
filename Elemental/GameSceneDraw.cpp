@@ -1,20 +1,12 @@
-// ファイルを読み込むためにはインクルードしなければならない
 #include <stdio.h>
-//　ただのヘッダー
 #include "GameSceneDraw.h"
+#include "PlayerDraw.h"
 
-/* 
-テクスチャを貼るためにはこれを宣言しなければならない
-グローバルにしてるのでg_をつけている
-*/
+float g_ScreenOriginX = 0.0f;
+float g_ScreenOriginY = 0.0f;
 
 LPDIRECT3DTEXTURE9 g_pTexture[TEX_MAX];
 
-/*
-マップチップの頂点情報を入れている
-他のcppで使うためグローバルにおいている
-グルーバルにしているのでg_をつけている
-*/
 CUSTOMVERTEX g_maptip[4] =
 {
 	{ 0.0f, 0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 0.0f },
@@ -27,29 +19,27 @@ CUSTOMVERTEX g_maptip[4] =
 // csvで読み込む範囲
 int map[MAP_HEIGHT][MAP_WIDTH];
 
+// 描画関数
 void Render()
 {
-	// 背景の頂点情報
 	CUSTOMVERTEX background[4] =
 	{
 		{ 0.0f, 0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 0.0f },
 		{ 1280.f, 0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 1.0f, 0.0f },
-		{ 1280.f, 720, 0.5f, 1.0f, 0xFFFFFFFF, 1.0f, 1.0f },
-		{ 0.0f, 720, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 1.0f },
+		{ 1280.f, 736, 0.5f, 1.0f, 0xFFFFFFFF, 1.0f, 1.0f },
+		{ 0.0f, 736, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 1.0f },
 
 	};
-	// この関数を呼べば描画の前の準備をする(ライブラリ関数)
 	Draw_Start();
-	// この関数を呼べば描画できる(ライブラリ関数)
-	Draw_Display(g_pTexture[BACKGROUND_TEX], background);
-	Map_Draw();
-	// 描画を終わらせる(ライブラリ関数)
+	Draw_Obj(g_pTexture[BACKGROUND_TEX], background);
+	Draw_Map();
+	Draw_Player();
 	Draw_End();
 }
 
 
 // ファイルを読み込むための関数
-void Map_Load(const char* mapdata)
+void Load_Map(const char* mapdata)
 {
 	FILE*  fp;
 	fopen_s(&fp, mapdata, "r");
@@ -64,7 +54,7 @@ void Map_Load(const char* mapdata)
 }
 
 // csvに書いたマップ情報を反映させている
-void Map_Draw()
+void Draw_Map()
 {
 	for (int y = 0; y < MAP_HEIGHT; y++)
 	{
@@ -83,8 +73,22 @@ void Map_Draw()
 					drawmap[i].m_x += (x * TIPSIZE);
 					drawmap[i].m_y += (y * TIPSIZE);
 				}
-				Draw_Display(g_pTexture[MAP_GROUND_TEX], drawmap);
+				Draw_Obj(g_pTexture[MAP_GROUND_TEX], drawmap);
 			}
 		}
 	}
+}
+
+void Draw_Obj(LPDIRECT3DTEXTURE9   _pTexture, CUSTOMVERTEX _setdraw[]) 
+{
+	CUSTOMVERTEX drawobj[4];
+
+	for (int i = 0; i < 4; i++) 
+	{
+		drawobj[i] = _setdraw[i];
+		drawobj[i].m_x -= g_ScreenOriginX;
+		drawobj[i].m_y -= g_ScreenOriginY;
+	}
+
+	Draw_Display(_pTexture, drawobj);
 }

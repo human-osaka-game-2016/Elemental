@@ -13,15 +13,27 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="ヘッダー ファイル\PLAYER.H">
+      <UniqueIdentifier>{8040d8b1-c427-4110-baca-cd9c04e2f56b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PLAYER.CPP">
+      <UniqueIdentifier>{b0dbf5dd-a86d-4ef4-a4ea-f51e446e44f3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameSceneDraw.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Main.cpp">
+    <ClCompile Include="GameSceneCntrol.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="GameSceneCntrol.cpp">
+    <ClCompile Include="PlayerDraw.cpp">
+      <Filter>PLAYER.CPP</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerControl.cpp">
+      <Filter>PLAYER.CPP</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
@@ -31,6 +43,12 @@
     </ClInclude>
     <ClInclude Include="GameSceneCntrol.h">
       <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDraw.h">
+      <Filter>ヘッダー ファイル\PLAYER.H</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerControl.h">
+      <Filter>ヘッダー ファイル\PLAYER.H</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

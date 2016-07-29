@@ -3,12 +3,13 @@
 #include "GameSceneDraw.h"
 #include "GameSceneCntrol.h"
 
+
 #include <Direct_Draw.h>
 #include <Direct_Key_Input.h>
 #include <Direct_Main.h>
 
 #define WINDOW_W 1280					// ウィンドウ幅
-#define WINDOW_H 720					// ウィンドウ高さ
+#define WINDOW_H 736					// ウィンドウ高さ
 #define WINDOW_TITLE TEXT("Elemental")	// ウィンドウ名
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT mes, WPARAM wParam, LPARAM lParam)
@@ -63,21 +64,17 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLin
 
 	ShowWindow(hWnd, SW_SHOW);
 
-	// オブジェクトやデバイスを初期化と生成をしている関数(ライブラリ関数)
 	Init_Direct(hWnd);
 
-	// キーを取得するためのダイレクトインプットというものを初期化している(ライブラリ関数)
 	Init_Direct_Input(hWnd);
 
-	// 描画の初期化している(ライブラリ関数)
 	Init_Draw();
 
-	// Draw_Displayで描画はしたが画像がないのでこの関数でどの画像をはるか指定いている
 	Load_Texture("ワールドチップ.png", &g_pTexture[MAP_GROUND_TEX]);
 	Load_Texture("RabbitHouse.png", &g_pTexture[BACKGROUND_TEX]);
+	Load_Texture("キャラクター_仮.png", &g_pTexture[PLAYER_TEX]);
 
-	// csvマップの呼び出し
-	Map_Load("ElementalWorld.csv");
+	Load_Map("ElementalWorld.csv");
 
 	DWORD SyncOld = timeGetTime();	//	システム時間を取得
 	DWORD SyncNow;
@@ -105,10 +102,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLin
 	}
 	timeEndPeriod(1);
 
-	/*
-	使用したDirectXの型を解放している
-	これを忘れないこと
-	*/
 	for (int i = 0; i < TEX_MAX; i++)
 	{
 		g_pTexture[i]->Release();
