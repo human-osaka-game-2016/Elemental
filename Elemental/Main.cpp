@@ -1,3 +1,11 @@
+/**
+ * @file Main.cpp
+ * @breif ゲームのエントリーポイント
+ * @author 柴田哲良、山本倫太郎、岸本大河、水瀧秀明、田中貴大、竹村翔平、飯田純矢
+ * @date 2016年X月Y日
+ */
+
+
 #include <windows.h>
 #include <d3dx9tex.h>
 #include "GameSceneDraw.h"

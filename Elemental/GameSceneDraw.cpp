@@ -1,4 +1,14 @@
+/**
+ * @file GameSceneDraw.cpp
+ * @breif ゲーム全体の描画に関係する処理の内容を書いている
+ * @author 柴田哲良、山本倫太郎、岸本大河、水瀧秀明、田中貴大、竹村翔平、飯田純矢
+ * @date　2016年X月Y日
+ */
+
+
+
 #include <stdio.h>
+#include <stdlib.h>
 #include "GameSceneDraw.h"
 #include "PlayerDraw.h"
 
@@ -39,10 +49,10 @@ void Render()
 
 
 // ファイルを読み込むための関数
-void Load_Map(const char* mapdata)
+void Load_Map(const char* _mapdata)
 {
 	FILE*  fp;
-	fopen_s(&fp, mapdata, "r");
+	fopen_s(&fp, _mapdata, "r");
 
 	for (int i = 0; i < MAP_HEIGHT; i++)
 	{
