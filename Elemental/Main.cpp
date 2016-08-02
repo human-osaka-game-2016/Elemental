@@ -16,8 +16,8 @@
 #include <Direct_Key_Input.h>
 #include <Direct_Main.h>
 
-#define WINDOW_W 1280					// ウィンドウ幅
-#define WINDOW_H 736					// ウィンドウ高さ
+#define WINDOW_W 1440					// ウィンドウ幅
+#define WINDOW_H 810					// ウィンドウ高さ
 #define WINDOW_TITLE TEXT("Elemental")	// ウィンドウ名
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT mes, WPARAM wParam, LPARAM lParam)

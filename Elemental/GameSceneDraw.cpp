@@ -80,8 +80,8 @@ void Draw_Map()
 
 				for (int i = 0; i < 4; i++)
 				{
-					drawmap[i].m_x += (x * TIPSIZE);
-					drawmap[i].m_y += (y * TIPSIZE);
+					drawmap[i].x += (x * TIPSIZE);
+					drawmap[i].y += (y * TIPSIZE);
 				}
 				Draw_Obj(g_pTexture[MAP_GROUND_TEX], drawmap);
 			}
@@ -96,8 +96,8 @@ void Draw_Obj(LPDIRECT3DTEXTURE9   _pTexture, CUSTOMVERTEX _setdraw[])
 	for (int i = 0; i < 4; i++) 
 	{
 		drawobj[i] = _setdraw[i];
-		drawobj[i].m_x -= g_ScreenOriginX;
-		drawobj[i].m_y -= g_ScreenOriginY;
+		drawobj[i].x -= g_ScreenOriginX;
+		drawobj[i].y -= g_ScreenOriginY;
 	}
 
 	Draw_Display(_pTexture, drawobj);

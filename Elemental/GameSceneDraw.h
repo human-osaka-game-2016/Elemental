@@ -10,7 +10,7 @@
 ////////////////////////////////////////////////
 
 #define TIPSIZE 64		///< マップチップのサイズ
-#define MAP_HEIGHT 11	///< 描画するマップの縦の最大値
+#define MAP_HEIGHT 12	///< 描画するマップの縦の最大値
 #define MAP_WIDTH 34	///< 描画するマップの横の最大値
 
 #include <Direct_Draw.h>

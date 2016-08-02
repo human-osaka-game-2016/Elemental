@@ -17,13 +17,13 @@
 /// 座標・色成分
 struct CUSTOMVERTEX
 {
-	FLOAT	m_x;		///< 画面に表示するテクスチャのx座標
-	FLOAT	m_y;		///< 画面に表示するテクスチャのy座標
-	FLOAT	m_z;		///< 画面に表示するテクスチャのz座標
-	FLOAT	m_rhw;		///< 同次座標
-	DWORD	m_color;	///< 色成分
-	FLOAT	m_tu;		///< テクスチャ自体のx座標
-	FLOAT	m_tv;		///< テクスチャ自体のy座標
+	FLOAT	x;		///< 画面に表示するテクスチャのx座標
+	FLOAT	y;		///< 画面に表示するテクスチャのy座標
+	FLOAT	z;		///< 画面に表示するテクスチャのz座標
+	FLOAT	rhw;		///< 同次座標
+	DWORD	color;	///< 色成分
+	FLOAT	tu;		///< テクスチャ自体のx座標
+	FLOAT	tv;		///< テクスチャ自体のy座標
 }; 
 
 ////////////////////////////////////////////

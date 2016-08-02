@@ -24,8 +24,8 @@ void Draw_Player()
 	for (int i = 0; i < 4; i++)
 	{
 		drawplayer[i] = g_charcter[i];
-		drawplayer[i].m_x += g_player.posX;
-		drawplayer[i].m_y += g_player.posY;
+		drawplayer[i].x += g_player.posX;
+		drawplayer[i].y += g_player.posY;
 	}
 	Draw_Obj(g_pTexture[PLAYER_TEX], drawplayer);
 }
