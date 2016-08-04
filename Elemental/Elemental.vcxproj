@@ -72,19 +72,25 @@
   <ItemGroup>
     <ClCompile Include="EnemyControl.cpp" />
     <ClCompile Include="EnemyDraw.cpp" />
+    <ClCompile Include="Flame_Gmmick.cpp" />
     <ClCompile Include="GameSceneControl.cpp" />
     <ClCompile Include="GameSceneDraw.cpp" />
+    <ClCompile Include="Ice_Gmmick.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="PlayerControl.cpp" />
     <ClCompile Include="PlayerDraw.cpp" />
+    <ClCompile Include="Wind_Gmmick.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EnemyDraw.h" />
     <ClInclude Include="EnemyControl.h" />
+    <ClInclude Include="Flame_Gmmick.h" />
     <ClInclude Include="GameSceneControl.h" />
     <ClInclude Include="GameSceneDraw.h" />
+    <ClInclude Include="Ice_Gmmick.h" />
     <ClInclude Include="PlayerControl.h" />
     <ClInclude Include="PlayerDraw.h" />
+    <ClInclude Include="Wind_Gmmick.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
