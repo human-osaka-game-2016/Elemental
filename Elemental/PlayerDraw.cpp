@@ -10,13 +10,13 @@
 CUSTOMVERTEX g_charcter[4] =
 {
 	{   0.0f,  0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 0.0f },
-	{ 64.0f,  0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 1.0f, 0.0f },
-	{ 64.0f, 128.0f, 0.5f, 1.0f, 0xFFFFFFFF, 1.0f, 1.0f },
+	{ 128.0f,  0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 1.0f, 0.0f },
+	{ 128.0f, 128.0f, 0.5f, 1.0f, 0xFFFFFFFF, 1.0f, 1.0f },
 	{   0.0f, 128.0f, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 1.0f },
 
 };
 
-PLAYER_STATE g_player = { 200.f, 448.f, false, false };
+PLAYER_STATE g_player = { 300.f, 300.f, false, false };
 
 void Draw_Player()
 {

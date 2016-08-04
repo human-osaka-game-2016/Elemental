@@ -11,6 +11,7 @@
 #include <stdlib.h>
 #include "GameSceneDraw.h"
 #include "PlayerDraw.h"
+#include "EnemyDraw.h"
 
 float g_ScreenOriginX = 0.0f;
 float g_ScreenOriginY = 0.0f;
@@ -32,17 +33,18 @@ int map[MAP_HEIGHT][MAP_WIDTH];
 // ï`âÊä÷êî
 void Render()
 {
-	CUSTOMVERTEX background[4] =
+/*	CUSTOMVERTEX background[4] =
 	{
 		{ 0.0f, 0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 0.0f },
 		{ 1280.f, 0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 1.0f, 0.0f },
 		{ 1280.f, 736, 0.5f, 1.0f, 0xFFFFFFFF, 1.0f, 1.0f },
 		{ 0.0f, 736, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 1.0f },
 
-	};
+	};*/
 	Draw_Start();
-	Draw_Obj(g_pTexture[BACKGROUND_TEX], background);
+	//Draw_Obj(g_pTexture[BACKGROUND_TEX], background);
 	Draw_Map();
+	Draw_Enemy();
 	Draw_Player();
 	Draw_End();
 }

@@ -19,12 +19,15 @@
     <Filter Include="PLAYER.CPP">
       <UniqueIdentifier>{b0dbf5dd-a86d-4ef4-a4ea-f51e446e44f3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ENEMY.CPP">
+      <UniqueIdentifier>{57ae8b48-89fc-4ce7-b2bd-7007479fb07f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\ENEMY.H">
+      <UniqueIdentifier>{f621cb01-b44f-4def-b602-5fe17f2cb87c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameSceneDraw.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="GameSceneCntrol.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="PlayerDraw.cpp">
@@ -36,12 +39,18 @@
     <ClCompile Include="Main.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="EnemyDraw.cpp">
+      <Filter>ENEMY.CPP</Filter>
+    </ClCompile>
+    <ClCompile Include="GameSceneControl.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyControl.cpp">
+      <Filter>ENEMY.CPP</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameSceneDraw.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="GameSceneCntrol.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="PlayerDraw.h">
@@ -49,6 +58,15 @@
     </ClInclude>
     <ClInclude Include="PlayerControl.h">
       <Filter>ヘッダー ファイル\PLAYER.H</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyControl.h">
+      <Filter>ヘッダー ファイル\ENEMY.H</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyDraw.h">
+      <Filter>ヘッダー ファイル\ENEMY.H</Filter>
+    </ClInclude>
+    <ClInclude Include="GameSceneControl.h">
+      <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

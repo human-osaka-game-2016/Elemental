@@ -9,7 +9,7 @@
 #include <windows.h>
 #include <d3dx9tex.h>
 #include "GameSceneDraw.h"
-#include "GameSceneCntrol.h"
+#include "GameSceneControl.h"
 
 
 #include <Direct_Draw.h>
@@ -78,9 +78,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLin
 
 	Init_Draw();
 
-	Load_Texture("normal_1.png", &g_pTexture[MAP_GROUND_TEX]);
-	Load_Texture("RabbitHouse.png", &g_pTexture[BACKGROUND_TEX]);
-	Load_Texture("キャラクター_仮.png", &g_pTexture[PLAYER_TEX]);
+	Load_Texture("ワールドチップ.png", &g_pTexture[MAP_GROUND_TEX]);
+	//Load_Texture("", &g_pTexture[BACKGROUND_TEX]);
+	Load_Texture("ストレンジ先生どっと絵.png", &g_pTexture[PLAYER_TEX]);
+	Load_Texture("ゴジラ.png", &g_pTexture[ENEMY_TEX]);
 
 	Load_Map("ElementalWorld.csv");
 

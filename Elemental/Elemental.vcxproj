@@ -70,14 +70,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="GameSceneCntrol.cpp" />
+    <ClCompile Include="EnemyControl.cpp" />
+    <ClCompile Include="EnemyDraw.cpp" />
+    <ClCompile Include="GameSceneControl.cpp" />
     <ClCompile Include="GameSceneDraw.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="PlayerControl.cpp" />
     <ClCompile Include="PlayerDraw.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GameSceneCntrol.h" />
+    <ClInclude Include="EnemyDraw.h" />
+    <ClInclude Include="EnemyControl.h" />
+    <ClInclude Include="GameSceneControl.h" />
     <ClInclude Include="GameSceneDraw.h" />
     <ClInclude Include="PlayerControl.h" />
     <ClInclude Include="PlayerDraw.h" />

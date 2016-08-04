@@ -22,9 +22,10 @@
 /// ‰æ‘œ–‡”
 enum 
 {
-	BACKGROUND_TEX,
+//	BACKGROUND_TEX,
 	MAP_GROUND_TEX,
 	PLAYER_TEX,
+	ENEMY_TEX,
 	TEX_MAX,
 };
 

@@ -10,7 +10,7 @@
 #include <dinput.h>
 #include <Direct_Key_Input.h>
 #include "GameSceneDraw.h"
-#include "GameSceneCntrol.h"
+#include "GameSceneControl.h"
 #include "PlayerDraw.h"
 #include "PlayerControl.h"
 
@@ -21,32 +21,22 @@ void Player_Control()
 {
 	if (g_Key[LEFT] == ON)
 	{
-		if (!Collision_Check(g_player.posX - MOVE_SPEED, g_player.posY, 1, 2)) 
+		if (!Map_Collision_Check(g_player.posX - MOVE_SPEED, g_player.posY, 2, 2)) 
 		{
 			g_player.posX -= MOVE_SPEED;
-
-			if (g_player.posX < 400.f)
-			{
-				g_ScreenOriginX -= MOVE_SPEED;
-			}
 		}
 	}
 
 	if (g_Key[RIGHT] == ON)
 	{
-		if (!Collision_Check(g_player.posX + MOVE_SPEED, g_player.posY, 1, 2)) 
+		if (!Map_Collision_Check(g_player.posX + MOVE_SPEED, g_player.posY, 2, 2)) 
 		{
 			g_player.posX += MOVE_SPEED;
-
-			if (g_player.posX > 820.f)
-			{
-				g_ScreenOriginX += MOVE_SPEED;
-			}
 		}
 	}
 	if (g_Key[UP] == ON)
 	{
-		if (!Collision_Check(g_player.posX, g_player.posY - MOVE_SPEED, 1, 2))
+		if (!Map_Collision_Check(g_player.posX, g_player.posY - MOVE_SPEED, 2, 2))
 		{
 			g_player.posY -= MOVE_SPEED;
 
@@ -54,7 +44,7 @@ void Player_Control()
 	}
 	if (g_Key[DOWN] == ON)
 	{
-		if (!Collision_Check(g_player.posX, g_player.posY + MOVE_SPEED, 1, 2))
+		if (!Map_Collision_Check(g_player.posX, g_player.posY + MOVE_SPEED, 2, 2))
 		{
 			g_player.posY += MOVE_SPEED;
 		}
