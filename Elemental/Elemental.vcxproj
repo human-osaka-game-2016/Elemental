@@ -75,6 +75,7 @@
     <ClCompile Include="Flame_Gmmick.cpp" />
     <ClCompile Include="GameSceneControl.cpp" />
     <ClCompile Include="GameSceneDraw.cpp" />
+    <ClCompile Include="GameSceneInit.cpp" />
     <ClCompile Include="Ice_Gmmick.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="PlayerControl.cpp" />
@@ -87,6 +88,7 @@
     <ClInclude Include="Flame_Gmmick.h" />
     <ClInclude Include="GameSceneControl.h" />
     <ClInclude Include="GameSceneDraw.h" />
+    <ClInclude Include="GameSceneInit.h" />
     <ClInclude Include="Ice_Gmmick.h" />
     <ClInclude Include="PlayerControl.h" />
     <ClInclude Include="PlayerDraw.h" />

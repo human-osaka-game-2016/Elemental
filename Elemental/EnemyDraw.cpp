@@ -1,6 +1,6 @@
 
 #include "GameSceneDraw.h"
-#include "EnemyDraw.h"
+#include "GameSceneInit.h"
 
 CUSTOMVERTEX g_Enemy[4] =
 {
@@ -10,11 +10,6 @@ CUSTOMVERTEX g_Enemy[4] =
 	{ 0.0f, 128.0f, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 1.0f },
 
 };
-
-
-
-ENEMY_STATE g_enemy = { 1200.f, 320.f,};
-
 
 void Draw_Enemy()
 {

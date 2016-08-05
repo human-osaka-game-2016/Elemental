@@ -10,7 +10,7 @@
 #include <d3dx9tex.h>
 #include "GameSceneDraw.h"
 #include "GameSceneControl.h"
-
+#include "GameSceneInit.h"
 
 #include <Direct_Draw.h>
 #include <Direct_Key_Input.h>
@@ -76,14 +76,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLin
 
 	Init_Direct_Input(hWnd);
 
-	Init_Draw();
-
-	Load_Texture("ワールドチップ.png", &g_pTexture[MAP_GROUND_TEX]);
-	//Load_Texture("", &g_pTexture[BACKGROUND_TEX]);
-	Load_Texture("ストレンジ先生どっと絵.png", &g_pTexture[PLAYER_TEX]);
-	Load_Texture("ゴジラ.png", &g_pTexture[ENEMY_TEX]);
-
-	Load_Map("ElementalWorld.csv");
+	Init();
 
 	DWORD SyncOld = timeGetTime();	//	システム時間を取得
 	DWORD SyncNow;

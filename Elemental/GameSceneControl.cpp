@@ -8,10 +8,10 @@
 #define DIRECTINPUT_VERSION 0x0800
 
 #include <dinput.h>
-#include <Direct_Draw.h>
 #include <Direct_Key_Input.h>
 #include "GameSceneDraw.h"
 #include "GameSceneControl.h"
+#include "GameSceneInit.h"
 #include "PlayerControl.h"
 #include "EnemyControl.h"
 
@@ -26,7 +26,6 @@ void Control()
 	Check_Key(DIK_Z, Z);
 
 	Player_Control();
-	Kodora_Control();
 
 
 }
@@ -64,3 +63,14 @@ bool Map_Collision_Check(float _x, float _y, int _sx, int _sy)
 	return ret;		//@^(“–‚½‚Á‚Ä‚é)‚©‹U(“–‚½‚Á‚Ä‚È‚¢)‚Ì’l‚ğ•Ô‚µ‚Ä‚¢‚é
 }
 
+bool Collision_Check(float _rectAX, float _rectBX, float _rectAY, float _rectBY, int _size)
+{
+	bool hit = false;
+
+	if ((abs(_rectAX - _rectBX) < _size) && (abs(_rectAY - _rectBY) < _size))
+	{
+		hit = true;
+	}
+
+	return hit;
+}

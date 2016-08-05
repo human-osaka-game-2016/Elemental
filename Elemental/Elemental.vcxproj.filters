@@ -1,10 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="ソース ファイル">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
     <Filter Include="ヘッダー ファイル">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
@@ -19,17 +15,21 @@
     <Filter Include="ヘッダー ファイル\ENEMY.H">
       <UniqueIdentifier>{f621cb01-b44f-4def-b602-5fe17f2cb87c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ヘッダー ファイル\GMMICK.H">
-      <UniqueIdentifier>{f1af334b-8ebe-4346-8335-b9360bf90551}</UniqueIdentifier>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ソース ファイル\ENEMY.CPP">
+      <UniqueIdentifier>{57ae8b48-89fc-4ce7-b2bd-7007479fb07f}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソース ファイル\PLAYER.CPP">
       <UniqueIdentifier>{b0dbf5dd-a86d-4ef4-a4ea-f51e446e44f3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\GIMMICK.CPP">
-      <UniqueIdentifier>{fd00c0b6-97c3-4db3-ae3c-3847fb9127d1}</UniqueIdentifier>
+    <Filter Include="ソース ファイル\GMMICK.CPP">
+      <UniqueIdentifier>{77d2b00b-bbdd-4b4e-8ecc-049f0c1bcd61}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\ENEMY.CPP">
-      <UniqueIdentifier>{57ae8b48-89fc-4ce7-b2bd-7007479fb07f}</UniqueIdentifier>
+    <Filter Include="ヘッダー ファイル\GMMICK.H">
+      <UniqueIdentifier>{8e5f5a81-a2e1-466b-acc5-f7d96677d2ad}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -54,14 +54,17 @@
     <ClCompile Include="EnemyControl.cpp">
       <Filter>ソース ファイル\ENEMY.CPP</Filter>
     </ClCompile>
+    <ClCompile Include="GameSceneInit.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
     <ClCompile Include="Flame_Gmmick.cpp">
-      <Filter>ソース ファイル\GIMMICK.CPP</Filter>
+      <Filter>ソース ファイル\GMMICK.CPP</Filter>
     </ClCompile>
     <ClCompile Include="Ice_Gmmick.cpp">
-      <Filter>ソース ファイル\GIMMICK.CPP</Filter>
+      <Filter>ソース ファイル\GMMICK.CPP</Filter>
     </ClCompile>
     <ClCompile Include="Wind_Gmmick.cpp">
-      <Filter>ソース ファイル\GIMMICK.CPP</Filter>
+      <Filter>ソース ファイル\GMMICK.CPP</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -81,6 +84,9 @@
       <Filter>ヘッダー ファイル\ENEMY.H</Filter>
     </ClInclude>
     <ClInclude Include="GameSceneControl.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="GameSceneInit.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Flame_Gmmick.h">

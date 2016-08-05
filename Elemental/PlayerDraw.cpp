@@ -5,7 +5,7 @@
  * @date 2016”NXŒŽY“ú
  */
 #include "GameSceneDraw.h"
-#include "PlayerDraw.h"
+#include "GameSceneInit.h"
 
 CUSTOMVERTEX g_charcter[4] =
 {
@@ -16,7 +16,6 @@ CUSTOMVERTEX g_charcter[4] =
 
 };
 
-PLAYER_STATE g_player = { 300.f, 300.f, false, false };
 
 void Draw_Player()
 {
@@ -28,4 +27,5 @@ void Draw_Player()
 		drawplayer[i].y += g_player.posY;
 	}
 	Draw_Obj(g_pTexture[PLAYER_TEX], drawplayer);
+
 }
