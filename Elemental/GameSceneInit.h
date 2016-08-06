@@ -7,6 +7,7 @@ typedef struct
 {
 	float posX, posY;
 	float speed;
+	bool skyFlag;
 	bool jumpFlag;
 	bool hitFlag;
 	bool dashFlag;

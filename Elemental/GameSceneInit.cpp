@@ -2,7 +2,7 @@
 #include "GameSceneDraw.h"
 #include "GameSceneInit.h"
 
-PLAYER_STATE g_player = { 300.f, 350.f, false, false, false };
+PLAYER_STATE g_player = { 300.f, 350.f, false, false, false, false };
 
 ENEMY_STATE g_enemy = { 1200.f, 320.f };
 
