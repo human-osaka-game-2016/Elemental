@@ -6,6 +6,9 @@
 
  */
 
+#ifndef GAMESECNE_DRAW
+#define GAMESCENE_DRAW
+
 ////////////////////////////////////////////////
 // 定義
 ////////////////////////////////////////////////
@@ -75,3 +78,5 @@ extern float g_ScreenOriginX;					//! 画面の左上のｘ座標
 extern float g_ScreenOriginY;					//! 画面の左上のｙ座標
 extern int map[MAP_HEIGHT][MAP_WIDTH];			//! csvで読み込んだマップの2次元配列
 extern LPDIRECT3DTEXTURE9 g_pTexture[TEX_MAX];	//! DirectXテクスチャ・オブジェクトへのポインタ
+
+#endif

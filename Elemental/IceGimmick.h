@@ -5,3 +5,8 @@
  *
 
  */
+
+#ifndef ICE_GIMMICK
+#define ICE_GIMMICK
+
+#endif

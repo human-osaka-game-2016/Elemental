@@ -86,14 +86,14 @@
   <ItemGroup>
     <ClInclude Include="EnemyDraw.h" />
     <ClInclude Include="EnemyControl.h" />
-    <ClInclude Include="FlameGmmick.h" />
+    <ClInclude Include="FlameGimmick.h" />
     <ClInclude Include="GameSceneControl.h" />
     <ClInclude Include="GameSceneDraw.h" />
     <ClInclude Include="GameSceneInit.h" />
-    <ClInclude Include="IceGmmick.h" />
+    <ClInclude Include="IceGimmick.h" />
     <ClInclude Include="PlayerControl.h" />
     <ClInclude Include="PlayerDraw.h" />
-    <ClInclude Include="WindGmmick.h" />
+    <ClInclude Include="WindGimmick.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

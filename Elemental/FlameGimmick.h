@@ -5,3 +5,8 @@
  *
 
 */
+
+#ifndef FLAME_GIMMICK
+#define FLAME_GIMMICK
+
+#endif

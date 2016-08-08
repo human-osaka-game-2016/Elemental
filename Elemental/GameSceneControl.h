@@ -6,6 +6,9 @@
 
  */
 
+#ifndef GAMESCENE_CONTROL
+#define GAMESCENE_CONTROL
+
 ////////////////////////////////////////////////
 // ’è‹`
 ////////////////////////////////////////////////
@@ -52,3 +55,4 @@ bool Map_Collision_Check(float _x, float _y, int _sx, int _sy);
  */
 bool Collision_Check(float _rectAX, float _rectBX, float _rectAY, float _rectBY, int _size);
 
+#endif

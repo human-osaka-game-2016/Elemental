@@ -19,9 +19,6 @@
     <Filter Include="ソース ファイル\GAMESCENE">
       <UniqueIdentifier>{bb3d8dc6-7e7e-4458-a093-3e08f9ea0ba2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\GMMICK">
-      <UniqueIdentifier>{77d2b00b-bbdd-4b4e-8ecc-049f0c1bcd61}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\PLAYER">
       <UniqueIdentifier>{b0dbf5dd-a86d-4ef4-a4ea-f51e446e44f3}</UniqueIdentifier>
     </Filter>
@@ -31,11 +28,14 @@
     <Filter Include="ヘッダー ファイル\GAMESCENE">
       <UniqueIdentifier>{f0a186c8-7bac-4176-af6a-037d91ba9ad6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ヘッダー ファイル\GMMICK">
-      <UniqueIdentifier>{8e5f5a81-a2e1-466b-acc5-f7d96677d2ad}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ヘッダー ファイル\PLAYER">
       <UniqueIdentifier>{8040d8b1-c427-4110-baca-cd9c04e2f56b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\GIMMICK">
+      <UniqueIdentifier>{8e5f5a81-a2e1-466b-acc5-f7d96677d2ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GIMMICK">
+      <UniqueIdentifier>{77d2b00b-bbdd-4b4e-8ecc-049f0c1bcd61}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -55,13 +55,13 @@
       <Filter>ソース ファイル\ENEMY</Filter>
     </ClCompile>
     <ClCompile Include="FlameGmmick.cpp">
-      <Filter>ソース ファイル\GMMICK</Filter>
+      <Filter>ソース ファイル\GIMMICK</Filter>
     </ClCompile>
     <ClCompile Include="IceGmmick.cpp">
-      <Filter>ソース ファイル\GMMICK</Filter>
+      <Filter>ソース ファイル\GIMMICK</Filter>
     </ClCompile>
     <ClCompile Include="WindGmmick.cpp">
-      <Filter>ソース ファイル\GMMICK</Filter>
+      <Filter>ソース ファイル\GIMMICK</Filter>
     </ClCompile>
     <ClCompile Include="GameSceneInit.cpp">
       <Filter>ソース ファイル\GAMESCENE</Filter>
@@ -86,15 +86,6 @@
     <ClInclude Include="EnemyDraw.h">
       <Filter>ヘッダー ファイル\ENEMY</Filter>
     </ClInclude>
-    <ClInclude Include="FlameGmmick.h">
-      <Filter>ヘッダー ファイル\GMMICK</Filter>
-    </ClInclude>
-    <ClInclude Include="IceGmmick.h">
-      <Filter>ヘッダー ファイル\GMMICK</Filter>
-    </ClInclude>
-    <ClInclude Include="WindGmmick.h">
-      <Filter>ヘッダー ファイル\GMMICK</Filter>
-    </ClInclude>
     <ClInclude Include="GameSceneControl.h">
       <Filter>ヘッダー ファイル\GAMESCENE</Filter>
     </ClInclude>
@@ -103,6 +94,15 @@
     </ClInclude>
     <ClInclude Include="GameSceneInit.h">
       <Filter>ヘッダー ファイル\GAMESCENE</Filter>
+    </ClInclude>
+    <ClInclude Include="FlameGimmick.h">
+      <Filter>ヘッダー ファイル\GIMMICK</Filter>
+    </ClInclude>
+    <ClInclude Include="IceGimmick.h">
+      <Filter>ヘッダー ファイル\GIMMICK</Filter>
+    </ClInclude>
+    <ClInclude Include="WindGimmick.h">
+      <Filter>ヘッダー ファイル\GIMMICK</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
