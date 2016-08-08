@@ -12,7 +12,7 @@
 
 #define TEX_PATH ("Res/Texture/")
 
-PLAYER_STATE g_player = { 300.f, 350.f, false, false, false, true, false };		// ƒtƒ‰ƒO‚Ì‰Šú‰»‚ª‚P‚Â‚¸‚ê‚Ä‚¢‚é‚Ì‚Å—v‘Š’k
+PLAYER_STATE g_player = { 300.f, 350.f, 0, false, false, true, false, false };	
 
 ENEMY_STATE g_enemy = { 1200.f, 320.f };
 

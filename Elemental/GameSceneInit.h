@@ -40,5 +40,5 @@ void Init();
 // extern
 ////////////////////////////////////////////////
 
-extern ENEMY_STATE g_enemy;		//!< 敵の様々な情報を持つ構造体
 extern PLAYER_STATE g_player;   //!< 主人公の様々な情報を持つ構造体
+extern ENEMY_STATE g_enemy;		//!< 敵の様々な情報を持つ構造体

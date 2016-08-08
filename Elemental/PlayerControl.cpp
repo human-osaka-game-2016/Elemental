@@ -17,8 +17,6 @@
 
 void Player_Control()
 {
-	int dashcount = 0;
-	dashcount++;
 
 	if (g_Key[LEFT] == ON)
 	{
@@ -32,26 +30,16 @@ void Player_Control()
 
 	if (g_Key[RIGHT] == ON)
 	{
-
 		// 次に動いた値で右にブロックがあるかどうか先に調べている
 		if (!Map_Collision_Check(g_player.posX + MOVE_SPEED, g_player.posY, 2, 2))
 		{
 			// なければ移動を続ける
 			g_player.posX += MOVE_SPEED;
 		}
-		else if (dashcount % 60 == 0 && g_Key[RIGHT] == ON)
-		{
-			// 次に動いた値で右にブロックがあるかどうか先に調べている
-			if (!Map_Collision_Check(g_player.posX + MOVE_SPEED, g_player.posY, 2, 2))
-			{
-				// なければ移動を続ける
-				g_player.posX += 6;
-			}
-		}
-		
+
 	}
 
-	
+
 
 	if (g_Key[UP] == PUSH && g_player.skyFlag == false)
 	{
@@ -84,7 +72,7 @@ void Player_Control()
 		}
 
 		g_player.acceleration += GRAVITY;			// 周りにブロックがなければ加速度にGRAVITYの値をプラスしてどんどん上に動かす
-		g_player.posY += g_player.acceleration;	// プラスされた加速度をさらに主人公のY座標にプラスしていく
+		g_player.posY += g_player.acceleration;		// プラスされた加速度をさらに主人公のY座標にプラスしていく
 
 		// 主人公の周りにブロックがあるかどうか調べている
 		if (Map_Collision_Check(g_player.posX, g_player.posY - JUMP_POWER, 2, 2))
@@ -107,6 +95,13 @@ void Player_Control()
 			g_player.acceleration += GRAVITY;
 			g_player.posY += g_player.acceleration;
 		}
+	}
+	// 着地したときの処理
+	if (Map_Collision_Check(g_player.posX, g_player.posY - JUMP_POWER, 2, 2))
+	{
+		g_player.acceleration = 0.f;
+		// フラグをfalseにしてもう一度ジャンプできるようにしている
+		g_player.skyFlag = false;
 	}
 
 	if (g_Key[DOWN] == ON)

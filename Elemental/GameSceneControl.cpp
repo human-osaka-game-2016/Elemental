@@ -6,8 +6,8 @@
 
  */
 
-//! dinput.h‚ðŽg‚¤‚Æ‚«‚Íh‚æ‚èã‚É‚±‚ê‚ð“ü‚ê‚È‚¯‚ê‚Î‚È‚ç‚È‚¢
-#define DIRECTINPUT_VERSION 0x0800	
+
+#define DIRECTINPUT_VERSION 0x0800	//!< dinput.h‚ðŽg‚¤‚Æ‚«‚Íh‚æ‚èã‚É‚±‚ê‚ð“ü‚ê‚È‚¯‚ê‚Î‚È‚ç‚È‚¢
 
 #include <dinput.h>
 #include <Direct_Key_Input.h>
