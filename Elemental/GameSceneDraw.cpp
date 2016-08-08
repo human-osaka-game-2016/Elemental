@@ -1,8 +1,9 @@
 /**
  * @file GameSceneDraw.cpp
- * @breif ゲーム全体の描画に関係する処理の内容を書いている
- * @author 柴田哲良、山本倫太郎、岸本大河、水瀧秀明、田中貴大、竹村翔平、飯田純矢
- * @date　2016年X月Y日
+ * @breif 描画の基盤になるファイル
+
+ * ゲーム全体の描画に必要な処理を書いている
+
  */
 
 #include <stdio.h>
@@ -11,11 +12,12 @@
 #include "PlayerDraw.h"
 #include "EnemyDraw.h"
 
-float g_ScreenOriginX = 0.0f;
-float g_ScreenOriginY = 0.0f;
+float g_ScreenOriginX = 0.0f;	// X座標の画面端を原点としている
+float g_ScreenOriginY = 0.0f;	// Y座標の画面端を原点としている
 
-LPDIRECT3DTEXTURE9 g_pTexture[TEX_MAX];
+LPDIRECT3DTEXTURE9 g_pTexture[TEX_MAX];	
 
+// マップチップの頂点情報
 CUSTOMVERTEX g_maptip[4] =
 {
 	{ 0.0f, 0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 0.0f },
@@ -31,18 +33,20 @@ int map[MAP_HEIGHT][MAP_WIDTH];
 // 描画関数
 void Render()
 {
-/*	CUSTOMVERTEX background[4] =
+	/*
+	CUSTOMVERTEX background[4] =
 	{
 		{ 0.0f, 0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 0.0f },
 		{ 1440.f, 0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 1.0f, 0.0f },
 		{ 1440.f, 810, 0.5f, 1.0f, 0xFFFFFFFF, 1.0f, 1.0f },
 		{ 0.0f, 810, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 1.0f },
 
-	};*/
+	};
+	*/
 	Draw_Start();
 	//Draw_Obj(g_pTexture[BACKGROUND_TEX], background);
 	Draw_Map();
-	Draw_Enemy();
+	Draw_Kodora();
 	Draw_Player();
 	Draw_End();
 }
@@ -52,13 +56,13 @@ void Render()
 void Load_Map(const char* _mapdata)
 {
 	FILE*  fp;
-	fopen_s(&fp, _mapdata, "r");
+	fopen_s(&fp, _mapdata, "r");	// _mapdateに書かれたファイルを読み取っているだけ
 
 	for (int i = 0; i < MAP_HEIGHT; i++)
 	{
 		for (int j = 0; j < MAP_WIDTH; j++)
 		{
-			fscanf_s(fp, "%d,", &map[i][j], _countof(map));
+			fscanf_s(fp, "%d,", &map[i][j], _countof(map));		
 		}
 	}
 }
@@ -70,18 +74,19 @@ void Draw_Map()
 	{
 		for (int x = 0; x < MAP_WIDTH; x++)
 		{
-			if (map[y][x] == 1)
+			if (map[y][x] == 1)						// 読みこんだファイルに1と書かれている所は指定した画像を描画するようにしている
 			{
-				CUSTOMVERTEX drawmap[4];
+				CUSTOMVERTEX drawmap[4];			// 空のCUSTOMVERTEX用意
 				for (int i = 0; i < 4; i++)
 				{
-					drawmap[i] = g_maptip[i];
+					drawmap[i] = g_maptip[i];		// マップチップの頂点情報を空のCUSTOMVERTEXに代入している
 				}
 
+				// このままだと1個しか描画されないので下の処理で指定した範囲分すべて描画するようにしている
 				for (int i = 0; i < 4; i++)
 				{
-					drawmap[i].x += (x * TIPSIZE);
-					drawmap[i].y += (y * TIPSIZE);
+					drawmap[i].x += (x * TIPSIZE);	// 次のチップを描画するためにチップの大きさ分動かして描画している
+					drawmap[i].y += (y * TIPSIZE);	// 上に同じ
 				}
 				Draw_Obj(g_pTexture[MAP_GROUND_TEX], drawmap);
 			}

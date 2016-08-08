@@ -1,8 +1,16 @@
+/**
+ * @file EnemyDraw
+ * @breif 全ての敵の描画ファイル
+
+ * 全ての敵の描画に必要な処理を書いている
+
+ */
 
 #include "GameSceneDraw.h"
 #include "GameSceneInit.h"
 
-CUSTOMVERTEX g_Enemy[4] =
+// コドラの頂点情報
+CUSTOMVERTEX g_Kodora[4] =
 {
 	{ 0.0f, 0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 0.0f },
 	{ 128.0f, 0.0f, 0.5f, 1.0f, 0xFFFFFFFF, -1.0f, 0.0f },
@@ -11,14 +19,15 @@ CUSTOMVERTEX g_Enemy[4] =
 
 };
 
-void Draw_Enemy()
+// コドラの描画関数
+void Draw_Kodora()
 {
-	CUSTOMVERTEX drawenemy[4];
+	CUSTOMVERTEX drawkodora[4];
 	for (int i = 0; i < 4; i++)
 	{
-		drawenemy[i] = g_Enemy[i];
-		drawenemy[i].x += g_enemy.posX;
-		drawenemy[i].y += g_enemy.posY;
+		drawkodora[i] = g_Kodora[i];
+		drawkodora[i].x += g_enemy.posX;
+		drawkodora[i].y += g_enemy.posY;
 	}
-	Draw_Obj(g_pTexture[ENEMY_TEX], drawenemy);
+	Draw_Obj(g_pTexture[ENEMY_TEX], drawkodora);
 }

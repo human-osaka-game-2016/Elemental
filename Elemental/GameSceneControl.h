@@ -1,16 +1,16 @@
 /**
  * @file GameSceneCntrol.h
- * @breif ゲーム全体の操作に関係する定義・プロトタイプ宣言を書いている
- * @author 柴田哲良、山本倫太郎、岸本大河、水瀧秀明、田中貴大、竹村翔平、飯田純矢
- * @date 2016年X月Y日
+ * @breif 操作の基盤になるファイル
+
+ * ゲーム全体の操作に必要な定義・プロトタイプ宣言を書いている
+
  */
 
 ////////////////////////////////////////////////
 // 定義
 ////////////////////////////////////////////////
 
-/// キャラクター移動速度
-#define MOVE_SPEED 4
+#define MOVE_SPEED 4	//!< キャラクターの動くスピード
 
 ////////////////////////////////////////////////
 // 使用する関数のプロトタイプ宣言
@@ -22,14 +22,20 @@
  */
 void Control();
 
+/// 目のシステムの関数
+/**
+ * @return なし
+ */
+void Map_Control();
+
 /// マップの当たり判定の関数
 /**
- * @param [in] _x x座標
- * @param [in] _y y座標
- * @param [in] _sx 描画するキャラのX軸のチップの数
- * @param [in] _sy 描画するキャラのY軸のチップの数
- * @retval true 
- * @retval false 
+ * @param [in] _x	x座標
+ * @param [in] _y	y座標
+ * @param [in] _sx	描画するキャラのX軸のチップの数
+ * @param [in] _sy	描画するキャラのY軸のチップの数
+ * @retval true		周りにチップが存在している
+ * @retval false	周りにチップが存在していない
  */
 bool Map_Collision_Check(float _x, float _y, int _sx, int _sy);
 
@@ -41,8 +47,8 @@ bool Map_Collision_Check(float _x, float _y, int _sx, int _sy);
  * @param [in] _rectAY	1つ目のオブジェクトのY座標
  * @param [in] _rectBY	2つ目のオブジェクトのY座標
  * @param [in] _size	矩形の中心点から 幅/２ と 高さ/２ をした分のサイズ
- * @retval true
- * @retval false
+ * @retval true			比べたオブジェクトと当たっている
+ * @retval false		比べたオブジェクトと当たっていない
  */
 bool Collision_Check(float _rectAX, float _rectBX, float _rectAY, float _rectBY, int _size);
 

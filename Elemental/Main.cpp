@@ -1,8 +1,6 @@
 /**
  * @file Main.cpp
  * @breif ゲームのエントリーポイント
- * @author 柴田哲良、山本倫太郎、岸本大河、水瀧秀明、田中貴大、竹村翔平、飯田純矢
- * @date 2016年X月Y日
  */
 
 
@@ -15,6 +13,7 @@
 #include <Direct_Draw.h>
 #include <Direct_Key_Input.h>
 #include <Direct_Main.h>
+#include <stdio.h>
 
 #define WINDOW_W 1440					// ウィンドウ幅
 #define WINDOW_H 810					// ウィンドウ高さ
@@ -33,15 +32,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT mes, WPARAM wParam, LPARAM lParam)
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, int nCmdShow)
 {
-	//---------------------------------------------------------------------
-	//							ウィンドウ生成処理
-	//---------------------------------------------------------------------
-
-	MSG msg;			// メッセージを格納する構造体
-	HWND hWnd;			// ウィンドウハンドル
+	MSG msg;			
+	HWND hWnd;			
 	WNDCLASS winc;
 
-	//Windows情報の設定
 	winc.style = CS_HREDRAW | CS_VREDRAW;
 	winc.lpfnWndProc = WndProc;
 	winc.cbClsExtra = winc.cbWndExtra = 0;
@@ -50,22 +44,22 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLin
 	winc.hCursor = LoadCursor(NULL, IDC_ARROW);
 	winc.hbrBackground = (HBRUSH)GetStockObject(WHITE_BRUSH);
 	winc.lpszMenuName = NULL;
-	winc.lpszClassName = WINDOW_TITLE;	//クラス名
+	winc.lpszClassName = WINDOW_TITLE;	
 
-	//Windowの登録
+
 	if (!RegisterClass(&winc)) return 0;
-	//Windowの生成
+
 	hWnd = CreateWindow(
-		WINDOW_TITLE,						//ウィンドウのクラス名
-		WINDOW_TITLE, 						//ウィンドウのタイトル
-		WS_OVERLAPPEDWINDOW | WS_VISIBLE,	//ウィンドウスタイル
-		CW_USEDEFAULT,						// ウィンドウの横方向の位置x
-		CW_USEDEFAULT,						// ウィンドウの縦方向の位置y
-		WINDOW_W,							// Width（幅）
-		WINDOW_H,							// Height（高さ）
+		WINDOW_TITLE,						
+		WINDOW_TITLE, 					
+		WS_OVERLAPPEDWINDOW | WS_VISIBLE,	
+		CW_USEDEFAULT,					
+		CW_USEDEFAULT,					
+		WINDOW_W,							
+		WINDOW_H,						
 		NULL,
 		NULL,
-		hInstance,							// アプリケーションインスタンスのハンドル
+		hInstance,							
 		NULL
 		);
 	if (!hWnd) return 0;
@@ -78,7 +72,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLin
 
 	Init();
 
-	DWORD SyncOld = timeGetTime();	//	システム時間を取得
+	DWORD SyncOld = timeGetTime();	
 	DWORD SyncNow;
 
 	timeBeginPeriod(1);
@@ -94,11 +88,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLin
 		else
 		{
 			SyncNow = timeGetTime();
-			if (SyncNow - SyncOld >= 1000 / 60) //	1秒間に60回この中に入る
+			if (SyncNow - SyncOld >= 1000 / 60) 
 			{
 				Render();
 				Control();
 				SyncOld = SyncNow;
+
 			}
 		}
 	}

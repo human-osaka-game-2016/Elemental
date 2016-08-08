@@ -48,6 +48,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <GenerateXMLDocumentationFiles>true</GenerateXMLDocumentationFiles>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -72,27 +73,27 @@
   <ItemGroup>
     <ClCompile Include="EnemyControl.cpp" />
     <ClCompile Include="EnemyDraw.cpp" />
-    <ClCompile Include="Flame_Gmmick.cpp" />
+    <ClCompile Include="FlameGmmick.cpp" />
     <ClCompile Include="GameSceneControl.cpp" />
     <ClCompile Include="GameSceneDraw.cpp" />
     <ClCompile Include="GameSceneInit.cpp" />
-    <ClCompile Include="Ice_Gmmick.cpp" />
+    <ClCompile Include="IceGmmick.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="PlayerControl.cpp" />
     <ClCompile Include="PlayerDraw.cpp" />
-    <ClCompile Include="Wind_Gmmick.cpp" />
+    <ClCompile Include="WindGmmick.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EnemyDraw.h" />
     <ClInclude Include="EnemyControl.h" />
-    <ClInclude Include="Flame_Gmmick.h" />
+    <ClInclude Include="FlameGmmick.h" />
     <ClInclude Include="GameSceneControl.h" />
     <ClInclude Include="GameSceneDraw.h" />
     <ClInclude Include="GameSceneInit.h" />
-    <ClInclude Include="Ice_Gmmick.h" />
+    <ClInclude Include="IceGmmick.h" />
     <ClInclude Include="PlayerControl.h" />
     <ClInclude Include="PlayerDraw.h" />
-    <ClInclude Include="Wind_Gmmick.h" />
+    <ClInclude Include="WindGmmick.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
