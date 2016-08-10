@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\SCORE_H">
+      <UniqueIdentifier>{4b658655-ed68-4abe-a8b6-c258c4f661db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\SCORE_CPP">
+      <UniqueIdentifier>{d2d95d60-34d1-4cc2-af68-718e12e592f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\PLAYER_CPP">
+      <UniqueIdentifier>{2bc21863-eb17-44cd-bc4f-26577f294fad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\ENEMY_CPP">
+      <UniqueIdentifier>{fde7edbc-d8b8-4fbd-a83e-d9173d50472c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\PLAYER_H">
+      <UniqueIdentifier>{ba3b5672-2c5c-4972-89e9-d573c4fded9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\ENEMY_H">
+      <UniqueIdentifier>{099fb133-8d50-4deb-bb70-b0dc2e9d9035}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="GameSceneControl.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="GameSceneDraw.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="GamePlayerControl.cpp">
+      <Filter>ソース ファイル\PLAYER_CPP</Filter>
+    </ClCompile>
+    <ClCompile Include="GameScore.cpp">
+      <Filter>ソース ファイル\SCORE_CPP</Filter>
+    </ClCompile>
+    <ClCompile Include="GameScoreDraw.cpp">
+      <Filter>ソース ファイル\SCORE_CPP</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEnemyControl.cpp">
+      <Filter>ソース ファイル\ENEMY_CPP</Filter>
+    </ClCompile>
+    <ClCompile Include="GamePlayerDraw.cpp">
+      <Filter>ソース ファイル\PLAYER_CPP</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEnemyDraw.cpp">
+      <Filter>ソース ファイル\ENEMY_CPP</Filter>
+    </ClCompile>
+    <ClCompile Include="GameSceneFree.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="GameSceneInit.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Main.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="GameSceneControl.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="GameSceneDraw.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="GameScore.h">
+      <Filter>ヘッダー ファイル\SCORE_H</Filter>
+    </ClInclude>
+    <ClInclude Include="GameScoreDraw.h">
+      <Filter>ヘッダー ファイル\SCORE_H</Filter>
+    </ClInclude>
+    <ClInclude Include="GamePlayerControl.h">
+      <Filter>ヘッダー ファイル\PLAYER_H</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEnemyDraw.h">
+      <Filter>ヘッダー ファイル\ENEMY_H</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEnemyControl.h">
+      <Filter>ヘッダー ファイル\ENEMY_H</Filter>
+    </ClInclude>
+    <ClInclude Include="GamePlayerDraw.h">
+      <Filter>ヘッダー ファイル\PLAYER_H</Filter>
+    </ClInclude>
+    <ClInclude Include="GameSceneFree.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="GameSceneInit.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="background01.jpg">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="bullet32.png">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="enemy32.png">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="explosion.png">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="player32.png">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="Effect.dds">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="title.png">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="text.png">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="enemybullet.png">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="number.png">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+    <Image Include="text02.png">
+      <Filter>リソース ファイル</Filter>
+    </Image>
+  </ItemGroup>
+</Project>

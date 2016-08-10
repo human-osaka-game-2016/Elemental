@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{2938D77A-5AAA-401D-908F-8B79D82301D0}</ProjectGuid>
+    <RootNamespace>Gameproject0704</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;..\lib_ prototype;C:\Program Files %28x86%29\Windows Kits\10\Include;C:\Users\Sharoku Haga\Desktop\Gameproject0704\lib_ prototype;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files %28x86%29\Windows Kits\10\Lib\10.0.10586.0\um\x86;C:\Program Files %28x86%29\Windows Kits\10\Lib\10.0.10586.0\ucrt\x86;..\Debug;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;C:\Users\Sharoku Haga\Desktop\Gameproject0704\Debug;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;..\lib_ prototype;C:\Program Files %28x86%29\Windows Kits\10\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files %28x86%29\Windows Kits\10\Lib\10.0.10586.0\um\x86;C:\Program Files %28x86%29\Windows Kits\10\Lib\10.0.10586.0\ucrt\x86;..\Debug;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>winmm.lib;d3d9.lib;d3dx9.lib;dxguid.lib;shlwapi.lib;lib_ prototype.lib;dinput8.lib;dsound.lib;strmiids.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>winmm.lib;d3d9.lib;d3dx9.lib;dxguid.lib;shlwapi.lib;lib_ prototype.lib;dinput8.lib;dsound.lib;strmiids.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="GameEnemyControl.cpp" />
+    <ClCompile Include="GameEnemyDraw.cpp" />
+    <ClCompile Include="GamePlayerControl.cpp" />
+    <ClCompile Include="GameSceneInit.cpp" />
+    <ClCompile Include="GameSceneControl.cpp" />
+    <ClCompile Include="GameSceneDraw.cpp" />
+    <ClCompile Include="GameSceneFree.cpp" />
+    <ClCompile Include="GameScore.cpp" />
+    <ClCompile Include="GameScoreDraw.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="GamePlayerDraw.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GameEnemyControl.h" />
+    <ClInclude Include="GameEnemyDraw.h" />
+    <ClInclude Include="GamePlayerControl.h" />
+    <ClInclude Include="GamePlayerDraw.h" />
+    <ClInclude Include="GameSceneInit.h" />
+    <ClInclude Include="GameSceneControl.h" />
+    <ClInclude Include="GameSceneDraw.h" />
+    <ClInclude Include="GameSceneFree.h" />
+    <ClInclude Include="GameScore.h" />
+    <ClInclude Include="GameScoreDraw.h" />
+    <ClInclude Include="Main.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="background01.jpg" />
+    <Image Include="bullet32.png" />
+    <Image Include="Effect.dds" />
+    <Image Include="enemy32.png" />
+    <Image Include="enemybullet.png" />
+    <Image Include="explosion.png" />
+    <Image Include="number.png" />
+    <Image Include="player32.png" />
+    <Image Include="text.png" />
+    <Image Include="text02.png" />
+    <Image Include="title.png" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
