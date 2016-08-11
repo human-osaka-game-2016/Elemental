@@ -23,7 +23,7 @@
 /// 画像枚数
 enum 
 {
-	//BACKGROUND_TEX,		//!< 背景画像を割り当てる
+	BACKGROUND_TEX,		//!< 背景画像を割り当てる
 	MAP_GROUND_TEX,		//!< マップチップを割り当てる
 	PLAYER_TEX,			//!< 主人公の画像を割り当てる
 	ENEMY_TEX,			//!< 敵の画像を割り当てる

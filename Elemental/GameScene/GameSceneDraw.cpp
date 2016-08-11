@@ -33,7 +33,7 @@ int map[MAP_HEIGHT][MAP_WIDTH];
 // ï`âÊä÷êî
 void Render()
 {
-	/*
+	
 	CUSTOMVERTEX background[4] =
 	{
 		{ 0.0f, 0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 0.0f },
@@ -42,9 +42,9 @@ void Render()
 		{ 0.0f, 810, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 1.0f },
 
 	};
-	*/
+	
 	Draw_Start();
-	//Draw_Obj(g_pTexture[BACKGROUND_TEX], background);
+	Draw_Obj(g_pTexture[BACKGROUND_TEX], background);
 	Draw_Map();
 	Draw_Kodora();
 	Draw_Player();

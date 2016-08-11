@@ -15,14 +15,34 @@
 #include "../GameScene/GameSceneInit.h"
 #include "PlayerControl.h"
 
-int dashcount = 0;
+int g_rightdashcount = 0;
+int g_leftdashcount = 0;
 
 void Player_Control()
 {
+	if (g_Key[LEFT] == ON)
+	{
+		if (g_leftdashcount > 0 && g_leftdashcount < 29)
+		{
+			g_player.leftdashFlag = true;		// 1～28秒の間に左のキーが押されたらtrue
+		}
+	}
+	else
+	{
+		g_player.leftdashFlag = false;			// 押されなければfalse
+	}
 
 	if (g_Key[LEFT] == ON)
 	{
-		if (g_player.dashFlag == true)
+		g_leftdashcount = 30;
+	}
+
+	g_leftdashcount--;
+
+
+	if (g_Key[LEFT] == ON)
+	{
+		if (g_player.leftdashFlag == true)
 		{
 			// 次に動いた値で左にブロックがあるかどうか先に調べている
 			if (!Map_Collision_Check(g_player.posX - 6, g_player.posY, 2, 2))
@@ -42,27 +62,28 @@ void Player_Control()
 		}
 	}
 
-
-
 	if (g_Key[RIGHT] == ON)
 	{
-		if (dashcount > 0 && dashcount < 29)
+		if (g_rightdashcount > 0 && g_rightdashcount < 29)
 		{
-			g_player.dashFlag = true;
+			g_player.rightdashflag = true;
 		}
 	}
-
-
-	if (g_Key[RIGHT] == ON)
+	else
 	{
-		dashcount = 30;
+		g_player.rightdashflag = false;
 	}
 
-	dashcount--;
-
 	if (g_Key[RIGHT] == ON)
 	{
-		if (g_player.dashFlag == true)
+		g_rightdashcount = 30;
+	}
+
+	g_rightdashcount--;
+		
+	if (g_Key[RIGHT] == ON)
+	{
+		if (g_player.rightdashflag == true)
 		{
 			// 次に動いた値で左にブロックがあるかどうか先に調べている
 			if (!Map_Collision_Check(g_player.posX + 6, g_player.posY, 2, 2))
@@ -81,16 +102,7 @@ void Player_Control()
 			}
 		}
 	}
-	else
-	{
-		g_player.dashFlag = false;
-	}
-
-
-
 	
-
-
 	if (g_Key[UP] == PUSH && g_player.skyFlag == false)
 	{
 		g_player.jumpFlag = true;			// ジャンプするのでフラグをtrueに

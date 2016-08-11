@@ -12,7 +12,7 @@
 
 
 
-PLAYER_STATE g_player = { 300.f, 350.f, 0.f, false, false, true, false, false };	
+PLAYER_STATE g_player = { 300.f, 350.f, 0.f, false, false, true, false, false, false };	
 
 ENEMY_STATE g_enemy = { 1200.f, 320.f };
 
@@ -25,7 +25,7 @@ void Init()
 
 	// 画像を読み込みどこかに割り当てている
 	Load_Texture("ワールドチップ.png", &g_pTexture[MAP_GROUND_TEX]);
-	//Load_Texture("", &g_pTexture[BACKGROUND_TEX]);
+	Load_Texture("Resource/Texture/Background/inside.png", &g_pTexture[BACKGROUND_TEX]);
 	Load_Texture("ストレンジ先生どっと絵.png", &g_pTexture[PLAYER_TEX]);
 	Load_Texture("ゴジラ.png", &g_pTexture[ENEMY_TEX]);
 	Load_Map("Resource/file/ElementalWorld.csv");
