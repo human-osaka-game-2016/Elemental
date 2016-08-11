@@ -71,29 +71,29 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="EnemyControl.cpp" />
-    <ClCompile Include="EnemyDraw.cpp" />
-    <ClCompile Include="FlameGmmick.cpp" />
-    <ClCompile Include="GameSceneControl.cpp" />
-    <ClCompile Include="GameSceneDraw.cpp" />
-    <ClCompile Include="GameSceneInit.cpp" />
-    <ClCompile Include="IceGmmick.cpp" />
+    <ClCompile Include="Enemy\EnemyControl.cpp" />
+    <ClCompile Include="Enemy\EnemyDraw.cpp" />
+    <ClCompile Include="GameScene\GameSceneControl.cpp" />
+    <ClCompile Include="GameScene\GameSceneDraw.cpp" />
+    <ClCompile Include="GameScene\GameSceneInit.cpp" />
+    <ClCompile Include="Gmmick\FlameGmmick.cpp" />
+    <ClCompile Include="Gmmick\IceGmmick.cpp" />
+    <ClCompile Include="Gmmick\WindGmmick.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="PlayerControl.cpp" />
-    <ClCompile Include="PlayerDraw.cpp" />
-    <ClCompile Include="WindGmmick.cpp" />
+    <ClCompile Include="Player\PlayerControl.cpp" />
+    <ClCompile Include="Player\PlayerDraw.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="EnemyDraw.h" />
-    <ClInclude Include="EnemyControl.h" />
-    <ClInclude Include="FlameGimmick.h" />
-    <ClInclude Include="GameSceneControl.h" />
-    <ClInclude Include="GameSceneDraw.h" />
-    <ClInclude Include="GameSceneInit.h" />
-    <ClInclude Include="IceGimmick.h" />
-    <ClInclude Include="PlayerControl.h" />
-    <ClInclude Include="PlayerDraw.h" />
-    <ClInclude Include="WindGimmick.h" />
+    <ClInclude Include="Enemy\EnemyControl.h" />
+    <ClInclude Include="Enemy\EnemyDraw.h" />
+    <ClInclude Include="GameScene\GameSceneControl.h" />
+    <ClInclude Include="GameScene\GameSceneDraw.h" />
+    <ClInclude Include="GameScene\GameSceneInit.h" />
+    <ClInclude Include="Gmmick\FlameGmmick.h" />
+    <ClInclude Include="Gmmick\IceGmmick.h" />
+    <ClInclude Include="Gmmick\WindGmmick.h" />
+    <ClInclude Include="Player\PlayerControl.h" />
+    <ClInclude Include="Player\PlayerDraw.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

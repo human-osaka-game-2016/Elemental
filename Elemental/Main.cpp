@@ -6,9 +6,9 @@
 
 #include <windows.h>
 #include <d3dx9tex.h>
-#include "GameSceneDraw.h"
-#include "GameSceneControl.h"
-#include "GameSceneInit.h"
+#include "GameScene/GameSceneDraw.h"
+#include "GameScene/GameSceneControl.h"
+#include "GameScene/GameSceneInit.h"
 
 #include <Direct_Draw.h>
 #include <Direct_Key_Input.h>
