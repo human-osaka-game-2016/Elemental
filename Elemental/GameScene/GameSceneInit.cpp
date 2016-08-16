@@ -11,8 +11,7 @@
 #include "GameSceneInit.h"
 
 
-
-PLAYER_STATE g_player = { 300.f, 350.f, 0.f, false, false, true, false, false, false };	
+PLAYER_STATE g_player = { 350.f, 350.f, 0.f, true, false, false, false, false, false, false, false, false };
 
 ENEMY_STATE g_enemy = { 1200.f, 320.f };
 
@@ -27,7 +26,11 @@ void Init()
 	Load_Texture("ワールドチップ.png", &g_pTexture[MAP_GROUND_TEX]);
 	Load_Texture("Resource/Texture/Background/inside.png", &g_pTexture[BACKGROUND_TEX]);
 	Load_Texture("ストレンジ先生どっと絵.png", &g_pTexture[PLAYER_TEX]);
+	Load_Texture("Resource/Texture/Player/player_attack.png", &g_pTexture[PLAYER_FLAME_TEX]);
+	Load_Texture("Resource/Texture/Player/player_attack.png", &g_pTexture[PLAYER_ICE_TEX]);
+	Load_Texture("Resource/Texture/Player/player_attack.png", &g_pTexture[PLAYER_WIND_TEX]);
 	Load_Texture("ゴジラ.png", &g_pTexture[ENEMY_TEX]);
+//	Load_Texture("Resource/Texture/Player/player_fire_magic.png", &g_pTexture[BULLET_TEX]);
 	Load_Map("Resource/file/ElementalWorld.csv");
 
 }

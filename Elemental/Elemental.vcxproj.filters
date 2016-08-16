@@ -66,11 +66,11 @@
     <ClCompile Include="Player\PlayerControl.cpp">
       <Filter>ソース ファイル\PLAYER</Filter>
     </ClCompile>
-    <ClCompile Include="Player\PlayerDraw.cpp">
-      <Filter>ソース ファイル\PLAYER</Filter>
-    </ClCompile>
     <ClCompile Include="Gmmick\WindGmmick.cpp">
       <Filter>ソース ファイル\GIMMICK</Filter>
+    </ClCompile>
+    <ClCompile Include="Player\PlayerDraw.cpp">
+      <Filter>ソース ファイル\PLAYER</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

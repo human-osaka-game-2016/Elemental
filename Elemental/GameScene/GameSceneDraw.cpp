@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "GameSceneDraw.h"
+#include "../GameScene/GameSceneInit.h"
 #include "../Player/PlayerDraw.h"
 #include "../Enemy/EnemyDraw.h"
 
@@ -48,6 +49,9 @@ void Render()
 	Draw_Map();
 	Draw_Kodora();
 	Draw_Player();
+	Player_Aura_Draw(g_player.flamedrawFlag, PLAYER_FLAME_TEX, 0.0f);
+	Player_Aura_Draw(g_player.icedrawFlag, PLAYER_ICE_TEX, 0.25f);
+	Player_Aura_Draw(g_player.winddrawFlag, PLAYER_WIND_TEX, 0.5f);
 	Draw_End();
 }
 

@@ -28,10 +28,15 @@ void Control()
 	Check_Key(DIK_UP, UP);
 	Check_Key(DIK_DOWN, DOWN);
 	Check_Key(DIK_A, A);
+	Check_Key(DIK_Z, Z);
+	Check_Key(DIK_X, X);
+	Check_Key(DIK_C, C);
 
 	Player_Control();
+	Player_Flame_Control();
+	Player_Ice_Control();
+	Player_Wind_Control();
 	Map_Control();
-
 }
 
 // –Ú‚ÌƒVƒXƒeƒ€‚ÌŠÖ”

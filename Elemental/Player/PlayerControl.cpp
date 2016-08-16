@@ -66,12 +66,12 @@ void Player_Control()
 	{
 		if (g_rightdashcount > 0 && g_rightdashcount < 29)
 		{
-			g_player.rightdashflag = true;
+			g_player.rightdashFlag = true;
 		}
 	}
 	else
 	{
-		g_player.rightdashflag = false;
+		g_player.rightdashFlag = false;
 	}
 
 	if (g_Key[RIGHT] == ON)
@@ -83,7 +83,7 @@ void Player_Control()
 		
 	if (g_Key[RIGHT] == ON)
 	{
-		if (g_player.rightdashflag == true)
+		if (g_player.rightdashFlag == true)
 		{
 			// 次に動いた値で左にブロックがあるかどうか先に調べている
 			if (!Map_Collision_Check(g_player.posX + 6, g_player.posY, 2, 2))
@@ -176,6 +176,71 @@ void Player_Control()
 			g_player.posY += MOVE_SPEED;
 		}
 	}
+}
+
+void Player_Flame_Control()
+{
+	if (g_Key[Z] == ON && g_player.flamedrawFlag == false)
+	{
+		g_player.flamedrawFlag = true;
+		g_player.drawFlag = false;
+	}
+
+	if (g_Key[Z] == OFF && g_player.flamedrawFlag == true)
+	{
+		g_player.flamedrawFlag = false;
+		g_player.drawFlag = true;
+	}
+}
+
+void Player_Ice_Control()
+{
+	if (g_Key[X] == ON && g_player.icedrawFlag == false)
+	{
+		g_player.icedrawFlag = true;
+		g_player.drawFlag = false;
+	}
+
+	if (g_Key[X] == OFF && g_player.icedrawFlag == true)
+	{
+		g_player.icedrawFlag = false;
+		g_player.drawFlag = true;
+	}
+}
+
+void Player_Wind_Control()
+{
+	if (g_Key[C] == ON && g_player.winddrawFlag == false)
+	{
+		g_player.winddrawFlag = true;
+		g_player.drawFlag = false;
+	}
+
+	if (g_Key[C] == OFF && g_player.winddrawFlag == true)
+	{
+		g_player.winddrawFlag = false;
+		g_player.drawFlag = true;
+	}
+}
+/*
+void Player_aura_Control(KEYKIND _key, bool _auraflag)
+{
+	if (g_Key[_key] == ON && _auraflag == false)
+	{
+		_auraflag = true;
+		g_player.drawFlag = false;
+	}
+
+	if (g_Key[_key] == OFF && _auraflag == true)
+	{
+		_auraflag = false;
+		g_player.drawFlag = true;
+	}
+}
+*/
+void Player_Bullet_Control()
+{
+
 }
 
 

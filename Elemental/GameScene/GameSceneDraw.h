@@ -21,12 +21,16 @@
 ////////////////////////////////////////////////
 
 /// 画像枚数
-enum 
+enum GAMETEX
 {
 	BACKGROUND_TEX,		//!< 背景画像を割り当てる
 	MAP_GROUND_TEX,		//!< マップチップを割り当てる
 	PLAYER_TEX,			//!< 主人公の画像を割り当てる
+	PLAYER_FLAME_TEX,	//!< 焔オーラの主人公の画像を割り当てる
+	PLAYER_ICE_TEX,		//!< 凝オーラの主人公の画像を割り当てる
+	PLAYER_WIND_TEX,	//!< 風オーラの主人公の画像を割り当てる
 	ENEMY_TEX,			//!< 敵の画像を割り当てる
+//	BULLET_TEX,			//!< 弾の画像を割り当てる
 	TEX_MAX,			//!< 画像枚数の最大値
 };
 

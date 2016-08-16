@@ -22,4 +22,8 @@
  * @return ‚È‚µ
  */
 void Player_Control();
+void Player_Flame_Control();
+void Player_Ice_Control();
+void Player_Wind_Control();
+//void Player_aura_Control(KEYKIND _st, bool _auraflag);
 
