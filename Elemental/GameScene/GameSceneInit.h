@@ -6,6 +6,8 @@
 
  */
 
+#include <Direct_Draw.h>
+
 ////////////////////////////////////////////////
 // 型
 ////////////////////////////////////////////////
@@ -35,6 +37,16 @@ typedef struct
 	float posY; //!< 敵のY座標
 }ENEMY_STATE;
 
+typedef struct
+{
+	CUSTOMVERTEX bullet[4];
+	float poX;
+	float poY;
+	bool initFlag;
+	bool drawFlag;
+
+}BULLET_STATE;
+
 /// 初期化の関数
 /**
  * @return なし
@@ -47,3 +59,4 @@ void Init();
 
 extern ENEMY_STATE g_enemy;		//!< 敵の様々な情報を持つ構造体
 extern PLAYER_STATE g_player;   //!< 主人公の様々な情報を持つ構造体
+extern BULLET_STATE g_bullet;	//!< 

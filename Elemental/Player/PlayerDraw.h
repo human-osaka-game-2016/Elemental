@@ -6,6 +6,7 @@
 
  */
 
+
 ////////////////////////////////////////////////
 // 使用する関数のプロトタイプ宣言
 ////////////////////////////////////////////////
@@ -14,8 +15,9 @@
 /**
  * @return なし
  */
-void Draw_Player();
-void Player_Aura_Draw(bool _auraFlag, GAMETEX _auratex, float _texsize);
+void Player_Draw();
+void Player_Aura_Draw(bool _auraFlag, float _texsize, GAMETEX _auratex);
+void Player_Bullet_Draw();
 
 
 

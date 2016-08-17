@@ -45,19 +45,19 @@ void Player_Control()
 		if (g_player.leftdashFlag == true)
 		{
 			// 次に動いた値で左にブロックがあるかどうか先に調べている
-			if (!Map_Collision_Check(g_player.posX - 6, g_player.posY, 2, 2))
+			if (!Map_Collision_Check(g_player.posX - RUN_SPEED, g_player.posY, 2, 2))
 			{
 				// なければ移動を続ける
-				g_player.posX -= 6;
+				g_player.posX -= RUN_SPEED;
 			}
 		}
 		else
 		{
 			// 次に動いた値で左にブロックがあるかどうか先に調べている
-			if (!Map_Collision_Check(g_player.posX - 4, g_player.posY, 2, 2))
+			if (!Map_Collision_Check(g_player.posX - WALK_SPEED, g_player.posY, 2, 2))
 			{
 				// なければ移動を続ける
-				g_player.posX -= 4;
+				g_player.posX -= WALK_SPEED;
 			}
 		}
 	}
@@ -86,19 +86,19 @@ void Player_Control()
 		if (g_player.rightdashFlag == true)
 		{
 			// 次に動いた値で左にブロックがあるかどうか先に調べている
-			if (!Map_Collision_Check(g_player.posX + 6, g_player.posY, 2, 2))
+			if (!Map_Collision_Check(g_player.posX + RUN_SPEED, g_player.posY, 2, 2))
 			{
 				// なければ移動を続ける
-				g_player.posX += 6;
+				g_player.posX += RUN_SPEED;
 			}
 		}
 		else
 		{
 			// 次に動いた値で左にブロックがあるかどうか先に調べている
-			if (!Map_Collision_Check(g_player.posX + 4, g_player.posY, 2, 2))
+			if (!Map_Collision_Check(g_player.posX + WALK_SPEED, g_player.posY, 2, 2))
 			{
 				// なければ移動を続ける
-				g_player.posX += 4;
+				g_player.posX += WALK_SPEED;
 			}
 		}
 	}
@@ -170,10 +170,10 @@ void Player_Control()
 	if (g_Key[DOWN] == ON)
 	{
 		// 次に動いた値で下にブロックがあるかどうか先に調べている
-		if (!Map_Collision_Check(g_player.posX, g_player.posY + MOVE_SPEED, 2, 2))
+		if (!Map_Collision_Check(g_player.posX, g_player.posY + WALK_SPEED, 2, 2))
 		{
 			// なければ移動を続ける
-			g_player.posY += MOVE_SPEED;
+			g_player.posY += WALK_SPEED;
 		}
 	}
 }
@@ -240,7 +240,23 @@ void Player_aura_Control(KEYKIND _key, bool _auraflag)
 */
 void Player_Bullet_Control()
 {
+	if (g_Key[SPACE] == PUSH /*&& g_player.flamedrawFlag == true || g_player.icedrawFlag =- true || g_player.winddrawFlag == true*/)
+	{
+		g_bullet.poX = g_player.posX;
+		g_bullet.poY = g_player.posY;
+		g_bullet.drawFlag = true;
+ 		g_bullet.initFlag = false;
+	}
 
+	if (g_bullet.drawFlag == true)
+	{
+		g_bullet.poX += BULLET_SPEED;
+
+		for (int i = 0; i < 4; i++)
+		{
+			g_bullet.bullet[i].x += BULLET_SPEED;
+		}
+	}
 }
 
 

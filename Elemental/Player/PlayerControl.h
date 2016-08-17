@@ -10,8 +10,11 @@
 // 定義
 ////////////////////////////////////////////////
 
-#define JUMP_POWER -16.f	//!< ここまで飛べる値
-#define GRAVITY 0.4f		//!< この値ずつ上がったり下がったりする
+#define WALK_SPEED		4		//!< キャラクターの動くスピード
+#define RUN_SPEED		6		//!< キャラクターの走るスピード
+#define JUMP_POWER		-16.f	//!< ここまで飛べる値
+#define GRAVITY			0.4f	//!< この値ずつ上がったり下がったりする
+#define BULLET_SPEED	8		//!< 主人公から出される弾の速度
 
 ////////////////////////////////////////////////
 //使用する関数のプロトタイプ宣言
@@ -26,4 +29,5 @@ void Player_Flame_Control();
 void Player_Ice_Control();
 void Player_Wind_Control();
 //void Player_aura_Control(KEYKIND _st, bool _auraflag);
+void Player_Bullet_Control();
 

@@ -11,9 +11,11 @@
 #include "GameSceneInit.h"
 
 
-PLAYER_STATE g_player = { 350.f, 350.f, 0.f, true, false, false, false, false, false, false, false, false };
+PLAYER_STATE g_player = { 150.f, 350.f, 0.f, true, false, false, false, false, false, false, false, false };
 
-ENEMY_STATE g_enemy = { 1200.f, 320.f };
+ENEMY_STATE g_enemy = { 730.f, 350.f };
+
+BULLET_STATE g_bullet = {0.0f, 0.0f, true, false };
 
 void Init()
 {
@@ -30,7 +32,7 @@ void Init()
 	Load_Texture("Resource/Texture/Player/player_attack.png", &g_pTexture[PLAYER_ICE_TEX]);
 	Load_Texture("Resource/Texture/Player/player_attack.png", &g_pTexture[PLAYER_WIND_TEX]);
 	Load_Texture("ÉSÉWÉâ.png", &g_pTexture[ENEMY_TEX]);
-//	Load_Texture("Resource/Texture/Player/player_fire_magic.png", &g_pTexture[BULLET_TEX]);
+	Load_Texture("Bubble.png", &g_pTexture[BULLET_TEX]);
 	Load_Map("Resource/file/ElementalWorld.csv");
 
 }
