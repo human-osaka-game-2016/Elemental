@@ -15,3 +15,5 @@
  * @return ‚È‚µ
  */
 void Kodora_Control();
+void skeleton_Control();
+void Slime_Control();

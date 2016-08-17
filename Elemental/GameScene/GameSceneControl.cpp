@@ -31,28 +31,14 @@ void Control()
 	Check_Key(DIK_Z, Z);
 	Check_Key(DIK_X, X);
 	Check_Key(DIK_C, C);
+	Check_Key(DIK_SPACE, SPACE);
 
 	Player_Control();
 	Player_Flame_Control();
 	Player_Ice_Control();
 	Player_Wind_Control();
-	Map_Control();
-}
-
-// ñ⁄ÇÃÉVÉXÉeÉÄÇÃä÷êî
-void Map_Control()
-{
-	if (g_Key[A] == ON)
-	{
-		if (g_Key[LEFT] == ON)
-		{
-			g_ScreenOriginX -= MOVE_SPEED;
-		}
-		if (g_Key[RIGHT] == ON)
-		{
-			g_ScreenOriginX += MOVE_SPEED;
-		}
-	}
+	Player_Bullet_Control();
+	Kodora_Control();
 }
 
 bool Map_Collision_Check(float _x, float _y, int _sx, int _sy)
