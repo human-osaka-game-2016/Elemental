@@ -6,6 +6,5 @@
 
  */
 
-#include "FlameGmmick.h"
-#include "IceGmmick.h"
-#include "WindGmmick.h"
+#include "IceGimmick_Draw.h"
+#include "IceGimmick_Control.h"

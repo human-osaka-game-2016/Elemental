@@ -37,6 +37,24 @@
     <Filter Include="ソース ファイル\GIMMICK">
       <UniqueIdentifier>{f942e6c1-6b98-4588-89ba-2f779de8dd2e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\GIMMICK\FLAME">
+      <UniqueIdentifier>{64272d96-c719-4e25-aaff-9f245ec0013b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GIMMICK\ICE">
+      <UniqueIdentifier>{cb5d7ec6-1f8f-4c73-9f97-d95bc5b702f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GIMMICK\WIND">
+      <UniqueIdentifier>{ff700b18-f8a2-4d7d-8130-5429e8831803}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\GIMMICK\FLAME">
+      <UniqueIdentifier>{5fd05c15-e442-4f46-89cd-c8f6e1a5f93e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\GIMMICK\ICE">
+      <UniqueIdentifier>{4c787be3-1edf-4e29-8111-8c7499b9a3c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\GIMMICK\WIND">
+      <UniqueIdentifier>{d66e22bb-6a7e-43a5-8274-283192c26b0e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -48,9 +66,6 @@
     <ClCompile Include="Enemy\EnemyDraw.cpp">
       <Filter>ソース ファイル\ENEMY</Filter>
     </ClCompile>
-    <ClCompile Include="Gmmick\FlameGmmick.cpp">
-      <Filter>ソース ファイル\GIMMICK</Filter>
-    </ClCompile>
     <ClCompile Include="GameScene\GameSceneControl.cpp">
       <Filter>ソース ファイル\GAMESCENE</Filter>
     </ClCompile>
@@ -60,17 +75,29 @@
     <ClCompile Include="GameScene\GameSceneInit.cpp">
       <Filter>ソース ファイル\GAMESCENE</Filter>
     </ClCompile>
-    <ClCompile Include="Gmmick\IceGmmick.cpp">
-      <Filter>ソース ファイル\GIMMICK</Filter>
-    </ClCompile>
     <ClCompile Include="Player\PlayerControl.cpp">
       <Filter>ソース ファイル\PLAYER</Filter>
     </ClCompile>
-    <ClCompile Include="Gmmick\WindGmmick.cpp">
-      <Filter>ソース ファイル\GIMMICK</Filter>
-    </ClCompile>
     <ClCompile Include="Player\PlayerDraw.cpp">
       <Filter>ソース ファイル\PLAYER</Filter>
+    </ClCompile>
+    <ClCompile Include="Gmmick\FlameGimmick_Control.cpp">
+      <Filter>ソース ファイル\GIMMICK\FLAME</Filter>
+    </ClCompile>
+    <ClCompile Include="Gmmick\FlameGimmick_Draw.cpp">
+      <Filter>ソース ファイル\GIMMICK\FLAME</Filter>
+    </ClCompile>
+    <ClCompile Include="Gmmick\WindGimmick_Control.cpp">
+      <Filter>ソース ファイル\GIMMICK\WIND</Filter>
+    </ClCompile>
+    <ClCompile Include="Gmmick\WindGimmick_Draw.cpp">
+      <Filter>ソース ファイル\GIMMICK\WIND</Filter>
+    </ClCompile>
+    <ClCompile Include="Gmmick\IceGimmick_Draw.cpp">
+      <Filter>ソース ファイル\GIMMICK\ICE</Filter>
+    </ClCompile>
+    <ClCompile Include="Gmmick\IceGimmick_Control.cpp">
+      <Filter>ソース ファイル\GIMMICK\ICE</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -79,9 +106,6 @@
     </ClInclude>
     <ClInclude Include="Enemy\EnemyDraw.h">
       <Filter>ヘッダー ファイル\ENEMY</Filter>
-    </ClInclude>
-    <ClInclude Include="Gmmick\FlameGmmick.h">
-      <Filter>ヘッダー ファイル\GIMMICK</Filter>
     </ClInclude>
     <ClInclude Include="GameScene\GameSceneControl.h">
       <Filter>ヘッダー ファイル\GAMESCENE</Filter>
@@ -92,17 +116,29 @@
     <ClInclude Include="GameScene\GameSceneInit.h">
       <Filter>ヘッダー ファイル\GAMESCENE</Filter>
     </ClInclude>
-    <ClInclude Include="Gmmick\IceGmmick.h">
-      <Filter>ヘッダー ファイル\GIMMICK</Filter>
-    </ClInclude>
     <ClInclude Include="Player\PlayerControl.h">
       <Filter>ヘッダー ファイル\PLAYER</Filter>
     </ClInclude>
     <ClInclude Include="Player\PlayerDraw.h">
       <Filter>ヘッダー ファイル\PLAYER</Filter>
     </ClInclude>
-    <ClInclude Include="Gmmick\WindGmmick.h">
-      <Filter>ヘッダー ファイル\GIMMICK</Filter>
+    <ClInclude Include="Gmmick\WindGimmick_Draw.h">
+      <Filter>ヘッダー ファイル\GIMMICK\WIND</Filter>
+    </ClInclude>
+    <ClInclude Include="Gmmick\WindGimmick_Control.h">
+      <Filter>ヘッダー ファイル\GIMMICK\WIND</Filter>
+    </ClInclude>
+    <ClInclude Include="Gmmick\IceGimmick_Control.h">
+      <Filter>ヘッダー ファイル\GIMMICK\ICE</Filter>
+    </ClInclude>
+    <ClInclude Include="Gmmick\IceGimmick_Draw.h">
+      <Filter>ヘッダー ファイル\GIMMICK\ICE</Filter>
+    </ClInclude>
+    <ClInclude Include="Gmmick\FlameGimmick_Control.h">
+      <Filter>ヘッダー ファイル\GIMMICK\FLAME</Filter>
+    </ClInclude>
+    <ClInclude Include="Gmmick\FlameGimmick_Draw.h">
+      <Filter>ヘッダー ファイル\GIMMICK\FLAME</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

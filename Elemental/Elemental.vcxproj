@@ -76,9 +76,12 @@
     <ClCompile Include="GameScene\GameSceneControl.cpp" />
     <ClCompile Include="GameScene\GameSceneDraw.cpp" />
     <ClCompile Include="GameScene\GameSceneInit.cpp" />
-    <ClCompile Include="Gmmick\FlameGmmick.cpp" />
-    <ClCompile Include="Gmmick\IceGmmick.cpp" />
-    <ClCompile Include="Gmmick\WindGmmick.cpp" />
+    <ClCompile Include="Gmmick\FlameGimmick_Control.cpp" />
+    <ClCompile Include="Gmmick\FlameGimmick_Draw.cpp" />
+    <ClCompile Include="Gmmick\IceGimmick_Control.cpp" />
+    <ClCompile Include="Gmmick\IceGimmick_Draw.cpp" />
+    <ClCompile Include="Gmmick\WindGimmick_Draw.cpp" />
+    <ClCompile Include="Gmmick\WindGimmick_Control.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Player\PlayerControl.cpp" />
     <ClCompile Include="Player\PlayerDraw.cpp" />
@@ -89,9 +92,12 @@
     <ClInclude Include="GameScene\GameSceneControl.h" />
     <ClInclude Include="GameScene\GameSceneDraw.h" />
     <ClInclude Include="GameScene\GameSceneInit.h" />
-    <ClInclude Include="Gmmick\FlameGmmick.h" />
-    <ClInclude Include="Gmmick\IceGmmick.h" />
-    <ClInclude Include="Gmmick\WindGmmick.h" />
+    <ClInclude Include="Gmmick\FlameGimmick_Draw.h" />
+    <ClInclude Include="Gmmick\FlameGimmick_Control.h" />
+    <ClInclude Include="Gmmick\IceGimmick_Draw.h" />
+    <ClInclude Include="Gmmick\IceGimmick_Control.h" />
+    <ClInclude Include="Gmmick\WindGimmick_Draw.h" />
+    <ClInclude Include="Gmmick\WindGimmick_Control.h" />
     <ClInclude Include="Player\PlayerControl.h" />
     <ClInclude Include="Player\PlayerDraw.h" />
   </ItemGroup>
