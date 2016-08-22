@@ -9,13 +9,14 @@
 #include <Direct_Draw.h>
 #include "GameSceneDraw.h"
 #include "GameSceneInit.h"
+#include "../Player/PlayerDraw.h"
 
 
 PLAYER_STATE g_player = { 150.f, 350.f, 0.f, true, false, false, false, false, false, false, false, false };
 
 ENEMY_STATE g_enemy = { 730.f, 350.f };
 
-BULLET_STATE g_bullet = {0.0f, 0.0f, true, false };
+BULLET_STATE g_bullet[BULLET_MAX];
 
 void Init()
 {
@@ -34,5 +35,13 @@ void Init()
 	Load_Texture("ÉSÉWÉâ.png", &g_pTexture[ENEMY_TEX]);
 	Load_Texture("Bubble.png", &g_pTexture[BULLET_TEX]);
 	Load_Map("Resource/file/ElementalWorld.csv");
+
+	for (int i = 0; i < BULLET_MAX; i++)
+	{
+		g_bullet[i].drawFlag = false;
+		g_bullet[i].initFlag = true;
+		g_bullet[i].posX = 0.0f;
+		g_bullet[i].posY = 0.0f;
+	}
 
 }

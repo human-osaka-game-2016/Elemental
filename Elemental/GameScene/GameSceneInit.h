@@ -7,6 +7,7 @@
  */
 
 #include <Direct_Draw.h>
+#include "../Player/PlayerDraw.h"
 
 ////////////////////////////////////////////////
 // 型
@@ -40,8 +41,8 @@ typedef struct
 typedef struct
 {
 	CUSTOMVERTEX bullet[4];
-	float poX;
-	float poY;
+	float posX;
+	float posY;
 	bool initFlag;
 	bool drawFlag;
 
@@ -57,6 +58,6 @@ void Init();
 // extern
 ////////////////////////////////////////////////
 
-extern ENEMY_STATE g_enemy;		//!< 敵の様々な情報を持つ構造体
-extern PLAYER_STATE g_player;   //!< 主人公の様々な情報を持つ構造体
-extern BULLET_STATE g_bullet;	//!< 
+extern ENEMY_STATE g_enemy;					//!< 敵の様々な情報を持つ構造体
+extern PLAYER_STATE g_player;				//!< 主人公の様々な情報を持つ構造体
+extern BULLET_STATE g_bullet[BULLET_MAX];	//!< 

@@ -13,6 +13,7 @@
 #include "../GameScene/GameSceneDraw.h"
 #include "../GameScene/GameSceneControl.h"
 #include "../GameScene/GameSceneInit.h"
+#include "PlayerDraw.h"
 #include "PlayerControl.h"
 
 int g_rightdashcount = 0;
@@ -134,7 +135,7 @@ void Player_Control()
 		}
 
 		g_player.acceleration += GRAVITY;			// 周りにブロックがなければ加速度にGRAVITYの値をプラスしてどんどん上に動かす
-		g_player.posY += g_player.acceleration;	// プラスされた加速度をさらに主人公のY座標にプラスしていく
+		g_player.posY += g_player.acceleration;		// プラスされた加速度をさらに主人公のY座標にプラスしていく
 
 		// 主人公の周りにブロックがあるかどうか調べている
 		if (Map_Collision_Check(g_player.posX, g_player.posY - JUMP_POWER, 2, 2))
@@ -240,21 +241,28 @@ void Player_aura_Control(KEYKIND _key, bool _auraflag)
 */
 void Player_Bullet_Control()
 {
-	if (g_Key[SPACE] == PUSH /*&& g_player.flamedrawFlag == true || g_player.icedrawFlag =- true || g_player.winddrawFlag == true*/)
+	for (int i = 0; i < BULLET_MAX; i++)
 	{
-		g_bullet.poX = g_player.posX;
-		g_bullet.poY = g_player.posY;
-		g_bullet.drawFlag = true;
- 		g_bullet.initFlag = false;
+		if (g_Key[SPACE] == PUSH && g_bullet[i].drawFlag == false/*&& g_player.fjamedrawFlag == true || g_player.icedrawFlag =- true || g_player.winddrawFlag == true*/)
+		{
+			g_bullet[i].posX = g_player.posX;
+			g_bullet[i].posY = g_player.posY;
+			g_bullet[i].drawFlag = true;
+			g_bullet[i].initFlag = false;
+			break;
+		}
 	}
 
-	if (g_bullet.drawFlag == true)
+	for (int i = 0; i < BULLET_MAX; i++)
 	{
-		g_bullet.poX += BULLET_SPEED;
-
-		for (int i = 0; i < 4; i++)
+		if (g_bullet[i].drawFlag == true)
 		{
-			g_bullet.bullet[i].x += BULLET_SPEED;
+			g_bullet[i].posX += BULLET_SPEED;
+
+			for (int j = 0; j < 4; j++)
+			{
+				g_bullet[i].bullet[j].x += BULLET_SPEED;
+			}
 		}
 	}
 }

@@ -9,7 +9,8 @@
 #include "../GameScene/GameSceneDraw.h"
 #include "../GameScene/GameSceneControl.h"
 #include "../GameScene/GameSceneInit.h"
-#include "../Player/PlayerControl.h"
+#include "PlayerDraw.h"
+#include "PlayerControl.h"
 
 // éÂêlåˆÇÃï`âÊä÷êî
 void Player_Draw()
@@ -68,49 +69,54 @@ void Player_Bullet_Draw()
 {
 	CUSTOMVERTEX bullet[4] =
 	{
-		{ -TIPSIZE / 2.0f, -TIPSIZE / 2.0f, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 0.0f },
-		{ TIPSIZE / 2.0f, -TIPSIZE / 2.0f, 0.5f, 1.0f, 0xFFFFFFFF, 1.0f, 0.0f },
-		{ TIPSIZE / 2.0f, TIPSIZE / 2.0f, 0.5f, 1.0f, 0xFFFFFFFF, 1.0f, 1.0f },
-		{ -TIPSIZE / 2.0f, TIPSIZE / 2.0f, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 1.0f },
+		{ 0.0f, 0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 0.0f },
+		{ 128.f, 0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 1.0f, 0.0f },
+		{ 128.f, 128.f, 0.5f, 1.0f, 0xFFFFFFFF, 1.0f, 1.0f },
+		{ 0.0f, 128.f, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 1.0f },
 	};
 
-	if (g_bullet.bullet[2].x <= 0.f)
+	for (int i = 0; i < BULLET_MAX; i++)
 	{
-		g_bullet.drawFlag = false;
-		g_bullet.initFlag = true;
-	}
-
-	if (g_bullet.bullet[0].x >= 1440.f)
-	{
-		g_bullet.drawFlag = false;
-		g_bullet.initFlag = true;
-	}
-
-	if (Map_Collision_Check(g_bullet.poX - BULLET_SPEED, g_bullet.poY, 1, 1))
-	{
-		g_bullet.drawFlag = false;
-		g_bullet.initFlag = true;
-	}
-
-	if (Map_Collision_Check(g_bullet.poX + BULLET_SPEED, g_bullet.poY, 1, 1))
-	{
-		g_bullet.drawFlag = false;
-		g_bullet.initFlag = true;
-	}
-
-	if (g_bullet.initFlag == true)
-	{
-		for (int i = 0; i < 4; i++)
+		if (g_bullet[i].bullet[2].x <= 0.f)
 		{
-			g_bullet.bullet[i] = bullet[i];
-			g_bullet.bullet[i].x += g_player.posX;
-			g_bullet.bullet[i].y += g_player.posY;
+			g_bullet[i].drawFlag = false;
+			g_bullet[i].initFlag = true;
+		}
+
+		if (g_bullet[i].bullet[0].x >= 1440.f)
+		{
+			g_bullet[i].drawFlag = false;
+			g_bullet[i].initFlag = true;
+		}
+
+		if (Map_Collision_Check(g_bullet[i].posX - BULLET_SPEED, g_bullet[i].posY, 2, 2))
+		{
+			g_bullet[i].drawFlag = false;
+			g_bullet[i].initFlag = true;
+		}
+
+		if (Map_Collision_Check(g_bullet[i].posX + BULLET_SPEED, g_bullet[i].posY, 2, 2))
+		{
+			g_bullet[i].drawFlag = false;
+			g_bullet[i].initFlag = true;
 		}
 	}
 
-	if (g_bullet.drawFlag == true)
+	for (int i = 0; i < BULLET_MAX; i++)
 	{
-		Draw_Obj(g_pTexture[BULLET_TEX], g_bullet.bullet);
-	}
+		if (g_bullet[i].initFlag == true)
+		{
+			for (int j = 0; j < 4; j++)
+			{
+				g_bullet[i].bullet[j] = bullet[j];
+				g_bullet[i].bullet[j].x += g_player.posX;
+				g_bullet[i].bullet[j].y += g_player.posY;
+			}
+		}
 
+		if (g_bullet[i].drawFlag == true)
+		{
+			Draw_Obj(g_pTexture[BULLET_TEX], g_bullet[i].bullet);
+		}
+	}
 }
