@@ -12,21 +12,12 @@
 #include "../GameScene/GameSceneInit.h"
 #include "../Player/PlayerDraw.h"
 #include "../Enemy/EnemyDraw.h"
+#include "../Gmmick/WindGimmick_Draw.h"
 
 float g_ScreenOriginX = 0.0f;	// X座標の画面端を原点としている
 float g_ScreenOriginY = 0.0f;	// Y座標の画面端を原点としている
 
 LPDIRECT3DTEXTURE9 g_pTexture[TEX_MAX];	
-
-// マップチップの頂点情報
-CUSTOMVERTEX g_maptip[4] =
-{
-	{ 0.0f, 0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 0.0f },
-	{ TIPSIZE, 0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 1.0f, 0.0f },
-	{ TIPSIZE, TIPSIZE, 0.5f, 1.0f, 0xFFFFFFFF, 1.0f, 1.0f },
-	{ 0.0f, TIPSIZE, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 1.0f },
-
-};
 
 // csvで読み込む範囲
 int map[MAP_HEIGHT][MAP_WIDTH];
@@ -53,6 +44,7 @@ void Render()
 	Player_Aura_Draw(g_player.icedrawFlag, 0.25f, PLAYER_ICE_TEX);
 	Player_Aura_Draw(g_player.winddrawFlag, 0.5f, PLAYER_WIND_TEX);
 	Player_Bullet_Draw();
+	WindGimmick_Draw();
 	Draw_End();
 }
 
@@ -75,6 +67,16 @@ void Load_Map(const char* _mapdata)
 // csvに書いたマップ情報を反映させている
 void Draw_Map()
 {
+	// マップチップの頂点情報
+	CUSTOMVERTEX Maptip[4] =
+	{
+		{ 0.0f, 0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 0.0f },
+		{ TIPSIZE, 0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 1.0f, 0.0f },
+		{ TIPSIZE, TIPSIZE, 0.5f, 1.0f, 0xFFFFFFFF, 1.0f, 1.0f },
+		{ 0.0f, TIPSIZE, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 1.0f },
+
+	};
+
 	for (int y = 0; y < MAP_HEIGHT; y++)
 	{
 		for (int x = 0; x < MAP_WIDTH; x++)
@@ -84,7 +86,7 @@ void Draw_Map()
 				CUSTOMVERTEX drawmap[4];			// 空のCUSTOMVERTEX用意
 				for (int i = 0; i < 4; i++)
 				{
-					drawmap[i] = g_maptip[i];		// マップチップの頂点情報を空のCUSTOMVERTEXに代入している
+					drawmap[i] = Maptip[i];		// マップチップの頂点情報を空のCUSTOMVERTEXに代入している
 				}
 
 				// このままだと1個しか描画されないので下の処理で指定した範囲分すべて描画するようにしている

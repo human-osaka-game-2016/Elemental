@@ -1,8 +1,8 @@
 /**
- * @file WindGmmick.cpp
+ * @file WindGmmick_Draw.cpp
  * @breif 風ギミックのファイル
 
- * 風ギミックの必要な処理を書いている
+ * 風ギミックの描画に必要な処理を書いている
 
  */
 
@@ -23,6 +23,15 @@ void WindGimmick_Draw()
 
 	if (g_enemy.hitFlag == true)
 	{
+		CUSTOMVERTEX drawgimmick[4];
 
+		for (int i = 0; i < 4; i++)
+		{
+			drawgimmick[i] = windgimmick[i];
+ 			drawgimmick[i].x += g_enemy.posX;
+			drawgimmick[i].y += g_enemy.posY;
+		}
+
+		Draw_Obj(g_pTexture[WINDGIMMICK_TEX], drawgimmick);
 	}
 }

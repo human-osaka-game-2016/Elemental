@@ -18,7 +18,17 @@
  * @return なし
  */
 void Kodora_Control();
+
+/// スケルトンの操作関数
+/**
+ * @return なし
+ */
 void skeleton_Control();
+
+/// スライムの操作関数
+/**
+ * @return なし
+ */
 void Slime_Control();
 
 #endif

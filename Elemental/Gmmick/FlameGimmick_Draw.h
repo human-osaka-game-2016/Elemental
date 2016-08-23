@@ -1,5 +1,5 @@
 /**
- * @file FlameGmmick.h
+ * @file FlameGimmick_Draw.h
  * @breif 火のギミックファイル
 
  *

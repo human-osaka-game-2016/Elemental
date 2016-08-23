@@ -1,8 +1,8 @@
 /**
- * @file FlameGmmick.cpp
+ * @file FlameGmmick_Draw.cpp
  * @breif 火のギミックファイル
 
- * 火ギミックの必要な処理を書いている
+ * 火ギミックの描画に必要な処理を書いている
 
  */
 

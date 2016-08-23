@@ -36,16 +36,16 @@ typedef struct
 {
 	float posX;		//!< 敵のX座標
 	float posY;		//!< 敵のY座標
-	bool hitFlag;	//!<  
+	bool hitFlag;	//!< 何かが当たったかどうかのフラグ
 }ENEMY_STATE;
 
 typedef struct
 {
-	CUSTOMVERTEX bullet[4];
-	float posX;
-	float posY;
-	bool initFlag;
-	bool drawFlag;
+	CUSTOMVERTEX bullet[4];		//!< 入れたほうが処理が楽になるため
+	float posX;					//!< 弾のX座標
+	float posY;					//!< 弾のY座標
+	bool initFlag;				//!< 弾の初期化のフラグ
+	bool drawFlag;				//!< 弾の描画のフラグ
 
 }BULLET_STATE;
 
@@ -61,4 +61,4 @@ void Init();
 
 extern ENEMY_STATE g_enemy;					//!< 敵の様々な情報を持つ構造体
 extern PLAYER_STATE g_player;				//!< 主人公の様々な情報を持つ構造体
-extern BULLET_STATE g_bullet[BULLET_MAX];	//!< 
+extern BULLET_STATE g_bullet[BULLET_MAX];	//!< 弾の様々な情報を持つ構造体の配列

@@ -34,6 +34,7 @@ enum GAMETEX
 	PLAYER_WIND_TEX,	//!< 風オーラの主人公の画像を割り当てる
 	ENEMY_TEX,			//!< 敵の画像を割り当てる
 	BULLET_TEX,			//!< 弾の画像を割り当てる
+	WINDGIMMICK_TEX,	//!< 風のギミックの画像を割り当てる
 	TEX_MAX,			//!< 画像枚数の最大値
 };
 

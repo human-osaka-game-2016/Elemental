@@ -239,8 +239,11 @@ void Player_aura_Control(KEYKIND _key, bool _auraflag)
 	}
 }
 */
+
+// 主人公の弾出しの関数
 void Player_Bullet_Control()
 {
+	// 出せる弾の最大値だけforで回してる
 	for (int i = 0; i < BULLET_MAX; i++)
 	{
 		if (g_Key[SPACE] == PUSH && g_bullet[i].drawFlag == false/*&& g_player.fjamedrawFlag == true || g_player.icedrawFlag =- true || g_player.winddrawFlag == true*/)
@@ -253,6 +256,7 @@ void Player_Bullet_Control()
 		}
 	}
 
+	// 出した弾の座標を動かしている
 	for (int i = 0; i < BULLET_MAX; i++)
 	{
 		if (g_bullet[i].drawFlag == true)

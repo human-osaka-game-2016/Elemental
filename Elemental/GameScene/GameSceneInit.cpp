@@ -34,6 +34,7 @@ void Init()
 	Load_Texture("Resource/Texture/Player/player_attack.png", &g_pTexture[PLAYER_WIND_TEX]);
 	Load_Texture("ÉSÉWÉâ.png", &g_pTexture[ENEMY_TEX]);
 	Load_Texture("Bubble.png", &g_pTexture[BULLET_TEX]);
+	Load_Texture("Resource/Texture/Gimmick/tornado.png", &g_pTexture[WINDGIMMICK_TEX]);
 	Load_Map("Resource/file/ElementalWorld.csv");
 
 	for (int i = 0; i < BULLET_MAX; i++)
