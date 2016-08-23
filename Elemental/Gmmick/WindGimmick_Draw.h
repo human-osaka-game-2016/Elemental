@@ -5,3 +5,8 @@
  *
 
  */
+
+#ifndef WINDGIMMICKDRAW
+#define WINDGIMMICKDRAW
+
+#endif

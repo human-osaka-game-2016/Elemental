@@ -1,0 +1,4 @@
+#ifndef ICEGIMMICKCONTROL
+#define ICEGIMMICKCONTROL
+
+#endif

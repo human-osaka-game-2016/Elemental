@@ -5,3 +5,8 @@
  *
 
  */
+
+#ifndef ICEGIMMICKDRAW
+#define ICEGIMMICKDRAW
+
+#endif

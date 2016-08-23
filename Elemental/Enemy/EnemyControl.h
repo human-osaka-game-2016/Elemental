@@ -6,6 +6,9 @@
 
  */
 
+#ifndef ENEMYCONTROL
+#define ENEMYCONTROL
+
 ////////////////////////////////////////////////
 //使用する関数のプロトタイプ宣言
 ////////////////////////////////////////////////
@@ -17,3 +20,5 @@
 void Kodora_Control();
 void skeleton_Control();
 void Slime_Control();
+
+#endif

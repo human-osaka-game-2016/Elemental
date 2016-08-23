@@ -1,0 +1,4 @@
+#ifndef FLAMEGIMMICKCONTROL
+#define FLAMEGIMMICKCONTROL
+
+#endif

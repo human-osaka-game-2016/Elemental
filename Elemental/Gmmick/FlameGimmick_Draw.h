@@ -5,3 +5,8 @@
  *
 
 */
+
+#ifndef FLAMEGIMMICKDRAW
+#define FLAMEGIMMICKDRAW
+
+#endif

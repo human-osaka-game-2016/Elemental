@@ -6,6 +6,9 @@
 
  */
 
+#ifndef PLAYERCONTROL
+#define PLAYERCONTROL
+
 ////////////////////////////////////////////////
 // ’è‹`
 ////////////////////////////////////////////////
@@ -31,3 +34,4 @@ void Player_Wind_Control();
 //void Player_aura_Control(KEYKIND _st, bool _auraflag);
 void Player_Bullet_Control();
 
+#endif

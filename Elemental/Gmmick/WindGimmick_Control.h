@@ -1,0 +1,4 @@
+#ifndef WINDGIMMICKCONTROL
+#define WINDGIMMICKCONTROL
+
+#endif

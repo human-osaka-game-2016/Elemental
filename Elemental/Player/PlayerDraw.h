@@ -5,6 +5,10 @@
  * 主人公の描画に必要なプロトタイプ宣言を書いている
 
  */
+
+#ifndef PLAYERDRAW
+#define PLAYERDRAW
+
 ////////////////////////////////////////////////
 // 定義
 ////////////////////////////////////////////////
@@ -23,5 +27,4 @@ void Player_Draw();
 void Player_Aura_Draw(bool _auraFlag, float _texsize, GAMETEX _auratex);
 void Player_Bullet_Draw();
 
-
-
+#endif

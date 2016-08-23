@@ -14,7 +14,7 @@
 
 PLAYER_STATE g_player = { 150.f, 350.f, 0.f, true, false, false, false, false, false, false, false, false };
 
-ENEMY_STATE g_enemy = { 730.f, 350.f };
+ENEMY_STATE g_enemy = { 730.f, 350.f, false };
 
 BULLET_STATE g_bullet[BULLET_MAX];
 

@@ -10,9 +10,7 @@
 #include "../GameScene/GameSceneDraw.h"
 #include "../GameScene/GameSceneControl.h"
 #include "../GameScene/GameSceneInit.h"
-#include "../Player/PlayerDraw.h"
 #include "../Player/PlayerControl.h"
-#include "EnemyDraw.h"
 
 // ƒRƒhƒ‰‚Ì‘€ìŠÖ”
 void Kodora_Control()
@@ -24,6 +22,11 @@ void Kodora_Control()
 	if (abs(g_enemy.posX - g_player.posX) < (TIPSIZE * 4))
 	{
 		g_enemy.posX += WALK_SPEED;
+	}
+
+	if (Collision_Check(g_player.posX, g_enemy.posX, g_player.posY, g_enemy.posY, TIPSIZE))
+	{
+		g_enemy.hitFlag = true;
 	}
 }
 
