@@ -21,6 +21,8 @@ int g_leftdashcount = 0;
 
 void Player_Control()
 {
+	
+
 	if (g_Key[LEFT] == ON)
 	{
 		if (g_leftdashcount > 0 && g_leftdashcount < 29)
@@ -43,6 +45,9 @@ void Player_Control()
 
 	if (g_Key[LEFT] == ON)
 	{
+		g_player.moveFlag = true;
+		g_player.leftFlag = true;
+
 		if (g_player.leftdashFlag == true)
 		{
 			// 次に動いた値で左にブロックがあるかどうか先に調べている
@@ -62,9 +67,15 @@ void Player_Control()
 			}
 		}
 	}
+	else
+	{
+		g_player.moveFlag = false;
+	}
+
 
 	if (g_Key[RIGHT] == ON)
 	{
+		
 		if (g_rightdashcount > 0 && g_rightdashcount < 29)
 		{
 			g_player.rightdashFlag = true;
@@ -84,6 +95,9 @@ void Player_Control()
 		
 	if (g_Key[RIGHT] == ON)
 	{
+		g_player.moveFlag = true;
+		g_player.leftFlag = false;
+
 		if (g_player.rightdashFlag == true)
 		{
 			// 次に動いた値で左にブロックがあるかどうか先に調べている
@@ -103,6 +117,11 @@ void Player_Control()
 			}
 		}
 	}
+	else
+	{
+		g_player.moveFlag = false;
+	}
+
 	
 	if (g_Key[UP] == PUSH && g_player.skyFlag == false)
 	{

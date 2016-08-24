@@ -32,6 +32,9 @@ enum GAMETEX
 	BACKGROUND_TEX,		//!< 背景画像を割り当てる
 	MAP_GROUND_TEX,		//!< マップチップを割り当てる
 	PLAYER_TEX,			//!< 主人公の画像を割り当てる
+	PLAYER_MOVE_TEX,
+	PLAYER_LEFT_TEX,
+	PLAYER_LEFT_MOVE_TEX,
 	PLAYER_FLAME_TEX,	//!< 焔オーラの主人公の画像を割り当てる
 	PLAYER_ICE_TEX,		//!< 凝オーラの主人公の画像を割り当てる
 	PLAYER_WIND_TEX,	//!< 風オーラの主人公の画像を割り当てる

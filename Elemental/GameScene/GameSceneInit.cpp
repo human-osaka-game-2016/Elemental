@@ -12,7 +12,7 @@
 #include "../Player/PlayerDraw.h"
 
 
-PLAYER_STATE g_player = { 150.f, 350.f, 0.f, true, false, false, false, false, false, false, false, false, false };
+PLAYER_STATE g_player = { 150.f, 350.f, 0.f, true, false, false, false, false, false, false, false, false, false, false, false };
 
 ENEMY_STATE g_kodora[KODORA_MAX];
 
@@ -29,6 +29,9 @@ void Init()
 	Load_Texture("ワールドチップ.png", &g_pTexture[MAP_GROUND_TEX]);
 	Load_Texture("Resource/Texture/Background/inside.png", &g_pTexture[BACKGROUND_TEX]);
 	Load_Texture("Resource/Texture/Player/normal_player/player_state.png", &g_pTexture[PLAYER_TEX]);
+	Load_Texture("Resource/Texture/Player/normal_player/player_move.png", &g_pTexture[PLAYER_MOVE_TEX]);
+	Load_Texture("Resource/Texture/Player/normal_player_reverse/r_player_state.png", &g_pTexture[PLAYER_LEFT_TEX]);
+	Load_Texture("Resource/Texture/Player/normal_player_reverse/r_player_move.png", &g_pTexture[PLAYER_LEFT_MOVE_TEX]);
 	Load_Texture("Resource/Texture/Player/fire_player/f_player_state.png", &g_pTexture[PLAYER_FLAME_TEX]);
 	Load_Texture("Resource/Texture/Player/ice_player/i_player_state.png", &g_pTexture[PLAYER_ICE_TEX]);
 	Load_Texture("Resource/Texture/Player/wind_player/w_player_state.png", &g_pTexture[PLAYER_WIND_TEX]);

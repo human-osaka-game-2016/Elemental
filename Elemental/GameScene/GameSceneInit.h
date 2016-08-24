@@ -20,6 +20,8 @@ typedef struct
 	float posY;				//!< 主人公のY座標
 	float acceleration;		//!< ジャンプするときの加速度
 	bool drawFlag;			//!< 主人公が描画されるかどうかのフラグ
+	bool moveFlag;
+	bool leftFlag;
 	bool skyFlag;			//!< 空中にいるかどうかのフラグ
 	bool jumpFlag;			//!< ジャンプするかどうかのフラグ
 	bool rightdashFlag;		//!< 主人公が右にダッシュするかどうかのフラグ

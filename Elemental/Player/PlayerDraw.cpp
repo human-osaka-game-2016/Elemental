@@ -24,10 +24,10 @@ void Player_Draw()
 
 	};
 
-	if (g_player.drawFlag == true)
-	{
-		CUSTOMVERTEX drawplayer[4];					// ‹ó‚ÌCUSTOMVERTEX‚ð—pˆÓ
+	CUSTOMVERTEX drawplayer[4];					// ‹ó‚ÌCUSTOMVERTEX‚ð—pˆÓ
 
+	if (g_player.drawFlag == true && g_player.moveFlag == false && g_player.leftFlag == false)
+	{
 		for (int i = 0; i < 4; i++)
 		{
 			drawplayer[i] = main_charcter[i];		// main_charcter‚Ì’¸“_î•ñ‚ð‹ó‚ÌCUSTOMVERTEX‚É‘ã“ü
@@ -36,6 +36,38 @@ void Player_Draw()
 		}
 
 		Draw_Obj(g_pTexture[PLAYER_TEX], drawplayer);
+	}
+	else if (g_player.drawFlag == true && g_player.moveFlag == true && g_player.leftFlag == false)
+	{
+		for (int i = 0; i < 4; i++)
+		{
+			drawplayer[i] = main_charcter[i];
+			drawplayer[i].x += g_player.posX;
+			drawplayer[i].y += g_player.posY;
+		}
+		Draw_Obj(g_pTexture[PLAYER_MOVE_TEX], drawplayer);
+	}
+
+	if (g_player.drawFlag == true && g_player.moveFlag == false && g_player.leftFlag == true)
+	{
+		for (int i = 0; i < 4; i++)
+		{
+			drawplayer[i] = main_charcter[i];
+			drawplayer[i].x += g_player.posX;
+			drawplayer[i].y += g_player.posY;
+		}
+		Draw_Obj(g_pTexture[PLAYER_LEFT_TEX], drawplayer);
+	}
+	else if (g_player.drawFlag == true && g_player.moveFlag == true && g_player.leftFlag == true)
+	{
+
+		for (int i = 0; i < 4; i++)
+		{
+			drawplayer[i] = main_charcter[i];
+			drawplayer[i].x += g_player.posX;
+			drawplayer[i].y += g_player.posY;
+		}
+		Draw_Obj(g_pTexture[PLAYER_LEFT_MOVE_TEX], drawplayer);
 	}
 }
 
