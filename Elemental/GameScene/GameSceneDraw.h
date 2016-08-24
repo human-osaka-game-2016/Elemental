@@ -13,6 +13,9 @@
 // 定義
 ////////////////////////////////////////////////
 
+#define KODORA_MAX 1
+#define SKERETON_MAX 1
+#define SLIME_MAX 1
 #define TIPSIZE 64		//! マップチップのサイズ
 #define MAP_HEIGHT 12	//! 描画するマップの縦の最大値
 #define MAP_WIDTH 34	//! 描画するマップの横の最大値
@@ -32,7 +35,8 @@ enum GAMETEX
 	PLAYER_FLAME_TEX,	//!< 焔オーラの主人公の画像を割り当てる
 	PLAYER_ICE_TEX,		//!< 凝オーラの主人公の画像を割り当てる
 	PLAYER_WIND_TEX,	//!< 風オーラの主人公の画像を割り当てる
-	ENEMY_TEX,			//!< 敵の画像を割り当てる
+	KODORA_TEX,			//!< コドラの画像を割り当てる
+//	SKERETON_TEX,
 	BULLET_TEX,			//!< 弾の画像を割り当てる
 	WINDGIMMICK_TEX,	//!< 風のギミックの画像を割り当てる
 	TEX_MAX,			//!< 画像枚数の最大値

@@ -17,21 +17,26 @@ void WindGimmick_Draw()
 	{
 		{ 0.0f, 0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 0.0f },
 		{ 512.f, 0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 0.25f, 0.0f },
-		{ 512.f, 512.f, 0.5f, 1.0f, 0xFFFFFFFF, 0.25f, 0.25f },
-		{ 0.0f, 512.f, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 0.25f },
+		{ 512.f, 512.f, 0.5f, 1.0f, 0xFFFFFFFF, 0.25f, 1.0f },
+		{ 0.0f, 512.f, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 1.0f },
 	};
 
-	if (g_enemy.hitFlag == true)
+	for (int j = 0; j < KODORA_MAX; j++)
 	{
-		CUSTOMVERTEX drawgimmick[4];
-
-		for (int i = 0; i < 4; i++)
+		if (g_kodora[j].hitFlag == true)
 		{
-			drawgimmick[i] = windgimmick[i];
- 			drawgimmick[i].x += g_enemy.posX;
-			drawgimmick[i].y += g_enemy.posY;
-		}
+			CUSTOMVERTEX drawgimmick[4];
 
-		Draw_Obj(g_pTexture[WINDGIMMICK_TEX], drawgimmick);
+			for (int i = 0; i < 4; i++)
+			{
+				drawgimmick[i] = windgimmick[i];
+				drawgimmick[i].x += g_kodora[j].posX;
+				drawgimmick[i].y += g_kodora[j].posY;
+				drawgimmick[i].x -= 128;
+				drawgimmick[i].y -= 350;
+			}
+
+			Draw_Obj(g_pTexture[WINDGIMMICK_TEX], drawgimmick);
+		}
 	}
 }

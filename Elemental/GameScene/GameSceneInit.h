@@ -28,6 +28,7 @@ typedef struct
 	bool flamedrawFlag;		//!< 焔のオーラの主人公を描画するかどうかのフラグ
 	bool icedrawFlag;		//!< 凍のオーラの主人公を描画するかどうかのフラグ
 	bool winddrawFlag;		//!< 疾風(風)のオーラの主人公を描画するかどうかのフラグ
+	bool animationFlag;
 
 }PLAYER_STATE;
 
@@ -36,7 +37,9 @@ typedef struct
 {
 	float posX;		//!< 敵のX座標
 	float posY;		//!< 敵のY座標
+	bool drawFlag;
 	bool hitFlag;	//!< 何かが当たったかどうかのフラグ
+
 }ENEMY_STATE;
 
 typedef struct
@@ -59,6 +62,6 @@ void Init();
 // extern
 ////////////////////////////////////////////////
 
-extern ENEMY_STATE g_enemy;					//!< 敵の様々な情報を持つ構造体
+extern ENEMY_STATE g_kodora[KODORA_MAX];	//!< 敵の様々な情報を持つ構造体
 extern PLAYER_STATE g_player;				//!< 主人公の様々な情報を持つ構造体
 extern BULLET_STATE g_bullet[BULLET_MAX];	//!< 弾の様々な情報を持つ構造体の配列

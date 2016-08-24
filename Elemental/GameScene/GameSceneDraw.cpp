@@ -40,9 +40,9 @@ void Render()
 	Draw_Map();
 	Draw_Kodora();
 	Player_Draw();
-	Player_Aura_Draw(g_player.flamedrawFlag, 0.0f, PLAYER_FLAME_TEX);
-	Player_Aura_Draw(g_player.icedrawFlag, 0.25f, PLAYER_ICE_TEX);
-	Player_Aura_Draw(g_player.winddrawFlag, 0.5f, PLAYER_WIND_TEX);
+	Player_Aura_Draw(g_player.flamedrawFlag, PLAYER_FLAME_TEX);
+	Player_Aura_Draw(g_player.icedrawFlag, PLAYER_ICE_TEX);
+	Player_Aura_Draw(g_player.winddrawFlag, PLAYER_WIND_TEX);
 	Player_Bullet_Draw();
 	WindGimmick_Draw();
 	Draw_End();

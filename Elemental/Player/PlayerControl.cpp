@@ -114,17 +114,6 @@ void Player_Control()
 	// フラグがtrueなら処理をする
 	if (g_player.jumpFlag == true)
 	{
-		/*
-		これを抜くと上の判定がなくなので薄い足場みたいなのが実装できる(上に行くときのみ)
-		if (Map_Collision_Check(g_player.posX, g_player.posY + JUMP_POWER, 2, 2))
-		{
-			if (g_player.acceleration < 0)
-			{
-				g_player.acceleration = 0.4f;
-			}
-		}
-		*/
-
 		// 空中いる間主人公の上にブロックがあるかどうか調べている
 		if (Map_Collision_Check(g_player.posX, g_player.posY + JUMP_POWER, 2, 2))
 		{
@@ -246,7 +235,33 @@ void Player_Bullet_Control()
 	// 出せる弾の最大値だけforで回してる
 	for (int i = 0; i < BULLET_MAX; i++)
 	{
-		if (g_Key[SPACE] == PUSH && g_bullet[i].drawFlag == false/*&& g_player.fjamedrawFlag == true || g_player.icedrawFlag =- true || g_player.winddrawFlag == true*/)
+		if (g_Key[SPACE] == PUSH && g_bullet[i].drawFlag == false /*&& g_player.flamedrawFlag == true*/)
+		{
+			g_bullet[i].posX = g_player.posX;
+			g_bullet[i].posY = g_player.posY;
+			g_bullet[i].drawFlag = true;
+			g_bullet[i].initFlag = false;
+			break;
+		}
+	}
+
+	// 出せる弾の最大値だけforで回してる
+	for (int i = 0; i < BULLET_MAX; i++)
+	{
+		if (g_Key[SPACE] == PUSH && g_bullet[i].drawFlag == false && g_player.icedrawFlag == true)
+		{
+			g_bullet[i].posX = g_player.posX;
+			g_bullet[i].posY = g_player.posY;
+			g_bullet[i].drawFlag = true;
+			g_bullet[i].initFlag = false;
+			break;
+		}
+	}
+
+	// 出せる弾の最大値だけforで回してる
+	for (int i = 0; i < BULLET_MAX; i++)
+	{
+		if (g_Key[SPACE] == PUSH && g_bullet[i].drawFlag == false && g_player.winddrawFlag == true)
 		{
 			g_bullet[i].posX = g_player.posX;
 			g_bullet[i].posY = g_player.posY;

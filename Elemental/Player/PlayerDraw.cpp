@@ -18,8 +18,8 @@ void Player_Draw()
 	CUSTOMVERTEX main_charcter[4] =
 	{
 		{ 0.0f, 0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 0.0f },
-		{ 128.0f, 0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 1.0f, 0.0f },
-		{ 128.0f, 128.0f, 0.5f, 1.0f, 0xFFFFFFFF, 1.0f, 1.0f },
+		{ 128.0f, 0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 0.5f, 0.0f },
+		{ 128.0f, 128.0f, 0.5f, 1.0f, 0xFFFFFFFF, 0.5f, 1.0f },
 		{ 0.0f, 128.0f, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 1.0f },
 
 	};
@@ -40,15 +40,15 @@ void Player_Draw()
 }
 
 // オーラをまとった主人公を描画できるようにする関数
-void Player_Aura_Draw(bool _auraFlag, float _texsize, GAMETEX _auratex)
+void Player_Aura_Draw(bool _auraFlag, GAMETEX _auratex)
 {
 	// オーラ主人公の頂点情報
 	CUSTOMVERTEX auracharcter[4] =
 	{
 		{ 0.0f, 0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 0.0f },
-		{ 128.0f, 0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 0.25f, 0.0f },
-		{ 128.0f, 128.0f, 0.5f, 1.0f, 0xFFFFFFFF, 0.25f, 0.25f },
-		{ 0.0f, 128.0f, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 0.25f },
+		{ 128.0f, 0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 0.5f, 0.0f },
+		{ 128.0f, 128.0f, 0.5f, 1.0f, 0xFFFFFFFF, 0.5f, 1.0f },
+		{ 0.0f, 128.0f, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 1.0f },
 	};
 
 	if (_auraFlag == true)
@@ -59,7 +59,6 @@ void Player_Aura_Draw(bool _auraFlag, float _texsize, GAMETEX _auratex)
 			playerauradraw[i] = auracharcter[i];
 			playerauradraw[i].x += g_player.posX;
 			playerauradraw[i].y += g_player.posY;
-			playerauradraw[i].tu += _texsize;
 		}
 		Draw_Obj(g_pTexture[_auratex], playerauradraw);
 	}
