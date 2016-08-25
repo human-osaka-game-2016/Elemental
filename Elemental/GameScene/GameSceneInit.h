@@ -19,18 +19,17 @@ typedef struct
 	float posX;				//!< 主人公のX座標
 	float posY;				//!< 主人公のY座標
 	float acceleration;		//!< ジャンプするときの加速度
-	bool drawFlag;			//!< 主人公が描画されるかどうかのフラグ
-	bool moveFlag;
-	bool leftFlag;
+	bool drawFlag;			//!< 描画されるかどうかのフラグ
+	bool moveFlag;			//!< 動いたかどうかのフラグ
+	bool leftFlag;			//!< 左を向いたかどうかのフラグ
 	bool skyFlag;			//!< 空中にいるかどうかのフラグ
 	bool jumpFlag;			//!< ジャンプするかどうかのフラグ
-	bool rightdashFlag;		//!< 主人公が右にダッシュするかどうかのフラグ
-	bool leftdashFlag;		//!< 主人公が左にダッシュするかどうかのフラグ
-	bool hitFlag;			//!< 主人公が何かに当てた又は、何かに当たったどうかのフラグ
+	bool rightdashFlag;		//!< 右にダッシュするかどうかのフラグ
+	bool leftdashFlag;		//!< 左にダッシュするかどうかのフラグ
+	bool hitFlag;			//!< 何かに当てた又は、何かに当たったどうかのフラグ
 	bool flamedrawFlag;		//!< 焔のオーラの主人公を描画するかどうかのフラグ
 	bool icedrawFlag;		//!< 凍のオーラの主人公を描画するかどうかのフラグ
 	bool winddrawFlag;		//!< 疾風(風)のオーラの主人公を描画するかどうかのフラグ
-	bool animationFlag;
 
 }PLAYER_STATE;
 
@@ -39,7 +38,7 @@ typedef struct
 {
 	float posX;		//!< 敵のX座標
 	float posY;		//!< 敵のY座標
-	bool drawFlag;
+	bool drawFlag;	//!< 描画されたかどうかのフラグ
 	bool hitFlag;	//!< 何かが当たったかどうかのフラグ
 
 }ENEMY_STATE;

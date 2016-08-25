@@ -39,18 +39,26 @@ void Render()
 	Draw_Obj(g_pTexture[BACKGROUND_TEX], background);
 	Draw_Map();
 	Draw_Kodora();
-	Player_Draw();
+	
+	// 通常の主人公の左右の待機と移動を描画、アニメーションしている
+	Player_Draw(g_player.moveFlag == false, g_player.leftFlag == false, PLAYER_TEX);
+	Player_Draw(g_player.moveFlag == true, g_player.leftFlag == false, PLAYER_MOVE_TEX);
+	Player_Draw(g_player.moveFlag == false, g_player.leftFlag == true, PLAYER_LEFT_TEX);
+	Player_Draw(g_player.moveFlag == true, g_player.leftFlag == true, PLAYER_LEFT_MOVE_TEX);
 
+	// 炎のオーラをまとった主人公の左右の待機と移動を描画、アニメーションをしている
 	Player_Aura_Draw(g_player.flamedrawFlag, g_player.moveFlag == false, g_player.leftFlag == false, PLAYER_FLAME_TEX);
 	Player_Aura_Draw(g_player.flamedrawFlag, g_player.moveFlag == true, g_player.leftFlag == false, PLAYER_FLAME_MOVE_TEX);
 	Player_Aura_Draw(g_player.flamedrawFlag, g_player.moveFlag == false, g_player.leftFlag == true, PLAYER_FLAME_LEFT_TEX);
 	Player_Aura_Draw(g_player.flamedrawFlag, g_player.moveFlag == true, g_player.leftFlag == true, PLAYER_FLAME_LEFT_MOVE_TEX);
 
+	// 氷のオーラをまとった主人公の左右の待機と移動を描画、アニメーションしている
 	Player_Aura_Draw(g_player.icedrawFlag, g_player.moveFlag == false, g_player.leftFlag == false, PLAYER_ICE_TEX);
 	Player_Aura_Draw(g_player.icedrawFlag, g_player.moveFlag == true, g_player.leftFlag == false, PLAYER_ICE_MOVE_TEX);
 	Player_Aura_Draw(g_player.icedrawFlag, g_player.moveFlag == false, g_player.leftFlag == true, PLAYER_ICE_LEFT_TEX);
 	Player_Aura_Draw(g_player.icedrawFlag, g_player.moveFlag == true, g_player.leftFlag == true, PLAYER_ICE_LEFT_MOVE_TEX);
 
+	// 風のオーラをまとった主人公の左右の待機と移動を描画、アニメーションしている
 	Player_Aura_Draw(g_player.winddrawFlag, g_player.moveFlag == false, g_player.leftFlag == false, PLAYER_WIND_TEX);
 	Player_Aura_Draw(g_player.winddrawFlag, g_player.moveFlag == true, g_player.leftFlag == false, PLAYER_WIND_MOVE_TEX);
 	Player_Aura_Draw(g_player.winddrawFlag, g_player.moveFlag == false, g_player.leftFlag == true, PLAYER_WIND_LEFT_TEX);

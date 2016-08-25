@@ -12,7 +12,7 @@
 #include "PlayerControl.h"
 
 // 主人公の描画関数
-void Player_Draw()
+void Player_Draw(bool _moveflag, bool _leftflag, GAMETEX playertex)
 {
 	// 主人公の頂点情報
 	CUSTOMVERTEX main_charcter[4] =
@@ -27,7 +27,7 @@ void Player_Draw()
 
 	CUSTOMVERTEX drawplayer[4];					// 空のCUSTOMVERTEXを用意
 
-	if (g_player.drawFlag == true && g_player.moveFlag == false && g_player.leftFlag == false)
+	if (g_player.drawFlag == true && _moveflag && _leftflag)
 	{
 		for (int i = 0; i < 4; i++)
 		{
@@ -55,99 +55,7 @@ void Player_Draw()
 			animationtime = 0;
 		}
 
-		Draw_Obj(g_pTexture[PLAYER_TEX], drawplayer);
-	}
-	else if (g_player.drawFlag == true && g_player.moveFlag == true && g_player.leftFlag == false)
-	{
-		for (int i = 0; i < 4; i++)
-		{
-			drawplayer[i] = main_charcter[i];
-			drawplayer[i].x += g_player.posX;
-			drawplayer[i].y += g_player.posY;
-		}
-
-		animationtime++;
-
-		if (animationtime <= 60)
-		{
-			for (int i = 0; i < 4; i++)
-			{
-				drawplayer[i].tu += 0.5f;
-			}
-		}
-		else if (animationtime >= 120)
-		{
-			for (int i = 0; i < 4; i++)
-			{
-				drawplayer[i].tu -= 0.5f;
-			}
-
-			animationtime = 0;
-		}
-
-		Draw_Obj(g_pTexture[PLAYER_MOVE_TEX], drawplayer);
-	}
-
-	if (g_player.drawFlag == true && g_player.moveFlag == false && g_player.leftFlag == true)
-	{
-		for (int i = 0; i < 4; i++)
-		{
-			drawplayer[i] = main_charcter[i];
-			drawplayer[i].x += g_player.posX;
-			drawplayer[i].y += g_player.posY;
-		}
-
-		animationtime++;
-
-		if (animationtime <= 60)
-		{
-			for (int i = 0; i < 4; i++)
-			{
-				drawplayer[i].tu += 0.5f;
-			}
-		}
-		else if (animationtime >= 120)
-		{
-			for (int i = 0; i < 4; i++)
-			{
-				drawplayer[i].tu -= 0.5f;
-			}
-
-			animationtime = 0;
-		}
-
-		Draw_Obj(g_pTexture[PLAYER_LEFT_TEX], drawplayer);
-	}
-	else if (g_player.drawFlag == true && g_player.moveFlag == true && g_player.leftFlag == true)
-	{
-
-		for (int i = 0; i < 4; i++)
-		{
-			drawplayer[i] = main_charcter[i];
-			drawplayer[i].x += g_player.posX;
-			drawplayer[i].y += g_player.posY;
-		}
-
-		animationtime++;
-
-		if (animationtime <= 60)
-		{
-			for (int i = 0; i < 4; i++)
-			{
-				drawplayer[i].tu += 0.5f;
-			}
-		}
-		else if (animationtime >= 120)
-		{
-			for (int i = 0; i < 4; i++)
-			{
-				drawplayer[i].tu -= 0.5f;
-			}
-
-			animationtime = 0;
-		}
-
-		Draw_Obj(g_pTexture[PLAYER_LEFT_MOVE_TEX], drawplayer);
+		Draw_Obj(g_pTexture[playertex], drawplayer);
 	}
 }
 

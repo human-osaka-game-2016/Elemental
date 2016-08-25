@@ -47,8 +47,6 @@ void Player_Ice_Control();
 */
 void Player_Wind_Control();
 
-//void Player_aura_Control(KEYKIND _st, bool _auraflag);
-
 /// ålŒö‚Ì’eo‚µ‚Ì‘€ìŠÖ”
 /**
 * @return ‚È‚µ

@@ -29,30 +29,38 @@
 /// 画像枚数
 enum GAMETEX
 {
-	BACKGROUND_TEX,			//!< 背景画像を割り当てる
-	MAP_GROUND_TEX,			//!< マップチップを割り当てる
-	PLAYER_TEX,				//!< 主人公の画像を割り当てる
-	PLAYER_MOVE_TEX,
-	PLAYER_LEFT_TEX,
-	PLAYER_LEFT_MOVE_TEX,
-	PLAYER_FLAME_TEX,		//!< 焔オーラの主人公の画像を割り当てる
-	PLAYER_FLAME_MOVE_TEX,
-	PLAYER_FLAME_LEFT_TEX,
-	PLAYER_FLAME_LEFT_MOVE_TEX,
-	PLAYER_ICE_TEX,			//!< 凝オーラの主人公の画像を割り当てる
-	PLAYER_ICE_MOVE_TEX,
-	PLAYER_ICE_LEFT_TEX,
-	PLAYER_ICE_LEFT_MOVE_TEX,
-	PLAYER_WIND_TEX,		//!< 風オーラの主人公の画像を割り当てる
-	PLAYER_WIND_MOVE_TEX,
-	PLAYER_WIND_LEFT_TEX,
-	PLAYER_WIND_LEFT_MOVE_TEX,
-	KODORA_TEX,				//!< コドラの画像を割り当てる
-//	SKERETON_TEX,
-	BULLET_TEX,				//!< 弾の画像を割り当てる
-	WINDGIMMICK_TEX,		//!< 風のギミックの画像を割り当てる
-	TEX_MAX,				//!< 画像枚数の最大値
-};
+	BACKGROUND_TEX,					//!< 背景画像を割り当てる
+	MAP_GROUND_TEX,					//!< マップチップを割り当てる
+
+	PLAYER_TEX,						//!< 主人公の画像を割り当てる
+	PLAYER_MOVE_TEX,				//!< 主人公が移動したときの画像を割り当てる
+	PLAYER_LEFT_TEX,				//!< 主人公が左を向いたときの画像を割り当てる
+	PLAYER_LEFT_MOVE_TEX,			//!< 主人公が左向きで移動したときの画像を割り当てる
+
+	PLAYER_FLAME_TEX,				//!< 焔オーラの主人公の画像を割り当てる
+	PLAYER_FLAME_MOVE_TEX,			//!< 炎オーラの主人公が移動している画像を割り当てる
+	PLAYER_FLAME_LEFT_TEX,			//!< 炎オーラの主人公が左を向いたときの画像を割り当てる
+	PLAYER_FLAME_LEFT_MOVE_TEX,		//!< 炎オーラの主人公が左を向きで移動したときの画像を割り当てる
+
+	PLAYER_ICE_TEX,					//!< 凝オーラの主人公の画像を割り当てる
+	PLAYER_ICE_MOVE_TEX,			//!< 氷オーラの主人公が移動している画像を割り当てる
+	PLAYER_ICE_LEFT_TEX,			//!< 氷オーラの主人公が左を向いたときの画像を割り当てる
+	PLAYER_ICE_LEFT_MOVE_TEX,		//!< 氷オーラの主人公が左を向きで移動したときの画像を割り当てる
+
+	PLAYER_WIND_TEX,				//!< 風オーラの主人公の画像を割り当てる
+	PLAYER_WIND_MOVE_TEX,			//!< 風オーラの主人公が移動している画像を割り当てる
+	PLAYER_WIND_LEFT_TEX,			//!< 風オーラの主人公が左を向いたときの画像を割り当てる
+	PLAYER_WIND_LEFT_MOVE_TEX,		//!< 風オーラの主人公が左を向きで移動したときの画像を割り当てる
+
+	KODORA_TEX,						//!< コドラの画像を割り当てる
+//	SKERETON_TEX,					//!< 
+
+	BULLET_TEX,						//!< 弾の画像を割り当てる
+
+	WINDGIMMICK_TEX,				//!< 風のギミックの画像を割り当てる
+
+	TEX_MAX,						//!< 画像枚数の最大値
+};		
 
 ////////////////////////////////////////////////
 // 使用する関数のプロトタイプ宣言
@@ -95,9 +103,9 @@ void Tex_Free();
 // extern
 ////////////////////////////////////////////////
 
-extern float g_ScreenOriginX;					//! 画面の左上のｘ座標
-extern float g_ScreenOriginY;					//! 画面の左上のｙ座標
-extern int map[MAP_HEIGHT][MAP_WIDTH];			//! csvで読み込んだマップの2次元配列
-extern LPDIRECT3DTEXTURE9 g_pTexture[TEX_MAX];	//! DirectXテクスチャ・オブジェクトへのポインタ
+extern float g_ScreenOriginX;					//!< 画面の左上のｘ座標
+extern float g_ScreenOriginY;					//!< 画面の左上のｙ座標
+extern int map[MAP_HEIGHT][MAP_WIDTH];			//!< csvで読み込んだマップの2次元配列
+extern LPDIRECT3DTEXTURE9 g_pTexture[TEX_MAX];	//!< DirectXテクスチャ・オブジェクトへのポインタ
 
 #endif

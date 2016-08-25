@@ -12,7 +12,7 @@
 #include "../Player/PlayerDraw.h"
 
 
-PLAYER_STATE g_player = { 150.f, 350.f, 0.f, true, false, false, false, false, false, false, false, false, false, false, false };
+PLAYER_STATE g_player = { 150.f, 350.f, 0.f, true, false, false, false, false, false, false, false, false, false, false};
 
 ENEMY_STATE g_kodora[KODORA_MAX];
 
@@ -29,31 +29,57 @@ void Init()
 	Load_Texture("ワールドチップ.png", &g_pTexture[MAP_GROUND_TEX]);
 	Load_Texture("Resource/Texture/Background/inside.png", &g_pTexture[BACKGROUND_TEX]);
 
+	// 通常の主人公の画像
 	Load_Texture("Resource/Texture/Player/normal_player/player_state.png", &g_pTexture[PLAYER_TEX]);
 	Load_Texture("Resource/Texture/Player/normal_player/player_move.png", &g_pTexture[PLAYER_MOVE_TEX]);
 	Load_Texture("Resource/Texture/Player/normal_player_reverse/r_player_state.png", &g_pTexture[PLAYER_LEFT_TEX]);
 	Load_Texture("Resource/Texture/Player/normal_player_reverse/r_player_move.png", &g_pTexture[PLAYER_LEFT_MOVE_TEX]);
 
+	// 炎のオーラをまとった主人公の画像
 	Load_Texture("Resource/Texture/Player/fire_player/f_player_state.png", &g_pTexture[PLAYER_FLAME_TEX]);
 	Load_Texture("Resource/Texture/Player/fire_player/f_player_move.png", &g_pTexture[PLAYER_FLAME_MOVE_TEX]);
 	Load_Texture("Resource/Texture/Player/fire_player_reverse/r_f_player_state.png", &g_pTexture[PLAYER_FLAME_LEFT_TEX]);
 	Load_Texture("Resource/Texture/Player/fire_player_reverse/r_f_player_move.png", &g_pTexture[PLAYER_FLAME_LEFT_MOVE_TEX]);
 
+	// 氷のオーラをまとった主人公の画像
 	Load_Texture("Resource/Texture/Player/ice_player/i_player_state.png", &g_pTexture[PLAYER_ICE_TEX]);
 	Load_Texture("Resource/Texture/Player/ice_player/i_player_move.png", &g_pTexture[PLAYER_ICE_MOVE_TEX]);
 	Load_Texture("Resource/Texture/Player/ice_player_reverse/r_i_player_state.png", &g_pTexture[PLAYER_ICE_LEFT_TEX]);
 	Load_Texture("Resource/Texture/Player/ice_player_reverse/r_i_player_move.png", &g_pTexture[PLAYER_ICE_LEFT_MOVE_TEX]);
 
+	// 風のオーラをまとった主人公の画像
 	Load_Texture("Resource/Texture/Player/wind_player/w_player_state.png", &g_pTexture[PLAYER_WIND_TEX]);
 	Load_Texture("Resource/Texture/Player/wind_player/w_player_move.png", &g_pTexture[PLAYER_WIND_MOVE_TEX]);
 	Load_Texture("Resource/Texture/Player/wind_player_reverse/r_w_player_state.png", &g_pTexture[PLAYER_WIND_LEFT_TEX]);
 	Load_Texture("Resource/Texture/Player/wind_player_reverse/r_w_player_move.png", &g_pTexture[PLAYER_WIND_LEFT_MOVE_TEX]);
 
+	// コドラの画像
 	Load_Texture("ゴジラ.png", &g_pTexture[KODORA_TEX]);
+
+	// スケルトンの画像
+
+	// スライムの画像
+
+	// 炎の弾の画像
+
+	// 氷の弾の画像
+
+	// 風の弾の画像
+	
+	// 仮の画像
 	Load_Texture("Bubble.png", &g_pTexture[BULLET_TEX]);
+
+	// 炎のギミックの画像
+
+	// 氷のギミックの画像
+
+	// 風のギミックの画像
 	Load_Texture("Resource/Texture/Gimmick/tornado.png", &g_pTexture[WINDGIMMICK_TEX]);
+
+	//マップの読み込み
 	Load_Map("Resource/file/ElementalWorld.csv");
 
+	// コドラの初期化
 	for (int i = 0; i < KODORA_MAX; i++)
 	{
 		g_kodora[i].drawFlag = true;
@@ -62,6 +88,7 @@ void Init()
 		g_kodora[i].posY = 350.f;
 	}
 
+	// 弾の初期化
 	for (int i = 0; i < BULLET_MAX; i++)
 	{
 		g_bullet[i].drawFlag = false;

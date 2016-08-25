@@ -21,6 +21,9 @@ void WindGimmick_Draw()
 		{ 0.0f, 512.f, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 1.0f },
 	};
 
+	static int animatime = 0;
+	static int animacount = 0;
+
 	for (int j = 0; j < KODORA_MAX; j++)
 	{
 		if (g_kodora[j].hitFlag == true)
@@ -34,6 +37,23 @@ void WindGimmick_Draw()
 				drawgimmick[i].y += g_kodora[j].posY;
 				drawgimmick[i].x -= 128;
 				drawgimmick[i].y -= 350;
+			}
+			animatime++;
+
+			if (animatime % 60 == 0)
+			{
+				for (int i = 0; i < 4; i++)
+				{
+					windgimmick[i].tu += (0.25f * animacount);
+				}
+				animacount++;
+			}
+
+			
+
+			if (animacount == 4)
+			{
+				animacount = 0;
 			}
 
 			Draw_Obj(g_pTexture[WINDGIMMICK_TEX], drawgimmick);
