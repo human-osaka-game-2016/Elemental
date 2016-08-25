@@ -117,10 +117,7 @@ void Player_Control()
 			}
 		}
 	}
-	else
-	{
-		g_player.moveFlag = false;
-	}
+
 
 	
 	if (g_Key[UP] == PUSH && g_player.skyFlag == false)
@@ -293,15 +290,30 @@ void Player_Bullet_Control()
 	// o‚µ‚½’e‚ÌÀ•W‚ğ“®‚©‚µ‚Ä‚¢‚é
 	for (int i = 0; i < BULLET_MAX; i++)
 	{
+
 		if (g_bullet[i].drawFlag == true)
 		{
-			g_bullet[i].posX += BULLET_SPEED;
-
-			for (int j = 0; j < 4; j++)
+			if (g_player.leftFlag == true)
 			{
-				g_bullet[i].bullet[j].x += BULLET_SPEED;
+				g_bullet[i].posX -= BULLET_SPEED;
+
+				for (int j = 0; j < 4; j++)
+				{
+					g_bullet[i].bullet[j].x -= BULLET_SPEED;
+				}
+			}
+			else
+			{
+				g_bullet[i].posX += BULLET_SPEED;
+
+				for (int j = 0; j < 4; j++)
+				{
+					g_bullet[i].bullet[j].x += BULLET_SPEED;
+
+				}
 			}
 		}
+	
 	}
 }
 

@@ -29,20 +29,29 @@
 /// 画像枚数
 enum GAMETEX
 {
-	BACKGROUND_TEX,		//!< 背景画像を割り当てる
-	MAP_GROUND_TEX,		//!< マップチップを割り当てる
-	PLAYER_TEX,			//!< 主人公の画像を割り当てる
+	BACKGROUND_TEX,			//!< 背景画像を割り当てる
+	MAP_GROUND_TEX,			//!< マップチップを割り当てる
+	PLAYER_TEX,				//!< 主人公の画像を割り当てる
 	PLAYER_MOVE_TEX,
 	PLAYER_LEFT_TEX,
 	PLAYER_LEFT_MOVE_TEX,
-	PLAYER_FLAME_TEX,	//!< 焔オーラの主人公の画像を割り当てる
-	PLAYER_ICE_TEX,		//!< 凝オーラの主人公の画像を割り当てる
-	PLAYER_WIND_TEX,	//!< 風オーラの主人公の画像を割り当てる
-	KODORA_TEX,			//!< コドラの画像を割り当てる
+	PLAYER_FLAME_TEX,		//!< 焔オーラの主人公の画像を割り当てる
+	PLAYER_FLAME_MOVE_TEX,
+	PLAYER_FLAME_LEFT_TEX,
+	PLAYER_FLAME_LEFT_MOVE_TEX,
+	PLAYER_ICE_TEX,			//!< 凝オーラの主人公の画像を割り当てる
+	PLAYER_ICE_MOVE_TEX,
+	PLAYER_ICE_LEFT_TEX,
+	PLAYER_ICE_LEFT_MOVE_TEX,
+	PLAYER_WIND_TEX,		//!< 風オーラの主人公の画像を割り当てる
+	PLAYER_WIND_MOVE_TEX,
+	PLAYER_WIND_LEFT_TEX,
+	PLAYER_WIND_LEFT_MOVE_TEX,
+	KODORA_TEX,				//!< コドラの画像を割り当てる
 //	SKERETON_TEX,
-	BULLET_TEX,			//!< 弾の画像を割り当てる
-	WINDGIMMICK_TEX,	//!< 風のギミックの画像を割り当てる
-	TEX_MAX,			//!< 画像枚数の最大値
+	BULLET_TEX,				//!< 弾の画像を割り当てる
+	WINDGIMMICK_TEX,		//!< 風のギミックの画像を割り当てる
+	TEX_MAX,				//!< 画像枚数の最大値
 };
 
 ////////////////////////////////////////////////

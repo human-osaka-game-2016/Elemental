@@ -40,9 +40,22 @@ void Render()
 	Draw_Map();
 	Draw_Kodora();
 	Player_Draw();
-	Player_Aura_Draw(g_player.flamedrawFlag, PLAYER_FLAME_TEX);
-	Player_Aura_Draw(g_player.icedrawFlag, PLAYER_ICE_TEX);
-	Player_Aura_Draw(g_player.winddrawFlag, PLAYER_WIND_TEX);
+
+	Player_Aura_Draw(g_player.flamedrawFlag, g_player.moveFlag == false, g_player.leftFlag == false, PLAYER_FLAME_TEX);
+	Player_Aura_Draw(g_player.flamedrawFlag, g_player.moveFlag == true, g_player.leftFlag == false, PLAYER_FLAME_MOVE_TEX);
+	Player_Aura_Draw(g_player.flamedrawFlag, g_player.moveFlag == false, g_player.leftFlag == true, PLAYER_FLAME_LEFT_TEX);
+	Player_Aura_Draw(g_player.flamedrawFlag, g_player.moveFlag == true, g_player.leftFlag == true, PLAYER_FLAME_LEFT_MOVE_TEX);
+
+	Player_Aura_Draw(g_player.icedrawFlag, g_player.moveFlag == false, g_player.leftFlag == false, PLAYER_ICE_TEX);
+	Player_Aura_Draw(g_player.icedrawFlag, g_player.moveFlag == true, g_player.leftFlag == false, PLAYER_ICE_MOVE_TEX);
+	Player_Aura_Draw(g_player.icedrawFlag, g_player.moveFlag == false, g_player.leftFlag == true, PLAYER_ICE_LEFT_TEX);
+	Player_Aura_Draw(g_player.icedrawFlag, g_player.moveFlag == true, g_player.leftFlag == true, PLAYER_ICE_LEFT_MOVE_TEX);
+
+	Player_Aura_Draw(g_player.winddrawFlag, g_player.moveFlag == false, g_player.leftFlag == false, PLAYER_WIND_TEX);
+	Player_Aura_Draw(g_player.winddrawFlag, g_player.moveFlag == true, g_player.leftFlag == false, PLAYER_WIND_MOVE_TEX);
+	Player_Aura_Draw(g_player.winddrawFlag, g_player.moveFlag == false, g_player.leftFlag == true, PLAYER_WIND_LEFT_TEX);
+	Player_Aura_Draw(g_player.winddrawFlag, g_player.moveFlag == true, g_player.leftFlag == true, PLAYER_WIND_LEFT_MOVE_TEX);
+
 	Player_Bullet_Draw();
 	WindGimmick_Draw();
 	Draw_End();

@@ -33,7 +33,7 @@ void Player_Draw();
  * @param [in] _auratex　	どのオーラに画像を割り当てるか
  * @return なし
  */
-void Player_Aura_Draw(bool _auraFlag, GAMETEX _auratex);
+void Player_Aura_Draw(bool _auraFlag, bool _moveflag, bool _leftflag, GAMETEX _auratex);
 
 /// 主人公の出す弾の描画関数
 /**

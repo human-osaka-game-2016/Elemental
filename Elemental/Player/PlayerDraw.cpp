@@ -23,6 +23,7 @@ void Player_Draw()
 		{ 0.0f, 128.0f, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 1.0f },
 
 	};
+	static int animationtime = 0;
 
 	CUSTOMVERTEX drawplayer[4];					// 空のCUSTOMVERTEXを用意
 
@@ -35,6 +36,25 @@ void Player_Draw()
 			drawplayer[i].y += g_player.posY;		// 主人公の現在位置をY軸に代入
 		}
 
+		animationtime++;
+
+		if (animationtime <= 60)
+		{
+			for (int i = 0; i < 4; i++)
+			{
+				drawplayer[i].tu += 0.5f;
+			}
+		}
+		else if (animationtime >= 120)
+		{
+			for (int i = 0; i < 4; i++)
+			{
+				drawplayer[i].tu -= 0.5f;
+			}
+
+			animationtime = 0;
+		}
+
 		Draw_Obj(g_pTexture[PLAYER_TEX], drawplayer);
 	}
 	else if (g_player.drawFlag == true && g_player.moveFlag == true && g_player.leftFlag == false)
@@ -45,6 +65,26 @@ void Player_Draw()
 			drawplayer[i].x += g_player.posX;
 			drawplayer[i].y += g_player.posY;
 		}
+
+		animationtime++;
+
+		if (animationtime <= 60)
+		{
+			for (int i = 0; i < 4; i++)
+			{
+				drawplayer[i].tu += 0.5f;
+			}
+		}
+		else if (animationtime >= 120)
+		{
+			for (int i = 0; i < 4; i++)
+			{
+				drawplayer[i].tu -= 0.5f;
+			}
+
+			animationtime = 0;
+		}
+
 		Draw_Obj(g_pTexture[PLAYER_MOVE_TEX], drawplayer);
 	}
 
@@ -56,6 +96,26 @@ void Player_Draw()
 			drawplayer[i].x += g_player.posX;
 			drawplayer[i].y += g_player.posY;
 		}
+
+		animationtime++;
+
+		if (animationtime <= 60)
+		{
+			for (int i = 0; i < 4; i++)
+			{
+				drawplayer[i].tu += 0.5f;
+			}
+		}
+		else if (animationtime >= 120)
+		{
+			for (int i = 0; i < 4; i++)
+			{
+				drawplayer[i].tu -= 0.5f;
+			}
+
+			animationtime = 0;
+		}
+
 		Draw_Obj(g_pTexture[PLAYER_LEFT_TEX], drawplayer);
 	}
 	else if (g_player.drawFlag == true && g_player.moveFlag == true && g_player.leftFlag == true)
@@ -67,12 +127,32 @@ void Player_Draw()
 			drawplayer[i].x += g_player.posX;
 			drawplayer[i].y += g_player.posY;
 		}
+
+		animationtime++;
+
+		if (animationtime <= 60)
+		{
+			for (int i = 0; i < 4; i++)
+			{
+				drawplayer[i].tu += 0.5f;
+			}
+		}
+		else if (animationtime >= 120)
+		{
+			for (int i = 0; i < 4; i++)
+			{
+				drawplayer[i].tu -= 0.5f;
+			}
+
+			animationtime = 0;
+		}
+
 		Draw_Obj(g_pTexture[PLAYER_LEFT_MOVE_TEX], drawplayer);
 	}
 }
 
 // オーラをまとった主人公を描画できるようにする関数
-void Player_Aura_Draw(bool _auraFlag, GAMETEX _auratex)
+void Player_Aura_Draw(bool _auraFlag, bool _moveflag, bool _leftflag, GAMETEX _auratex)
 {
 	// オーラ主人公の頂点情報
 	CUSTOMVERTEX auracharcter[4] =
@@ -83,17 +163,39 @@ void Player_Aura_Draw(bool _auraFlag, GAMETEX _auratex)
 		{ 0.0f, 128.0f, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 1.0f },
 	};
 
-	if (_auraFlag == true)
-	{
-		CUSTOMVERTEX playerauradraw[4];
+	static int animationtime = 0;
+
+	CUSTOMVERTEX playerauradraw[4];
+
+	if (_auraFlag == true && _moveflag && _leftflag)
+	{		
 		for (int i = 0; i < 4; i++)
 		{
 			playerauradraw[i] = auracharcter[i];
 			playerauradraw[i].x += g_player.posX;
 			playerauradraw[i].y += g_player.posY;
 		}
+		animationtime++;
+
+		if (animationtime <= 60)
+		{
+			for (int i = 0; i < 4; i++)
+			{
+				playerauradraw[i].tu += 0.5f;
+			}
+		}
+		else if (animationtime >= 120)
+		{
+			for (int i = 0; i < 4; i++)
+			{
+				playerauradraw[i].tu -= 0.5f;
+			}
+
+			animationtime = 0;
+		}
 		Draw_Obj(g_pTexture[_auratex], playerauradraw);
 	}
+	
 }
 
 // 主人公の出す弾の描画関数
@@ -157,3 +259,4 @@ void Player_Bullet_Draw()
 		}
 	}
 }
+
