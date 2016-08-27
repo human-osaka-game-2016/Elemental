@@ -8,6 +8,7 @@
 
 #include <Direct_Draw.h>
 #include "../Player/PlayerDraw.h"
+#include "../GameScene/GameSceneDraw.h"
 
 ////////////////////////////////////////////////
 // 型
@@ -19,6 +20,7 @@ typedef struct
 	float posX;				//!< 主人公のX座標
 	float posY;				//!< 主人公のY座標
 	float acceleration;		//!< ジャンプするときの加速度
+	AURA p_elerent;
 	bool drawFlag;			//!< 描画されるかどうかのフラグ
 	bool moveFlag;			//!< 動いたかどうかのフラグ
 	bool leftFlag;			//!< 左を向いたかどうかのフラグ
@@ -26,10 +28,8 @@ typedef struct
 	bool jumpFlag;			//!< ジャンプするかどうかのフラグ
 	bool rightdashFlag;		//!< 右にダッシュするかどうかのフラグ
 	bool leftdashFlag;		//!< 左にダッシュするかどうかのフラグ
-	bool hitFlag;			//!< 何かに当てた又は、何かに当たったどうかのフラグ
-	bool flamedrawFlag;		//!< 焔のオーラの主人公を描画するかどうかのフラグ
-	bool icedrawFlag;		//!< 凍のオーラの主人公を描画するかどうかのフラグ
-	bool winddrawFlag;		//!< 疾風(風)のオーラの主人公を描画するかどうかのフラグ
+	bool hitFlag;			//!< 何かに当たったどうかのフラグ
+	bool animationFlag;
 
 }PLAYER_STATE;
 
@@ -50,6 +50,7 @@ typedef struct
 	float posY;					//!< 弾のY座標
 	bool initFlag;				//!< 弾の初期化のフラグ
 	bool drawFlag;				//!< 弾の描画のフラグ
+	bool leftFlag;
 
 }BULLET_STATE;
 
@@ -63,6 +64,7 @@ void Init();
 // extern
 ////////////////////////////////////////////////
 
-extern ENEMY_STATE g_kodora[KODORA_MAX];	//!< 敵の様々な情報を持つ構造体
-extern PLAYER_STATE g_player;				//!< 主人公の様々な情報を持つ構造体
-extern BULLET_STATE g_bullet[BULLET_MAX];	//!< 弾の様々な情報を持つ構造体の配列
+extern ENEMY_STATE g_kodora[KODORA_MAX];		//!< 敵の様々な情報を持つ構造体
+extern ENEMY_STATE g_skereton[SKERETON_MAX];
+extern PLAYER_STATE g_player;					//!< 主人公の様々な情報を持つ構造体
+extern BULLET_STATE g_bullet[BULLET_MAX];		//!< 弾の様々な情報を持つ構造体の配列

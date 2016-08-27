@@ -63,9 +63,6 @@
     <ClCompile Include="Enemy\EnemyControl.cpp">
       <Filter>ソース ファイル\ENEMY</Filter>
     </ClCompile>
-    <ClCompile Include="Enemy\EnemyDraw.cpp">
-      <Filter>ソース ファイル\ENEMY</Filter>
-    </ClCompile>
     <ClCompile Include="GameScene\GameSceneControl.cpp">
       <Filter>ソース ファイル\GAMESCENE</Filter>
     </ClCompile>
@@ -98,6 +95,9 @@
     </ClCompile>
     <ClCompile Include="Gmmick\IceGimmick_Control.cpp">
       <Filter>ソース ファイル\GIMMICK\ICE</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy\EnemyDraw.cpp">
+      <Filter>ソース ファイル\ENEMY</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -184,66 +184,40 @@ void Player_Control()
 	}
 }
 
-void Player_Flame_Control()
+void Player_Aura_Control()
 {
-	if (g_Key[Z] == ON && g_player.flamedrawFlag == false)
+	if (g_Key[Z] == ON)
 	{
-		g_player.flamedrawFlag = true;
+		g_player.p_elerent = FLAME;
 		g_player.drawFlag = false;
-	}
 
-	if (g_Key[Z] == OFF && g_player.flamedrawFlag == true)
+		return;
+	}
+	else if (g_Key[X] == ON)
 	{
-		g_player.flamedrawFlag = false;
-		g_player.drawFlag = true;
+		g_player.p_elerent = ICE;
+		g_player.drawFlag = false;
+
+		return;
+	}
+	else if (g_Key[C] == ON)
+	{
+		g_player.p_elerent = WIND;
+		g_player.drawFlag = false;
+
+		return;
+	}
+	else
+	{
+		g_player.p_elerent = NORMAL;
+		
+		for (int i = 0; i < BULLET_MAX; i++)
+		{
+			g_bullet[i].drawFlag = false;
+			g_bullet[i].initFlag = true;
+		}
 	}
 }
-
-void Player_Ice_Control()
-{
-	if (g_Key[X] == ON && g_player.icedrawFlag == false)
-	{
-		g_player.icedrawFlag = true;
-		g_player.drawFlag = false;
-	}
-
-	if (g_Key[X] == OFF && g_player.icedrawFlag == true)
-	{
-		g_player.icedrawFlag = false;
-		g_player.drawFlag = true;
-	}
-}
-
-void Player_Wind_Control()
-{
-	if (g_Key[C] == ON && g_player.winddrawFlag == false)
-	{
-		g_player.winddrawFlag = true;
-		g_player.drawFlag = false;
-	}
-
-	if (g_Key[C] == OFF && g_player.winddrawFlag == true)
-	{
-		g_player.winddrawFlag = false;
-		g_player.drawFlag = true;
-	}
-}
-/*
-void Player_aura_Control(KEYKIND _key, bool _auraflag)
-{
-	if (g_Key[_key] == ON && _auraflag == false)
-	{
-		_auraflag = true;
-		g_player.drawFlag = false;
-	}
-
-	if (g_Key[_key] == OFF && _auraflag == true)
-	{
-		_auraflag = false;
-		g_player.drawFlag = true;
-	}
-}
-*/
 
 // ŽålŒö‚Ì’eo‚µ‚ÌŠÖ”
 void Player_Bullet_Control()
@@ -251,38 +225,13 @@ void Player_Bullet_Control()
 	// o‚¹‚é’e‚ÌÅ‘å’l‚¾‚¯for‚Å‰ñ‚µ‚Ä‚é
 	for (int i = 0; i < BULLET_MAX; i++)
 	{
-		if (g_Key[SPACE] == PUSH && g_bullet[i].drawFlag == false /*&& g_player.flamedrawFlag == true*/)
+		if (g_Key[SPACE] == PUSH && g_bullet[i].drawFlag == false && g_player.drawFlag == false)
 		{
 			g_bullet[i].posX = g_player.posX;
 			g_bullet[i].posY = g_player.posY;
 			g_bullet[i].drawFlag = true;
 			g_bullet[i].initFlag = false;
-			break;
-		}
-	}
-
-	// o‚¹‚é’e‚ÌÅ‘å’l‚¾‚¯for‚Å‰ñ‚µ‚Ä‚é
-	for (int i = 0; i < BULLET_MAX; i++)
-	{
-		if (g_Key[SPACE] == PUSH && g_bullet[i].drawFlag == false && g_player.icedrawFlag == true)
-		{
-			g_bullet[i].posX = g_player.posX;
-			g_bullet[i].posY = g_player.posY;
-			g_bullet[i].drawFlag = true;
-			g_bullet[i].initFlag = false;
-			break;
-		}
-	}
-
-	// o‚¹‚é’e‚ÌÅ‘å’l‚¾‚¯for‚Å‰ñ‚µ‚Ä‚é
-	for (int i = 0; i < BULLET_MAX; i++)
-	{
-		if (g_Key[SPACE] == PUSH && g_bullet[i].drawFlag == false && g_player.winddrawFlag == true)
-		{
-			g_bullet[i].posX = g_player.posX;
-			g_bullet[i].posY = g_player.posY;
-			g_bullet[i].drawFlag = true;
-			g_bullet[i].initFlag = false;
+			g_bullet[i].leftFlag = g_player.leftFlag;
 			break;
 		}
 	}
@@ -293,7 +242,7 @@ void Player_Bullet_Control()
 
 		if (g_bullet[i].drawFlag == true)
 		{
-			if (g_player.leftFlag == true)
+			if (g_bullet[i].leftFlag == true)
 			{
 				g_bullet[i].posX -= BULLET_SPEED;
 
@@ -302,7 +251,7 @@ void Player_Bullet_Control()
 					g_bullet[i].bullet[j].x -= BULLET_SPEED;
 				}
 			}
-			else
+			else 
 			{
 				g_bullet[i].posX += BULLET_SPEED;
 

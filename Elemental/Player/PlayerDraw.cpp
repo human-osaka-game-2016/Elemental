@@ -11,8 +11,8 @@
 #include "PlayerDraw.h"
 #include "PlayerControl.h"
 
-// 主人公の描画関数
-void Player_Draw(bool _moveflag, bool _leftflag, GAMETEX playertex)
+// オーラをまとった主人公を描画できるようにする関数
+void Player_Draw()
 {
 	// 主人公の頂点情報
 	CUSTOMVERTEX main_charcter[4] =
@@ -23,85 +23,150 @@ void Player_Draw(bool _moveflag, bool _leftflag, GAMETEX playertex)
 		{ 0.0f, 128.0f, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 1.0f },
 
 	};
-	static int animationtime = 0;
-
-	CUSTOMVERTEX drawplayer[4];					// 空のCUSTOMVERTEXを用意
-
-	if (g_player.drawFlag == true && _moveflag && _leftflag)
-	{
-		for (int i = 0; i < 4; i++)
-		{
-			drawplayer[i] = main_charcter[i];		// main_charcterの頂点情報を空のCUSTOMVERTEXに代入
-			drawplayer[i].x += g_player.posX;		// 主人公の現在位置をX軸に代入
-			drawplayer[i].y += g_player.posY;		// 主人公の現在位置をY軸に代入
-		}
-
-		animationtime++;
-
-		if (animationtime <= 60)
-		{
-			for (int i = 0; i < 4; i++)
-			{
-				drawplayer[i].tu += 0.5f;
-			}
-		}
-		else if (animationtime >= 120)
-		{
-			for (int i = 0; i < 4; i++)
-			{
-				drawplayer[i].tu -= 0.5f;
-			}
-
-			animationtime = 0;
-		}
-
-		Draw_Obj(g_pTexture[playertex], drawplayer);
-	}
-}
-
-// オーラをまとった主人公を描画できるようにする関数
-void Player_Aura_Draw(bool _auraFlag, bool _moveflag, bool _leftflag, GAMETEX _auratex)
-{
-	// オーラ主人公の頂点情報
-	CUSTOMVERTEX auracharcter[4] =
-	{
-		{ 0.0f, 0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 0.0f },
-		{ 128.0f, 0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 0.5f, 0.0f },
-		{ 128.0f, 128.0f, 0.5f, 1.0f, 0xFFFFFFFF, 0.5f, 1.0f },
-		{ 0.0f, 128.0f, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 1.0f },
-	};
 
 	static int animationtime = 0;
 
 	CUSTOMVERTEX playerauradraw[4];
 
-	if (_auraFlag == true && _moveflag && _leftflag)
-	{		
 		for (int i = 0; i < 4; i++)
 		{
-			playerauradraw[i] = auracharcter[i];
+			playerauradraw[i] = main_charcter[i];
 			playerauradraw[i].x += g_player.posX;
 			playerauradraw[i].y += g_player.posY;
 		}
-		animationtime++;
+	
+	animationtime++;
 
-		if (animationtime <= 60)
+	if (animationtime <= 60)
+	{
+		for (int i = 0; i < 4; i++)
 		{
-			for (int i = 0; i < 4; i++)
+			playerauradraw[i].tu += 0.5f;
+		}
+	}
+	else if (animationtime >= 120)
+	{
+		for (int i = 0; i < 4; i++)
+		{
+			playerauradraw[i].tu -= 0.5f;
+		}
+
+		animationtime = 0;
+	}
+
+	switch (g_player.p_elerent)
+	{
+	case NORMAL:
+
+		if (g_player.leftFlag == true)
+		{
+			if (g_player.moveFlag == true)
 			{
-				playerauradraw[i].tu += 0.5f;
+				Draw_Obj(g_pTexture[PLAYER_LEFT_MOVE_TEX], playerauradraw);
+			}
+			else
+			{
+				Draw_Obj(g_pTexture[PLAYER_LEFT_TEX], playerauradraw);
+			}
+
+		}
+		else
+		{
+			if (g_player.moveFlag == true)
+			{
+				Draw_Obj(g_pTexture[PLAYER_RIGHT_MOVE_TEX], playerauradraw);
+			}
+			else
+			{
+				Draw_Obj(g_pTexture[PLAYER_RIGHT_TEX], playerauradraw);
 			}
 		}
-		else if (animationtime >= 120)
+
+		break;
+
+	case FLAME:
+		
+		if (g_player.leftFlag == true)
 		{
-			for (int i = 0; i < 4; i++)
+			if (g_player.moveFlag == true)
 			{
-				playerauradraw[i].tu -= 0.5f;
+				Draw_Obj(g_pTexture[PLAYER_FLAME_LEFT_MOVE_TEX], playerauradraw);
+			}
+			else
+			{
+				Draw_Obj(g_pTexture[PLAYER_FLAME_LEFT_TEX], playerauradraw);
 			}
 
-			animationtime = 0;
 		}
-		Draw_Obj(g_pTexture[_auratex], playerauradraw);
+		else
+		{
+			if (g_player.moveFlag == true)
+			{
+				Draw_Obj(g_pTexture[PLAYER_FLAME_RIGHT_MOVE_TEX], playerauradraw);
+			}
+			else
+			{
+				Draw_Obj(g_pTexture[PLAYER_FLAME_RIGHT_TEX], playerauradraw);
+			}
+		}
+
+		break;
+
+	case ICE:
+
+		if (g_player.leftFlag == true)
+		{
+			if (g_player.moveFlag == true)
+			{
+				Draw_Obj(g_pTexture[PLAYER_ICE_LEFT_MOVE_TEX], playerauradraw);
+			}
+			else
+			{
+				Draw_Obj(g_pTexture[PLAYER_ICE_LEFT_TEX], playerauradraw);
+			}
+
+		}
+		else
+		{
+			if (g_player.moveFlag == true)
+			{
+				Draw_Obj(g_pTexture[PLAYER_ICE_RIGHT_MOVE_TEX], playerauradraw);
+			}
+			else
+			{
+				Draw_Obj(g_pTexture[PLAYER_ICE_RIGHT_TEX], playerauradraw);
+			}
+		}
+
+		break;
+
+	case WIND:
+
+		if (g_player.leftFlag == true)
+		{
+			if (g_player.moveFlag == true)
+			{
+				Draw_Obj(g_pTexture[PLAYER_WIND_LEFT_MOVE_TEX], playerauradraw);
+			}
+			else
+			{
+				Draw_Obj(g_pTexture[PLAYER_WIND_LEFT_TEX], playerauradraw);
+			}
+
+		}
+		else
+		{
+			if (g_player.moveFlag == true)
+			{
+				Draw_Obj(g_pTexture[PLAYER_WIND_RIGHT_MOVE_TEX], playerauradraw);
+			}
+			else
+			{
+				Draw_Obj(g_pTexture[PLAYER_WIND_RIGHT_TEX], playerauradraw);
+			}
+		}
+
+		break;
 	}
 	
 }
@@ -112,8 +177,8 @@ void Player_Bullet_Draw()
 	CUSTOMVERTEX bullet[4] =
 	{
 		{ 0.0f, 0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 0.0f },
-		{ 128.f, 0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 1.0f, 0.0f },
-		{ 128.f, 128.f, 0.5f, 1.0f, 0xFFFFFFFF, 1.0f, 1.0f },
+		{ 128.f, 0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 0.25f, 0.0f },
+		{ 128.f, 128.f, 0.5f, 1.0f, 0xFFFFFFFF, 0.25f, 1.0f },
 		{ 0.0f, 128.f, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 1.0f },
 	};
 
@@ -159,12 +224,35 @@ void Player_Bullet_Draw()
 				g_bullet[i].bullet[j].x += g_player.posX;
 				g_bullet[i].bullet[j].y += g_player.posY;
 			}
-		}
 
+		}
+		
 		if (g_bullet[i].drawFlag == true)
 		{
-			Draw_Obj(g_pTexture[BULLET_TEX], g_bullet[i].bullet);
+			switch (g_player.p_elerent)
+			{
+			case FLAME:
+
+				Draw_Obj(g_pTexture[PLAYER_FLAME_RIGHT_ATTACK_TEX], g_bullet[i].bullet);
+
+				break;
+
+			case ICE:
+
+				Draw_Obj(g_pTexture[PLAYER_ICE_RIGHT_ATTACK_TEX], g_bullet[i].bullet);
+
+				break;
+
+			case WIND:
+
+				Draw_Obj(g_pTexture[PLAYER_WIND_RIGHT_ATTACK_TEX], g_bullet[i].bullet);
+
+				break;
+			}
 		}
+
+			
+
 	}
 }
 

@@ -29,23 +29,7 @@
  */
 void Player_Control();
 
-/// 炎のオーラをまとわせる操作関数
-/**
-* @return なし
-*/
-void Player_Flame_Control();
-
-/// 氷のオーラをまとわせる操作関数
-/**
-* @return なし
-*/
-void Player_Ice_Control();
-
-/// 風のオーラをまとらせる操作関数
-/**
-* @return なし
-*/
-void Player_Wind_Control();
+void Player_Aura_Control();
 
 /// 主人公の弾出しの操作関数
 /**

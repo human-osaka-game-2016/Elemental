@@ -34,11 +34,10 @@ void Control()
 	Check_Key(DIK_SPACE, SPACE);
 
 	Player_Control();
-	Player_Flame_Control();
-	Player_Ice_Control();
-	Player_Wind_Control();
+	Player_Aura_Control();
 	Player_Bullet_Control();
 	Kodora_Control();
+	skeleton_Control();
 }
 
 bool Map_Collision_Check(float _x, float _y, int _sx, int _sy)

@@ -19,4 +19,8 @@
 */
 void Draw_Kodora();
 
+void Draw_Skeleton();
+
+
+
 #endif

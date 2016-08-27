@@ -11,6 +11,7 @@
 #include "../GameScene/GameSceneControl.h"
 #include "../GameScene/GameSceneInit.h"
 #include "../Player/PlayerControl.h"
+#include "../Gmmick/WindGimmick_Draw.h"
 
 // コドラの操作関数
 void Kodora_Control()
@@ -52,21 +53,33 @@ void Kodora_Control()
 }
 
 // スケルトンの操作関数
-/*void skeleton_Control()
+void skeleton_Control()
 {
-	// 主人公が前方8マス以内になると動く
-	if (abs(g_kodora.posX - g_player.posX) < (TIPSIZE * 8))
+	for (int i = 0; i < SKERETON_MAX; i++)
 	{
-		g_kodora.posX -= WALK_SPEED;
+		// 主人公が前方8マス以内になると動く
+		if (abs(g_skereton[i].posX - g_player.posX) < (TIPSIZE * 8))
+		{
+			g_skereton[i].posX -= WALK_SPEED;
+		}
+
+		// スケルトンは主人公の前方2マスまで移動してくる
+		if (abs(g_skereton[i].posX - g_player.posX) < (TIPSIZE * 2))
+		{
+			g_skereton[i].posX += WALK_SPEED;
+		}
 	}
 
-	// スケルトンは主人公の前方2マスまで移動してくる
-	if (abs(g_kodora.posX - g_player.posX) < (TIPSIZE * 2))
+	for (int i = 0; i < SKERETON_MAX; i++)
 	{
-		g_kodora.posX += WALK_SPEED;
+		for (int j = 0; j < 4; j++)
+		{
+	
+		}
 	}
 }
 
+/*
 // スライムの操作関数
 void Slime_Control()
 {

@@ -90,8 +90,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLin
 			SyncNow = timeGetTime();
 			if (SyncNow - SyncOld >= 1000 / 60) 
 			{
-				Render();
 				Control();
+				Render();
 				SyncOld = SyncNow;
 
 			}

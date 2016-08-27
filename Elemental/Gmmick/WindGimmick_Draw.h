@@ -9,10 +9,14 @@
 #ifndef WINDGIMMICKDRAW
 #define WINDGIMMICKDRAW
 
+#include <Direct_Draw.h>
+
 /// •—ƒMƒ~ƒbƒN‚Ì•`‰æŠÖ”
 /**
  * @return ‚È‚µ
  */
 void WindGimmick_Draw();
+
+extern CUSTOMVERTEX g_windgimmick[4];
 
 #endif

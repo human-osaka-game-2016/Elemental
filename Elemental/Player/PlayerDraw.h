@@ -21,15 +21,6 @@
 // 使用する関数のプロトタイプ宣言
 ////////////////////////////////////////////////
 
-/// 主人公の描画関数
-/**
- * @param [in] _moveflag 主人公が動いたかどうかのフラグ
- * @param [in] _leftflag 主人公が左を向いてるかどうかのフラグ
- * @param [in] playertex どの画像を割り当てるか
- * @return なし
- */
-void Player_Draw(bool _moveflag, bool _leftflag, GAMETEX playertex);
-
 /// 主人公がオーラをまとっている状態の描画関数
 /**
  * @param [in] _auraFlag どのオーラを描画するか
@@ -38,7 +29,7 @@ void Player_Draw(bool _moveflag, bool _leftflag, GAMETEX playertex);
  * @param [in] _auratex　どのオーラに画像を割り当てるか
  * @return なし
  */
-void Player_Aura_Draw(bool _auraFlag, bool _moveflag, bool _leftflag, GAMETEX _auratex);
+void Player_Draw();
 
 /// 主人公の出す弾の描画関数
 /**
