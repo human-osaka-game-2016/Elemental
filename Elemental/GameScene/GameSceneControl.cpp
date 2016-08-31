@@ -17,6 +17,7 @@
 #include "../Player/PlayerDraw.h"
 #include "../Player/PlayerControl.h"
 #include "../Enemy/EnemyControl.h"
+#include "../Gmmick/WindGimmick_Control.h"
 
 // ëÄçÏä÷êî
 void Control()
@@ -36,8 +37,13 @@ void Control()
 	Player_Control();
 	Player_Aura_Control();
 	Player_Bullet_Control();
+
 	Kodora_Control();
 	skeleton_Control();
+	Slime_Control();
+
+	WindGimmick_Control();
+	
 }
 
 bool Map_Collision_Check(float _x, float _y, int _sx, int _sy)

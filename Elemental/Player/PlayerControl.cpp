@@ -179,7 +179,7 @@ void Player_Control()
 		if (!Map_Collision_Check(g_player.posX, g_player.posY + WALK_SPEED, 2, 2))
 		{
 			// ‚È‚¯‚ê‚ÎˆÚ“®‚ð‘±‚¯‚é
-			g_player.posY += WALK_SPEED;
+			g_player.posY += WALK_SPEED;			
 		}
 	}
 }
@@ -210,7 +210,8 @@ void Player_Aura_Control()
 	else
 	{
 		g_player.p_elerent = NORMAL;
-		
+		g_player.drawFlag = true;
+
 		for (int i = 0; i < BULLET_MAX; i++)
 		{
 			g_bullet[i].drawFlag = false;

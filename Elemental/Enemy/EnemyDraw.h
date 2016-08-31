@@ -17,9 +17,11 @@
 /**
 * @return ‚È‚µ
 */
-void Draw_Kodora();
+void Kodora_Draw();
 
-void Draw_Skeleton();
+void Skeleton_Draw();
+
+void Slime_Draw();
 
 
 

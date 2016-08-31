@@ -11,6 +11,7 @@
 #include "../GameScene/GameSceneControl.h"
 #include "../GameScene/GameSceneInit.h"
 #include "../Player/PlayerControl.h"
+#include "../Enemy/EnemyControl.h"
 #include "../Gmmick/WindGimmick_Draw.h"
 
 // コドラの操作関数
@@ -20,16 +21,30 @@ void Kodora_Control()
 	{
 		if (g_kodora[i].drawFlag == true)
 		{
-			// 主人公が前方8マス以内になると動く
-			if (abs(g_kodora[i].posX - g_player.posX) < (TIPSIZE * 8))
+			//敵の方向を確認する
+			if (g_kodora[i].posX - g_player.posX < 0)
 			{
-				g_kodora[i].posX -= WALK_SPEED;
+				g_kodora[i].directionID = Right;
+			}
+			else
+			{
+				g_kodora[i].directionID = Left;
 			}
 
-			// コドラは主人公の前方4マスまで移動してくる
-			if (abs(g_kodora[i].posX - g_player.posX) < (TIPSIZE * 4))
+			if (abs(g_kodora[i].posX - g_player.posX) < (TIPSIZE * 4))	// コドラは主人公の前方4マスまで移動してくる
 			{
-				g_kodora[i].posX += WALK_SPEED;
+				// 敵の攻撃処理をここに入れる予定
+			}
+			else if (abs(g_kodora[i].posX - g_player.posX) < (TIPSIZE * 8))// 主人公が前方8マス以内になると動く
+			{
+				if (g_kodora[i].directionID == Left)
+				{
+					g_kodora[i].posX -= ENEMY_WALK;
+				}
+				else if (g_kodora[i].directionID == Right)
+				{
+					g_kodora[i].posX += ENEMY_WALK;
+				}
 			}
 		}
 	}
@@ -42,8 +57,8 @@ void Kodora_Control()
 			{
 				if (Collision_Check(g_bullet[i].bullet[j].x, g_kodora[k].posX, g_bullet[i].bullet[j].y, g_kodora[k].posY, TIPSIZE))
 				{
-					g_kodora[k].drawFlag = false;
 					g_kodora[k].hitFlag = true;			// 判定した矩形の範囲に入っていたら弾に当たったフラグをtrueにしている
+					g_gimmick.drawFlag = true;
 					g_bullet[i].drawFlag = false;	// 当たればもう弾の秒が入らないのでfalseにする
 					g_bullet[i].initFlag = true;	// 初期化フラグをtrueにしないと次の弾が出なくなる
 				}
@@ -57,41 +72,78 @@ void skeleton_Control()
 {
 	for (int i = 0; i < SKERETON_MAX; i++)
 	{
-		// 主人公が前方8マス以内になると動く
-		if (abs(g_skereton[i].posX - g_player.posX) < (TIPSIZE * 8))
+		if (g_skereton[i].drawFlag == true)
 		{
-			g_skereton[i].posX -= WALK_SPEED;
-		}
+			//敵の方向を確認する
+			if (g_skereton[i].posX - g_player.posX < 0)
+			{
+				g_skereton[i].directionID = Right;
+			}
+			else
+			{
+				g_skereton[i].directionID = Left;
+			}
 
-		// スケルトンは主人公の前方2マスまで移動してくる
-		if (abs(g_skereton[i].posX - g_player.posX) < (TIPSIZE * 2))
-		{
-			g_skereton[i].posX += WALK_SPEED;
-		}
-	}
-
-	for (int i = 0; i < SKERETON_MAX; i++)
-	{
-		for (int j = 0; j < 4; j++)
-		{
-	
+			if (abs(g_skereton[i].posX - g_player.posX) < (TIPSIZE * 4))	// コドラは主人公の前方4マスまで移動してくる
+			{
+				// 敵の攻撃処理をここに入れる予定
+			}
+			else if (abs(g_skereton[i].posX - g_player.posX) < (TIPSIZE * 8))// 主人公が前方8マス以内になると動く
+			{
+				if (g_skereton[i].directionID == Left)
+				{
+					g_skereton[i].posX -= ENEMY_WALK;
+				}
+				else if (g_skereton[i].directionID == Right)
+				{
+					g_skereton[i].posX += ENEMY_WALK;
+				}
+			}
 		}
 	}
 }
 
-/*
+
 // スライムの操作関数
 void Slime_Control()
 {
-	// 主人公が前方8マス以内になると動く
-	if (abs(g_kodora.posX - g_player.posX) < (TIPSIZE * 8))
+	for (int i = 0; i < SLIME_MAX; i++)
 	{
-		g_kodora.posX -= WALK_SPEED;
+		if (g_slime[i].drawFlag == true)
+		{
+			//敵の方向を確認する
+			if (g_slime[i].posX - g_player.posX < 0)
+			{
+				g_slime[i].directionID = Right;
+			}
+			else
+			{
+				g_slime[i].directionID = Left;
+			}
+
+			if (abs(g_slime[i].posX - g_player.posX) < (TIPSIZE * 4))	// コドラは主人公の前方4マスまで移動してくる
+			{
+				// 敵の攻撃処理をここに入れる予定
+			}
+			else if (abs(g_slime[i].posX - g_player.posX) < (TIPSIZE * 8))// 主人公が前方8マス以内になると動く
+			{
+				if (g_slime[i].directionID == Left)
+				{
+					g_slime[i].posX -= ENEMY_WALK;
+				}
+				else if (g_slime[i].directionID == Right)
+				{
+					g_slime[i].posX += ENEMY_WALK;
+				}
+			}
+		}
 	}
 
-	// スケルトンは主人公の前方2マスまで移動してくる
-	if (abs(g_kodora.posX - g_player.posX) < (TIPSIZE * 3))
+	for (int i = 0; i < SLIME_MAX; i++)
 	{
-		g_kodora.posX += WALK_SPEED;
+		if (g_windgimmick[1].x < g_slime[i].posX && g_gimmick.outdreakFlag == true)
+		{
+			g_gimmick.hitFlag = true;
+		}
 	}
-}*/
+}

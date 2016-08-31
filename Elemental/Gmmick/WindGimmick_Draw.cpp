@@ -19,8 +19,6 @@ CUSTOMVERTEX g_windgimmick[4] =
 	{ -128.0f, 384.f, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 1.0f },
 };
 
-
-
 void WindGimmick_Draw()
 {
 
@@ -40,8 +38,30 @@ void WindGimmick_Draw()
 				drawgimmick[i].x += g_kodora[j].posX;
 				drawgimmick[i].y += g_kodora[j].posY;
 			}
+			getcount++;
 
-			Draw_Obj(g_pTexture[WINDGIMMICK_TEX], drawgimmick);
+			if (getcount >= 240 && g_gimmick.drawFlag == true)
+			{
+				for (int i = 0; i < 4; i++)
+				{
+					drawgimmick[i].tu += (0.25f * animacount);
+				}
+
+				animatime++;
+
+				if (animatime % 60 == 0)
+				{
+					animacount++;
+
+					if (animacount == 4)
+					{
+						animacount = 0;
+						getcount = 0;
+					}
+				}
+				g_gimmick.outdreakFlag = true;
+				Draw_Obj(g_pTexture[WINDGIMMICK_TEX], drawgimmick);
+			}
 		}
 	}
 }

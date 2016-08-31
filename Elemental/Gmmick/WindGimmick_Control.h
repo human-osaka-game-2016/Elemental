@@ -9,4 +9,6 @@
 #ifndef WINDGIMMICKCONTROL
 #define WINDGIMMICKCONTROL
 
+void WindGimmick_Control();
+
 #endif

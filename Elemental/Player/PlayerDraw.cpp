@@ -26,32 +26,216 @@ void Player_Draw()
 
 	static int animationtime = 0;
 
-	CUSTOMVERTEX playerauradraw[4];
+	CUSTOMVERTEX playerdraw[4];
 
 		for (int i = 0; i < 4; i++)
 		{
-			playerauradraw[i] = main_charcter[i];
-			playerauradraw[i].x += g_player.posX;
-			playerauradraw[i].y += g_player.posY;
+			playerdraw[i] = main_charcter[i];
+			playerdraw[i].x += g_player.posX;
+			playerdraw[i].y += g_player.posY;
 		}
-	
-	animationtime++;
+		animationtime++;
 
-	if (animationtime <= 60)
+		if (animationtime <= 60)
+		{
+			for (int i = 0; i < 4; i++)
+			{
+				playerdraw[i].tu += 0.5f;
+			}
+		}
+		else if (animationtime >= 120)
+		{
+			for (int i = 0; i < 4; i++)
+			{
+				playerdraw[i].tu -= 0.5f;
+			}
+
+			animationtime = 0;
+		}
+
+		switch (g_player.p_elerent)
+		{
+		case NORMAL:
+
+			if (g_player.leftFlag == true)
+			{
+				if (g_player.moveFlag == true)
+				{
+					if (g_player.jumpFlag == false)
+					{
+						Draw_Obj(g_pTexture[PLAYER_LEFT_MOVE_TEX], playerdraw);
+					}
+				}
+				else
+				{
+					if (g_player.jumpFlag == false)
+					{
+						Draw_Obj(g_pTexture[PLAYER_LEFT_TEX], playerdraw);
+					}
+				}
+
+			}
+			else
+			{
+				if (g_player.moveFlag == true)
+				{
+					if (g_player.jumpFlag == false)
+					{
+						Draw_Obj(g_pTexture[PLAYER_RIGHT_MOVE_TEX], playerdraw);
+					}
+				}
+				else
+				{
+					if (g_player.jumpFlag == false)
+					{
+						Draw_Obj(g_pTexture[PLAYER_RIGHT_TEX], playerdraw);
+					}
+				}
+			}
+
+			break;
+
+		case FLAME:
+
+			if (g_player.leftFlag == true)
+			{
+				if (g_player.moveFlag == true)
+				{
+					if (g_player.jumpFlag == false)
+					{
+						Draw_Obj(g_pTexture[PLAYER_FLAME_LEFT_MOVE_TEX], playerdraw);
+					}
+				}
+				else
+				{
+					if (g_player.jumpFlag == false)
+					{
+						Draw_Obj(g_pTexture[PLAYER_FLAME_LEFT_TEX], playerdraw);
+					}
+				}
+
+			}
+			else
+			{
+				if (g_player.moveFlag == true)
+				{
+					if (g_player.jumpFlag == false)
+					{
+						Draw_Obj(g_pTexture[PLAYER_FLAME_RIGHT_MOVE_TEX], playerdraw);
+					}
+				}
+				else
+				{
+					if (g_player.jumpFlag == false)
+					{
+						Draw_Obj(g_pTexture[PLAYER_FLAME_RIGHT_TEX], playerdraw);
+					}
+				}
+			}
+
+			break;
+
+		case ICE:
+
+			if (g_player.leftFlag == true)
+			{
+				if (g_player.moveFlag == true)
+				{
+					if (g_player.jumpFlag == false)
+					{
+						Draw_Obj(g_pTexture[PLAYER_ICE_LEFT_MOVE_TEX], playerdraw);
+					}
+				}
+				else
+				{
+					if (g_player.jumpFlag == false)
+					{
+						Draw_Obj(g_pTexture[PLAYER_ICE_LEFT_TEX], playerdraw);
+					}
+				}
+
+			}
+			else
+			{
+				if (g_player.moveFlag == true)
+				{
+					if (g_player.jumpFlag == false)
+					{
+						Draw_Obj(g_pTexture[PLAYER_ICE_RIGHT_MOVE_TEX], playerdraw);
+					}
+				}
+				else
+				{
+					if (g_player.jumpFlag == false)
+					{
+						Draw_Obj(g_pTexture[PLAYER_ICE_RIGHT_TEX], playerdraw);
+					}
+				}
+			}
+
+			break;
+
+		case WIND:
+
+			if (g_player.leftFlag == true)
+			{
+				if (g_player.moveFlag == true)
+				{
+					if (g_player.jumpFlag == false)
+					{
+						Draw_Obj(g_pTexture[PLAYER_WIND_LEFT_MOVE_TEX], playerdraw);
+					}
+				}
+				else
+				{
+					if (g_player.jumpFlag == false)
+					{
+						Draw_Obj(g_pTexture[PLAYER_WIND_LEFT_TEX], playerdraw);
+					}
+				}
+
+			}
+			else
+			{
+				if (g_player.moveFlag == true)
+				{
+					if (g_player.jumpFlag == false)
+					{
+						Draw_Obj(g_pTexture[PLAYER_WIND_RIGHT_MOVE_TEX], playerdraw);
+					}
+				}
+				else
+				{
+					if (g_player.jumpFlag == false)
+					{
+						Draw_Obj(g_pTexture[PLAYER_WIND_RIGHT_TEX], playerdraw);
+					}
+				}
+			}
+
+			break;
+		}
+}
+
+void Player_Jump_Draw()
+{
+	// ŽålŒö‚Ì’¸“_î•ñ
+	CUSTOMVERTEX jump_charcter[4] =
 	{
-		for (int i = 0; i < 4; i++)
-		{
-			playerauradraw[i].tu += 0.5f;
-		}
-	}
-	else if (animationtime >= 120)
-	{
-		for (int i = 0; i < 4; i++)
-		{
-			playerauradraw[i].tu -= 0.5f;
-		}
+		{ 0.0f, 0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 0.0f },
+		{ 128.0f, 0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 1.0f, 0.0f },
+		{ 128.0f, 128.0f, 0.5f, 1.0f, 0xFFFFFFFF,1.0f, 1.0f },
+		{ 0.0f, 128.0f, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 1.0f },
 
-		animationtime = 0;
+	};
+
+	CUSTOMVERTEX playerjumpdraw[4];
+
+	for (int i = 0; i < 4; i++)
+	{
+		playerjumpdraw[i] = jump_charcter[i];
+		playerjumpdraw[i].x += g_player.posX;
+		playerjumpdraw[i].y += g_player.posY;
 	}
 
 	switch (g_player.p_elerent)
@@ -60,53 +244,38 @@ void Player_Draw()
 
 		if (g_player.leftFlag == true)
 		{
-			if (g_player.moveFlag == true)
+			if (g_player.jumpFlag == true)
 			{
-				Draw_Obj(g_pTexture[PLAYER_LEFT_MOVE_TEX], playerauradraw);
-			}
-			else
-			{
-				Draw_Obj(g_pTexture[PLAYER_LEFT_TEX], playerauradraw);
+				Draw_Obj(g_pTexture[PLAYER_LEFT_JUMP_TEX], playerjumpdraw);
 			}
 
 		}
 		else
 		{
-			if (g_player.moveFlag == true)
+			if (g_player.jumpFlag == true)
 			{
-				Draw_Obj(g_pTexture[PLAYER_RIGHT_MOVE_TEX], playerauradraw);
-			}
-			else
-			{
-				Draw_Obj(g_pTexture[PLAYER_RIGHT_TEX], playerauradraw);
+				Draw_Obj(g_pTexture[PLAYER_RIGHT_JUMP_TEX], playerjumpdraw);
 			}
 		}
 
 		break;
 
 	case FLAME:
-		
+
 		if (g_player.leftFlag == true)
 		{
-			if (g_player.moveFlag == true)
+			if (g_player.jumpFlag == true)
 			{
-				Draw_Obj(g_pTexture[PLAYER_FLAME_LEFT_MOVE_TEX], playerauradraw);
-			}
-			else
-			{
-				Draw_Obj(g_pTexture[PLAYER_FLAME_LEFT_TEX], playerauradraw);
-			}
 
+				Draw_Obj(g_pTexture[PLAYER_FLAME_LEFT_JUMP_TEX], playerjumpdraw);
+			}
 		}
 		else
 		{
-			if (g_player.moveFlag == true)
+			if (g_player.jumpFlag == true)
 			{
-				Draw_Obj(g_pTexture[PLAYER_FLAME_RIGHT_MOVE_TEX], playerauradraw);
-			}
-			else
-			{
-				Draw_Obj(g_pTexture[PLAYER_FLAME_RIGHT_TEX], playerauradraw);
+
+				Draw_Obj(g_pTexture[PLAYER_FLAME_RIGHT_JUMP_TEX], playerjumpdraw);
 			}
 		}
 
@@ -116,25 +285,18 @@ void Player_Draw()
 
 		if (g_player.leftFlag == true)
 		{
-			if (g_player.moveFlag == true)
+			if (g_player.jumpFlag == true)
 			{
-				Draw_Obj(g_pTexture[PLAYER_ICE_LEFT_MOVE_TEX], playerauradraw);
-			}
-			else
-			{
-				Draw_Obj(g_pTexture[PLAYER_ICE_LEFT_TEX], playerauradraw);
-			}
 
+				Draw_Obj(g_pTexture[PLAYER_ICE_LEFT_JUMP_TEX], playerjumpdraw);
+			}
 		}
 		else
 		{
-			if (g_player.moveFlag == true)
+			if (g_player.jumpFlag == true)
 			{
-				Draw_Obj(g_pTexture[PLAYER_ICE_RIGHT_MOVE_TEX], playerauradraw);
-			}
-			else
-			{
-				Draw_Obj(g_pTexture[PLAYER_ICE_RIGHT_TEX], playerauradraw);
+
+				Draw_Obj(g_pTexture[PLAYER_ICE_RIGHT_JUMP_TEX], playerjumpdraw);
 			}
 		}
 
@@ -144,29 +306,25 @@ void Player_Draw()
 
 		if (g_player.leftFlag == true)
 		{
-			if (g_player.moveFlag == true)
+			if (g_player.jumpFlag == true)
 			{
-				Draw_Obj(g_pTexture[PLAYER_WIND_LEFT_MOVE_TEX], playerauradraw);
-			}
-			else
-			{
-				Draw_Obj(g_pTexture[PLAYER_WIND_LEFT_TEX], playerauradraw);
-			}
 
+				Draw_Obj(g_pTexture[PLAYER_WIND_LEFT_JUMP_TEX], playerjumpdraw);
+			}
 		}
 		else
 		{
-			if (g_player.moveFlag == true)
+			if (g_player.jumpFlag == true)
 			{
-				Draw_Obj(g_pTexture[PLAYER_WIND_RIGHT_MOVE_TEX], playerauradraw);
-			}
-			else
-			{
-				Draw_Obj(g_pTexture[PLAYER_WIND_RIGHT_TEX], playerauradraw);
+
+				Draw_Obj(g_pTexture[PLAYER_WIND_RIGHT_JUMP_TEX], playerjumpdraw);
 			}
 		}
 
 		break;
+
+
+
 	}
 	
 }
@@ -224,35 +382,62 @@ void Player_Bullet_Draw()
 				g_bullet[i].bullet[j].x += g_player.posX;
 				g_bullet[i].bullet[j].y += g_player.posY;
 			}
-
 		}
-		
+
+		static int animatime = 0;
+		static int animacount = 0;
+
+		animatime++;
+
+		if ((animatime % 10) == 0)
+		{
+			if (g_player.animationFlag == true)
+			{
+				for (int j = 0; j < 4; j++)
+				{
+					g_bullet[i].bullet[j].tu -= 0.25f;
+				}
+			}
+			else
+			{
+				for (int j = 0; j < 4; j++)
+				{
+					g_bullet[i].bullet[j].tu += 0.25f;
+				}
+			}
+
+			if (g_bullet[i].bullet[2].tu == 1.0f && g_player.animationFlag == false)
+			{
+				g_player.animationFlag = true;
+			}
+			else if (g_bullet[i].bullet[0].tu == 0.25f && g_player.animationFlag == true)
+			{
+				g_player.animationFlag = false;
+			}
+		}
+
 		if (g_bullet[i].drawFlag == true)
 		{
 			switch (g_player.p_elerent)
 			{
 			case FLAME:
 
-				Draw_Obj(g_pTexture[PLAYER_FLAME_RIGHT_ATTACK_TEX], g_bullet[i].bullet);
+				Draw_Obj(g_pTexture[PLAYER_FLAME_ATTACK_TEX], g_bullet[i].bullet);
 
 				break;
 
 			case ICE:
 
-				Draw_Obj(g_pTexture[PLAYER_ICE_RIGHT_ATTACK_TEX], g_bullet[i].bullet);
+				Draw_Obj(g_pTexture[PLAYER_ICE_ATTACK_TEX], g_bullet[i].bullet);
 
 				break;
 
 			case WIND:
 
-				Draw_Obj(g_pTexture[PLAYER_WIND_RIGHT_ATTACK_TEX], g_bullet[i].bullet);
+				Draw_Obj(g_pTexture[PLAYER_WIND_ATTACK_TEX], g_bullet[i].bullet);
 
 				break;
 			}
 		}
-
-			
-
 	}
 }
-

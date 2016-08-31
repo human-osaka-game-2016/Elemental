@@ -37,4 +37,6 @@ void Player_Draw();
 */
 void Player_Bullet_Draw();
 
+void Player_Jump_Draw();
+
 #endif

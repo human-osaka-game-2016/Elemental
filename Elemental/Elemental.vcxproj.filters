@@ -22,9 +22,6 @@
     <Filter Include="ソース ファイル\GAMESCENE">
       <UniqueIdentifier>{15ac6da1-81cb-44fe-9b50-4570447014d9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ヘッダー ファイル\ENEMY">
-      <UniqueIdentifier>{9cf03b14-9468-473d-af85-ef5d059f2190}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ヘッダー ファイル\PLAYER">
       <UniqueIdentifier>{39743d4f-5cd7-47f7-b7ff-a5405348635e}</UniqueIdentifier>
     </Filter>
@@ -54,6 +51,9 @@
     </Filter>
     <Filter Include="ヘッダー ファイル\GIMMICK\WIND">
       <UniqueIdentifier>{d66e22bb-6a7e-43a5-8274-283192c26b0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\ENEMY">
+      <UniqueIdentifier>{9cf03b14-9468-473d-af85-ef5d059f2190}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

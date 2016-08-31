@@ -40,6 +40,8 @@ typedef struct
 	float posY;		//!< 敵のY座標
 	bool drawFlag;	//!< 描画されたかどうかのフラグ
 	bool hitFlag;	//!< 何かが当たったかどうかのフラグ
+	Direction directionID;	//!< 敵の向いてる方向
+
 
 }ENEMY_STATE;
 
@@ -54,6 +56,14 @@ typedef struct
 
 }BULLET_STATE;
 
+typedef struct
+{
+	bool hitFlag;
+	bool drawFlag;
+	bool outdreakFlag;	//!< ギミックの発生フラグ
+
+}GIMMICK_STATE;
+
 /// 初期化の関数
 /**
  * @return なし
@@ -64,7 +74,9 @@ void Init();
 // extern
 ////////////////////////////////////////////////
 
+extern PLAYER_STATE g_player;					//!< 主人公の様々な情報を持つ構造体
 extern ENEMY_STATE g_kodora[KODORA_MAX];		//!< 敵の様々な情報を持つ構造体
 extern ENEMY_STATE g_skereton[SKERETON_MAX];
-extern PLAYER_STATE g_player;					//!< 主人公の様々な情報を持つ構造体
 extern BULLET_STATE g_bullet[BULLET_MAX];		//!< 弾の様々な情報を持つ構造体の配列
+extern ENEMY_STATE g_slime[SLIME_MAX];
+extern GIMMICK_STATE g_gimmick;

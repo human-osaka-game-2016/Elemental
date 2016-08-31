@@ -25,7 +25,7 @@ int map[MAP_HEIGHT][MAP_WIDTH];
 // 描画関数
 void Render()
 {
-	
+	/*
 	CUSTOMVERTEX background[4] =
 	{
 		{ 0.0f, 0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 0.0f },
@@ -34,16 +34,19 @@ void Render()
 		{ 0.0f, 810, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 1.0f },
 
 	};
-	
+	*/
+
 	Draw_Start();
 
-	Draw_Obj(g_pTexture[BACKGROUND_TEX], background);
+//	Draw_Obj(g_pTexture[BACKGROUND_TEX], background);
 	Draw_Map();
 
-	Draw_Kodora();
-	Draw_Skeleton();
+	Kodora_Draw();
+	Skeleton_Draw();
+	Slime_Draw();
 
 	Player_Draw();
+	Player_Jump_Draw();
 	Player_Bullet_Draw();
 
 	WindGimmick_Draw();
@@ -98,7 +101,37 @@ void Draw_Map()
 					drawmap[i].x += (x * TIPSIZE);	// 次のチップを描画するためにチップの大きさ分動かして描画している
 					drawmap[i].y += (y * TIPSIZE);	// 上に同じ
 				}
-				Draw_Obj(g_pTexture[MAP_GROUND_TEX], drawmap);
+				Draw_Obj(g_pTexture[MAP_BLOCK_TEX], drawmap);
+			}
+			else if (map[y][x] == 2)
+			{
+				CUSTOMVERTEX drawmap[4];			// 空のCUSTOMVERTEX用意
+				for (int i = 0; i < 4; i++)
+				{
+					drawmap[i] = Maptip[i];		// マップチップの頂点情報を空のCUSTOMVERTEXに代入している
+				}
+
+				for (int i = 0; i < 4; i++)
+				{
+					drawmap[i].x += (x * TIPSIZE);	// 次のチップを描画するためにチップの大きさ分動かして描画している
+					drawmap[i].y += (y * TIPSIZE);	// 上に同じ
+				}
+				Draw_Obj(g_pTexture[FLAME_BLOCK_TEX], drawmap);
+			}
+			else if (map[y][x] == 3)
+			{
+				CUSTOMVERTEX drawmap[4];			// 空のCUSTOMVERTEX用意
+				for (int i = 0; i < 4; i++)
+				{
+					drawmap[i] = Maptip[i];		// マップチップの頂点情報を空のCUSTOMVERTEXに代入している
+				}
+
+				for (int i = 0; i < 4; i++)
+				{
+					drawmap[i].x += (x * TIPSIZE);	// 次のチップを描画するためにチップの大きさ分動かして描画している
+					drawmap[i].y += (y * TIPSIZE);	// 上に同じ
+				}
+				Draw_Obj(g_pTexture[WIND_BLOCK_TEX], drawmap);
 			}
 		}
 	}
