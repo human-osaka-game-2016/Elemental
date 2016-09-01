@@ -42,6 +42,7 @@ void Control()
 	skeleton_Control();
 	Slime_Control();
 
+
 	WindGimmick_Control();
 	
 }

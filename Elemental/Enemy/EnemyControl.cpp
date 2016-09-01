@@ -141,7 +141,7 @@ void Slime_Control()
 
 	for (int i = 0; i < SLIME_MAX; i++)
 	{
-		if (g_windgimmick[1].x < g_slime[i].posX && g_gimmick.outdreakFlag == true)
+		if (g_windgimmick[1].x < g_slime[i].posX && g_gimmick.outdreakFlag == true && g_gimmick.drawFlag == true)
 		{
 			g_gimmick.hitFlag = true;
 		}

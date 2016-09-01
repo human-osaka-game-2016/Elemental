@@ -25,20 +25,20 @@ int map[MAP_HEIGHT][MAP_WIDTH];
 // 描画関数
 void Render()
 {
-	/*
+	
 	CUSTOMVERTEX background[4] =
 	{
 		{ 0.0f, 0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 0.0f },
-		{ 1440.f, 0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 1.0f, 0.0f },
-		{ 1440.f, 810, 0.5f, 1.0f, 0xFFFFFFFF, 1.0f, 1.0f },
-		{ 0.0f, 810, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 1.0f },
+		{ 2880.f, 0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 1.0f, 0.0f },
+		{ 2880.f, 2430.f, 0.5f, 1.0f, 0xFFFFFFFF, 1.0f, 1.0f },
+		{ 0.0f, 2430.f, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 1.0f },
 
 	};
-	*/
+	
 
 	Draw_Start();
 
-//	Draw_Obj(g_pTexture[BACKGROUND_TEX], background);
+	Draw_Obj(g_pTexture[BACKGROUND_TEX], background);
 	Draw_Map();
 
 	Kodora_Draw();
@@ -46,13 +46,15 @@ void Render()
 	Slime_Draw();
 
 	Player_Draw();
-	Player_Jump_Draw();
+	Player_Sky_Draw();
 	Player_Bullet_Draw();
 
-	WindGimmick_Draw();
+//	WindGimmick_Draw();
 
 	Draw_End();
 }
+
+
 
 
 // ファイルを読み込むための関数
@@ -87,7 +89,7 @@ void Draw_Map()
 	{
 		for (int x = 0; x < MAP_WIDTH; x++)
 		{
-			if (map[y][x] == 1)						// 読みこんだファイルに1と書かれている所は指定した画像を描画するようにしている
+			if (map[y][x] == NORMAL_BLOCK)						// 読みこんだファイルに1と書かれている所は指定した画像を描画するようにしている
 			{
 				CUSTOMVERTEX drawmap[4];			// 空のCUSTOMVERTEX用意
 				for (int i = 0; i < 4; i++)
@@ -103,7 +105,7 @@ void Draw_Map()
 				}
 				Draw_Obj(g_pTexture[MAP_BLOCK_TEX], drawmap);
 			}
-			else if (map[y][x] == 2)
+			else if (map[y][x] == FLAME_BLOCK)
 			{
 				CUSTOMVERTEX drawmap[4];			// 空のCUSTOMVERTEX用意
 				for (int i = 0; i < 4; i++)
@@ -118,7 +120,7 @@ void Draw_Map()
 				}
 				Draw_Obj(g_pTexture[FLAME_BLOCK_TEX], drawmap);
 			}
-			else if (map[y][x] == 3)
+			else if (map[y][x] == WIND_BLOCK)
 			{
 				CUSTOMVERTEX drawmap[4];			// 空のCUSTOMVERTEX用意
 				for (int i = 0; i < 4; i++)
@@ -132,6 +134,21 @@ void Draw_Map()
 					drawmap[i].y += (y * TIPSIZE);	// 上に同じ
 				}
 				Draw_Obj(g_pTexture[WIND_BLOCK_TEX], drawmap);
+			}
+			else if (map[y][x] == WIND_POS_BLOCK)
+			{
+				CUSTOMVERTEX drawmap[4];			// 空のCUSTOMVERTEX用意
+				for (int i = 0; i < 4; i++)
+				{
+					drawmap[i] = Maptip[i];		// マップチップの頂点情報を空のCUSTOMVERTEXに代入している
+				}
+
+				for (int i = 0; i < 4; i++)
+				{
+					drawmap[i].x += (x * TIPSIZE);	// 次のチップを描画するためにチップの大きさ分動かして描画している
+					drawmap[i].y += (y * TIPSIZE);	// 上に同じ
+				}
+				Draw_Obj(g_pTexture[WIND_POS_BLOCK_TEX], drawmap);
 			}
 		}
 	}

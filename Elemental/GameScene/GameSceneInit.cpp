@@ -35,9 +35,12 @@ void Init()
 
 	// 画像を読み込みどこかに割り当てている
 
-	Load_Texture("Resource/Texture/Maptip/maptip_darker.png", &g_pTexture[MAP_BLOCK_TEX]);
-	Load_Texture("Resource/Texture/Object/fire_block.png", &g_pTexture[FLAME_BLOCK_TEX]);
-	Load_Texture("Resource/Texture/Object/wind_block.png", &g_pTexture[WIND_BLOCK_TEX]);
+	Load_Texture("Resource/Texture/Background/Background.png", &g_pTexture[BACKGROUND_TEX]);
+
+	Load_Texture("Resource/Texture/Maptip/maptip.png", &g_pTexture[MAP_BLOCK_TEX]);
+	Load_Texture("Resource/Texture/Maptip/fire_block.png", &g_pTexture[FLAME_BLOCK_TEX]);
+	Load_Texture("Resource/Texture/Maptip/wind_block.png", &g_pTexture[WIND_BLOCK_TEX]);
+	Load_Texture("Resource/Texture/UI/wind_position.png", &g_pTexture[WIND_POS_BLOCK_TEX]);
 
 	// 通常の主人公の画像
 	Load_Texture("Resource/Texture/Player/normal_player/player_state.png", &g_pTexture[PLAYER_RIGHT_TEX]);
@@ -54,25 +57,33 @@ void Init()
 	Load_Texture("Resource/Texture/Player/fire_player/f_player_state.png", &g_pTexture[PLAYER_FLAME_RIGHT_TEX]);
 	Load_Texture("Resource/Texture/Player/fire_player/f_player_move.png", &g_pTexture[PLAYER_FLAME_RIGHT_MOVE_TEX]);
 	Load_Texture("Resource/Texture/Player/fire_player/f_player_jump.png", &g_pTexture[PLAYER_FLAME_RIGHT_JUMP_TEX]);
+	Load_Texture("Resource/Texture/Player/fire_player/f_player_fall.png", &g_pTexture[PLAYER_FLAME_RIGHT_FALL_TEX]);
+	Load_Texture("Resource/Texture/Player/fire_player/f_player_attack.png", &g_pTexture[PLAYER_FLAME_RIGHT_ATTACK_TEX]);
 	Load_Texture("Resource/Texture/Player/fire_player_reverse/r_f_player_state.png", &g_pTexture[PLAYER_FLAME_LEFT_TEX]);
 	Load_Texture("Resource/Texture/Player/fire_player_reverse/r_f_player_move.png", &g_pTexture[PLAYER_FLAME_LEFT_MOVE_TEX]);
 	Load_Texture("Resource/Texture/Player/fire_player_reverse/r_f_player_jump.png", &g_pTexture[PLAYER_FLAME_LEFT_JUMP_TEX]);
+	Load_Texture("Resource/Texture/Player/fire_player_reverse/r_f_player_fall.png", &g_pTexture[PLAYER_FLAME_LEFT_FALL_TEX]);
+	Load_Texture("Resource/Texture/Player/fire_player_reverse/r_f_player_attack.png", &g_pTexture[PLAYER_FLAME_LEFT_ATTACK_TEX]);
 
 	// 氷のオーラをまとった主人公の画像
 	Load_Texture("Resource/Texture/Player/ice_player/i_player_state.png", &g_pTexture[PLAYER_ICE_RIGHT_TEX]);
 	Load_Texture("Resource/Texture/Player/ice_player/i_player_move.png", &g_pTexture[PLAYER_ICE_RIGHT_MOVE_TEX]);
 	Load_Texture("Resource/Texture/Player/ice_player/i_player_jump.png", &g_pTexture[PLAYER_ICE_RIGHT_JUMP_TEX]);
+	Load_Texture("Resource/Texture/Player/ice_player/i_player_fall.png", &g_pTexture[PLAYER_ICE_RIGHT_FALL_TEX]);
 	Load_Texture("Resource/Texture/Player/ice_player_reverse/r_i_player_state.png", &g_pTexture[PLAYER_ICE_LEFT_TEX]);
 	Load_Texture("Resource/Texture/Player/ice_player_reverse/r_i_player_move.png", &g_pTexture[PLAYER_ICE_LEFT_MOVE_TEX]);
 	Load_Texture("Resource/Texture/Player/ice_player_reverse/r_i_player_jump.png", &g_pTexture[PLAYER_ICE_LEFT_JUMP_TEX]);
+	Load_Texture("Resource/Texture/Player/ice_player_reverse/r_i_player_fall.png", &g_pTexture[PLAYER_ICE_LEFT_FALL_TEX]);
 
 	// 風のオーラをまとった主人公の画像
 	Load_Texture("Resource/Texture/Player/wind_player/w_player_state.png", &g_pTexture[PLAYER_WIND_RIGHT_TEX]);
 	Load_Texture("Resource/Texture/Player/wind_player/w_player_move.png", &g_pTexture[PLAYER_WIND_RIGHT_MOVE_TEX]);
 	Load_Texture("Resource/Texture/Player/wind_player/w_player_jump.png", &g_pTexture[PLAYER_WIND_RIGHT_JUMP_TEX]);
+	Load_Texture("Resource/Texture/Player/wind_player/w_player_fall.png", &g_pTexture[PLAYER_WIND_RIGHT_FALL_TEX]);
 	Load_Texture("Resource/Texture/Player/wind_player_reverse/r_w_player_state.png", &g_pTexture[PLAYER_WIND_LEFT_TEX]);
 	Load_Texture("Resource/Texture/Player/wind_player_reverse/r_w_player_move.png", &g_pTexture[PLAYER_WIND_LEFT_MOVE_TEX]);
 	Load_Texture("Resource/Texture/Player/wind_player_reverse/r_w_player_jump.png", &g_pTexture[PLAYER_WIND_LEFT_JUMP_TEX]);
+	Load_Texture("Resource/Texture/Player/wind_player_reverse/r_w_player_fall.png", &g_pTexture[PLAYER_WIND_LEFT_FALL_TEX]);
 
 	// コドラの画像
 	Load_Texture("Resource/Texture/Enemy/Kodora/flame_kodora/f_kodora_move.png", &g_pTexture[KODORA_FLAME_LEFT_MOVE_TEX]);
@@ -85,13 +96,16 @@ void Init()
 	Load_Texture("Resource/Texture/Enemy/slime_reverse/flame_slime_reverse/r_f_slime_move.png", &g_pTexture[SLIME_FLAME_RIGHT_MOVE_TEX]);
 
 	// 炎の弾の画像
-	Load_Texture("Resource/Texture/Player/fire_player/f_player_attack.png", &g_pTexture[PLAYER_FLAME_ATTACK_TEX]);
+	Load_Texture("Resource/Texture/Player/fire_player/f_player_magic.png", &g_pTexture[PLAYER_FLAME_RIGHT_BULLET_TEX]);
+	Load_Texture("Resource/Texture/Player/fire_player_reverse/r_f_player_magic.png", &g_pTexture[PLAYER_FLAME_LEFT_BULLET_TEX]);
 
 	// 氷の弾の画像
-	Load_Texture("Resource/Texture/Player/ice_player/i_player_ice_magic.png", &g_pTexture[PLAYER_ICE_ATTACK_TEX]);
+	Load_Texture("Resource/Texture/Player/ice_player/i_player_magic.png", &g_pTexture[PLAYER_ICE_RIGHT_BULLET_TEX]);
+	Load_Texture("Resource/Texture/Player/ice_player_reverse/r_i_player_magic.png", &g_pTexture[PLAYER_ICE_LEFT_BULLET_TEX]);
 
 	// 風の弾の画像
-	Load_Texture("Resource/Texture/Player/wind_player/w_player_magic.png", &g_pTexture[PLAYER_WIND_ATTACK_TEX]);
+	Load_Texture("Resource/Texture/Player/wind_player/w_player_magic.png", &g_pTexture[PLAYER_WIND_RIGHT_BULLET_TEX]);
+	Load_Texture("Resource/Texture/Player/wind_player_reverse/r_w_player_magic.png", &g_pTexture[PLAYER_WIND_LEFT_BULLET_TEX]);
 	
 	// 炎のギミックの画像
 
@@ -130,7 +144,7 @@ void Init()
 		g_slime[i].hitFlag = false;
 		g_slime[i].directionID = Left;
 		g_slime[i].posX = 1000.0f;
-		g_slime[i].posY = 350.0f;
+		g_slime[i].posY = 500.0f;
 	}
 
 	// 弾の初期化

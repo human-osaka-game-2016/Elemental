@@ -13,6 +13,10 @@
 // 定義
 ////////////////////////////////////////////////
 
+#define NORMAL_BLOCK 1
+#define FLAME_BLOCK 2
+#define WIND_BLOCK 3
+#define WIND_POS_BLOCK 4
 #define KODORA_MAX 1
 #define SKERETON_MAX 1
 #define SLIME_MAX 1
@@ -29,11 +33,12 @@
 /// 画像枚数
 enum GAMETEX
 {
-//	BACKGROUND_TEX,					//!< 背景画像を割り当てる
+	BACKGROUND_TEX,					//!< 背景画像を割り当てる
 
 	MAP_BLOCK_TEX,					//!< マップチップを割り当てる
 	FLAME_BLOCK_TEX,
 	WIND_BLOCK_TEX,
+	WIND_POS_BLOCK_TEX,
 
 	PLAYER_RIGHT_TEX,						//!< 主人公の画像を割り当てる
 	PLAYER_RIGHT_MOVE_TEX,				//!< 主人公が移動したときの画像を割り当てる
@@ -47,23 +52,31 @@ enum GAMETEX
 	PLAYER_FLAME_RIGHT_TEX,				//!< 焔オーラの主人公の画像を割り当てる
 	PLAYER_FLAME_RIGHT_MOVE_TEX,			//!< 炎オーラの主人公が移動している画像を割り当てる
 	PLAYER_FLAME_RIGHT_JUMP_TEX,
+	PLAYER_FLAME_RIGHT_FALL_TEX,
+	PLAYER_FLAME_RIGHT_ATTACK_TEX,
 	PLAYER_FLAME_LEFT_TEX,			//!< 炎オーラの主人公が左を向いたときの画像を割り当てる
 	PLAYER_FLAME_LEFT_MOVE_TEX,		//!< 炎オーラの主人公が左を向きで移動したときの画像を割り当てる
 	PLAYER_FLAME_LEFT_JUMP_TEX,
+	PLAYER_FLAME_LEFT_FALL_TEX,
+	PLAYER_FLAME_LEFT_ATTACK_TEX,
 
 	PLAYER_ICE_RIGHT_TEX,					//!< 凝オーラの主人公の画像を割り当てる
 	PLAYER_ICE_RIGHT_MOVE_TEX,			//!< 氷オーラの主人公が移動している画像を割り当てる
 	PLAYER_ICE_RIGHT_JUMP_TEX,
+	PLAYER_ICE_RIGHT_FALL_TEX,
 	PLAYER_ICE_LEFT_TEX,			//!< 氷オーラの主人公が左を向いたときの画像を割り当てる
 	PLAYER_ICE_LEFT_MOVE_TEX,		//!< 氷オーラの主人公が左を向きで移動したときの画像を割り当てる
 	PLAYER_ICE_LEFT_JUMP_TEX,
+	PLAYER_ICE_LEFT_FALL_TEX,
 
 	PLAYER_WIND_RIGHT_TEX,				//!< 風オーラの主人公の画像を割り当てる
 	PLAYER_WIND_RIGHT_MOVE_TEX,			//!< 風オーラの主人公が移動している画像を割り当てる
 	PLAYER_WIND_RIGHT_JUMP_TEX,
+	PLAYER_WIND_RIGHT_FALL_TEX,
 	PLAYER_WIND_LEFT_TEX,			//!< 風オーラの主人公が左を向いたときの画像を割り当てる
 	PLAYER_WIND_LEFT_MOVE_TEX,		//!< 風オーラの主人公が左を向きで移動したときの画像を割り当てる
 	PLAYER_WIND_LEFT_JUMP_TEX,
+	PLAYER_WIND_LEFT_FALL_TEX,
 
 	KODORA_FLAME_RIGHT_MOVE_TEX,	//!< 焔コドラの右に移動している画像を割り当てている
 	KODORA_FLAME_LEFT_MOVE_TEX,			//!< 焔コドラの移動している画像を割り当てている
@@ -73,9 +86,12 @@ enum GAMETEX
 	SLIME_FLAME_LEFT_MOVE_TEX,			//!< 焔スライムの移動している画像を割り当てている
 
 
-	PLAYER_FLAME_ATTACK_TEX,
-	PLAYER_ICE_ATTACK_TEX,
-	PLAYER_WIND_ATTACK_TEX,
+	PLAYER_FLAME_RIGHT_BULLET_TEX,
+	PLAYER_FLAME_LEFT_BULLET_TEX,
+	PLAYER_ICE_RIGHT_BULLET_TEX,
+	PLAYER_ICE_LEFT_BULLET_TEX,
+	PLAYER_WIND_RIGHT_BULLET_TEX,
+	PLAYER_WIND_LEFT_BULLET_TEX,
 
 
 	WINDGIMMICK_TEX,				//!< 風のギミックの画像を割り当てる

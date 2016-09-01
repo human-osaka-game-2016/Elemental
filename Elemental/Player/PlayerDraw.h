@@ -9,6 +9,7 @@
 #ifndef PLAYERDRAW
 #define PLAYERDRAW
 
+#include <Direct_Draw.h>
 #include "../GameScene/GameSceneDraw.h"
 
 ////////////////////////////////////////////////
@@ -37,6 +38,10 @@ void Player_Draw();
 */
 void Player_Bullet_Draw();
 
-void Player_Jump_Draw();
+void Player_Sky_Draw();
+
+void Player_Case_Draw(CUSTOMVERTEX playerdraw[]);
+
+void Player_Sky_Case_Draw(CUSTOMVERTEX playerskydraw[]);
 
 #endif
