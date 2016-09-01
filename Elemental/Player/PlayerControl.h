@@ -13,6 +13,7 @@
 // 定義
 ////////////////////////////////////////////////
 
+#define PLAYER_START	5
 #define WALK_SPEED		4		//!< キャラクターの動くスピード
 #define RUN_SPEED		6		//!< キャラクターの走るスピード
 #define JUMP_POWER		-16.f	//!< ここまで飛べる値
@@ -36,5 +37,7 @@ void Player_Aura_Control();
 * @return なし
 */
 void Player_Bullet_Control();
+
+void Player_Init();
 
 #endif

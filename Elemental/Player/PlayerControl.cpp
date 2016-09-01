@@ -51,19 +51,20 @@ void Player_Control()
 		if (g_player.leftdashFlag == true)
 		{
 			// 次に動いた値で左にブロックがあるかどうか先に調べている
-			if (!Map_Collision_Check(g_player.posX - RUN_SPEED, g_player.posY, 2, 2))
+			if (!Map_Collision_Check(g_player.posX - RUN_SPEED, g_player.posY, 2, (g_player.skyFlag) ? 2 : 1))
 			{
 				// なければ移動を続ける
-				g_player.posX -= RUN_SPEED;
+				g_player.posX -= RUN_SPEED;		
 			}
 		}
 		else
 		{
 			// 次に動いた値で左にブロックがあるかどうか先に調べている
-			if (!Map_Collision_Check(g_player.posX - WALK_SPEED, g_player.posY, 2, 2))
+			if (!Map_Collision_Check(g_player.posX - WALK_SPEED, g_player.posY, 2, (g_player.skyFlag) ? 2 : 1))
 			{
 				// なければ移動を続ける
 				g_player.posX -= WALK_SPEED;
+				g_ScreenOriginX -= WALK_SPEED;
 			}
 		}
 	}
@@ -101,7 +102,7 @@ void Player_Control()
 		if (g_player.rightdashFlag == true)
 		{
 			// 次に動いた値で左にブロックがあるかどうか先に調べている
-			if (!Map_Collision_Check(g_player.posX + RUN_SPEED, g_player.posY, 2, 2))
+			if (!Map_Collision_Check(g_player.posX + RUN_SPEED, g_player.posY, 2, (g_player.skyFlag) ? 2 : 1))
 			{
 				// なければ移動を続ける
 				g_player.posX += RUN_SPEED;
@@ -110,10 +111,11 @@ void Player_Control()
 		else
 		{
 			// 次に動いた値で左にブロックがあるかどうか先に調べている
-			if (!Map_Collision_Check(g_player.posX + WALK_SPEED, g_player.posY, 2, 2))
+			if (!Map_Collision_Check(g_player.posX + WALK_SPEED, g_player.posY, 2, (g_player.skyFlag) ? 2 : 1))
 			{
 				// なければ移動を続ける
 				g_player.posX += WALK_SPEED;
+				g_ScreenOriginX += WALK_SPEED;
 			}
 		}
 	}
@@ -125,52 +127,26 @@ void Player_Control()
 		g_player.jumpFlag = true;			// ジャンプするのでフラグをtrueに
 		g_player.skyFlag = true;			// 空中にもいるのでフラグをtrueに
 		g_player.acceleration = JUMP_POWER;	// 加速度にジャンプの限界値を代入
+
+		
 	}
 
-	// フラグがtrueなら処理をする
-	if (g_player.jumpFlag == true)
+	// 空中にいる間主人公の移動先にブロックまたはギミックがあるかどうか調べている
+	if (Map_Collision_Check(g_player.posX, g_player.posY + g_player.acceleration, 2, 2) /*|| Gimmick_Collision_Check(g_player.posX, g_player.posY + g_player.acceleration)*/)
 	{
-		// 空中いる間主人公の上にブロックがあるかどうか調べている
-		if (Map_Collision_Check(g_player.posX, g_player.posY + JUMP_POWER, 2, 2))
+		if (g_player.acceleration > 0.0f)
 		{
-			if (g_player.acceleration < 0)
-			{
-				g_player.acceleration = 0;
-			}
+			g_player.skyFlag = false;
+			g_player.jumpFlag = false;
 		}
-
-		g_player.acceleration += GRAVITY;			// 周りにブロックがなければ加速度にGRAVITYの値をプラスしてどんどん上に動かす
-		g_player.posY += g_player.acceleration;		// プラスされた加速度をさらに主人公のY座標にプラスしていく
-
-		// 主人公の周りにブロックがあるかどうか調べている
-		if (Map_Collision_Check(g_player.posX, g_player.posY - JUMP_POWER, 2, 2))
-		{
-
-			if (g_player.acceleration > 0)
-			{
-				g_player.skyFlag = false;
-				g_player.jumpFlag = false;
-			}
-		}
+		g_player.acceleration = 0.0f;
 	}
-
-	// 自由落下の処理
-	if (!Map_Collision_Check(g_player.posX, g_player.posY - JUMP_POWER, 2, 2))
+	else
 	{
-		// 浮いていたら自動で判定のあるところまで下がる
-		if (g_player.jumpFlag == false)
-		{
-			g_player.acceleration += GRAVITY;
-			g_player.posY += g_player.acceleration;
-			g_player.skyFlag = true;
-		}
+		g_player.acceleration += GRAVITY;			// 周りにブロックがなければ加速度にGRAVITYの値をプラスしてどんどん上に動かす	
 	}
 
-	if (Map_Collision_Check(g_player.posX, g_player.posY - JUMP_POWER, 2, 2))
-	{
-		g_player.acceleration = 0.f;
-		g_player.skyFlag = false;
-	}
+	g_player.posY += g_player.acceleration;
 	
 
 	if (g_Key[DOWN] == ON)
@@ -179,7 +155,8 @@ void Player_Control()
 		if (!Map_Collision_Check(g_player.posX, g_player.posY + WALK_SPEED, 2, 2))
 		{
 			// なければ移動を続ける
-			g_player.posY += WALK_SPEED;			
+			g_player.posY += WALK_SPEED;	
+			
 		}
 	}
 }
@@ -267,5 +244,20 @@ void Player_Bullet_Control()
 	}
 }
 
+void Player_Init()
+{
+	for (int y = 0; y < MAP_HEIGHT; y++)
+	{
+		for (int x = 0; x < MAP_WIDTH; x++)
+		{
+			if (map[y][x] == PLAYER_START)
+			{
+				g_player.posX = (float)(x * TIPSIZE);
+				g_player.posY = (float)(y * TIPSIZE);
 
+				g_ScreenOriginY = g_player.posY - 597;
+			}			
+		}
+	}
+}
 

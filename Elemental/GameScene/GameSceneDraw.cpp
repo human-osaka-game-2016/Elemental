@@ -49,7 +49,7 @@ void Render()
 	Player_Sky_Draw();
 	Player_Bullet_Draw();
 
-//	WindGimmick_Draw();
+	WindGimmick_Draw();
 
 	Draw_End();
 }

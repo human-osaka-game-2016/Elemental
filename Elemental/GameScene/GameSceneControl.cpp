@@ -74,6 +74,16 @@ bool Map_Collision_Check(float _x, float _y, int _sx, int _sy)
 				ret = true;		// マップチップにあたっていたらtrue
 				break;			// 当たっているとわかったからこれ以上の処理をする必要はない
 			}
+			else if (map[iy + j][ix + i] == 2)
+			{
+				ret = true;		
+				break;
+			}
+			else if (map[iy + j][ix + i] == 3)
+			{
+				ret = true;
+				break;
+			}
 		}
 	}
 
@@ -92,4 +102,21 @@ bool Collision_Check(float _rectAX, float _rectBX, float _rectAY, float _rectBY,
 	}
 
 	return hit;
+}
+
+//ギミックのあたり判定
+bool Gimmick_Collision_Check(float _playerX, float _playerY)
+{
+	for (int i = 0; i < 4; i++)
+	{
+		if (g_kodora[i].hitFlag == true)
+		{
+			if ((abs(_playerX - g_kodora[i].posX)) < ICESIZE && (abs(_playerY - g_kodora[i].posY)) < ICESIZE2)
+			{
+				return true;
+			}
+		}
+
+	}
+	return false;
 }

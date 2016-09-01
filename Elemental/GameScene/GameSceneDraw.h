@@ -17,12 +17,12 @@
 #define FLAME_BLOCK 2
 #define WIND_BLOCK 3
 #define WIND_POS_BLOCK 4
-#define KODORA_MAX 1
-#define SKERETON_MAX 1
-#define SLIME_MAX 1
+#define ICESIZE 128		//! 氷のサイズ
+#define ICESIZE2 192
+#define ICESIZE3 256
 #define TIPSIZE 64		//! マップチップのサイズ
-#define MAP_HEIGHT 12	//! 描画するマップの縦の最大値
-#define MAP_WIDTH 38	//! 描画するマップの横の最大値
+#define MAP_HEIGHT 38	//! 描画するマップの縦の最大値
+#define MAP_WIDTH 128	//! 描画するマップの横の最大値
 
 #include <Direct_Draw.h>
 

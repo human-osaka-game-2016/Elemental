@@ -9,6 +9,10 @@
 #ifndef ENEMYDRAW
 #define ENEMYDRAW
 
+#define KODORA_MAX 1
+#define SKERETON_MAX 1
+#define SLIME_MAX 1
+
 ////////////////////////////////////////////////
 //使用する関数のプロトタイプ宣言
 ////////////////////////////////////////////////

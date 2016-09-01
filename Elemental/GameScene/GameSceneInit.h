@@ -8,7 +8,7 @@
 
 #include <Direct_Draw.h>
 #include "../Player/PlayerDraw.h"
-#include "../GameScene/GameSceneDraw.h"
+#include "../Enemy/EnemyDraw.h"
 
 ////////////////////////////////////////////////
 // Œ^

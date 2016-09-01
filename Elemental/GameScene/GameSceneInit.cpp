@@ -10,9 +10,11 @@
 #include "GameSceneDraw.h"
 #include "GameSceneInit.h"
 #include "../Player/PlayerDraw.h"
+#include "../Player/PlayerControl.h"
+#include "../Enemy/EnemyControl.h"
 
 
-PLAYER_STATE g_player = { 150.f, 350.f, 0.f, NORMAL , true, false, false, false, false, false, false, false, false };
+PLAYER_STATE g_player = { 0.f, 0.f, 0.f, NORMAL , true, false, false, false, false, false, false, false, false };
 
 ENEMY_STATE g_kodora[KODORA_MAX];
 
@@ -117,15 +119,19 @@ void Init()
 	//マップの読み込み
 	Load_Map("Resource/file/ElementalWorld.csv");
 
+	Player_Init();
+
 	// コドラの初期化
 	for (int i = 0; i < KODORA_MAX; i++)
 	{
 		g_kodora[i].drawFlag = true;
 		g_kodora[i].hitFlag = false;
 		g_kodora[i].directionID = Left;
-		g_kodora[i].posX = 730.0f;
-		g_kodora[i].posY = 500.0f;
+		g_kodora[i].posX = 0.0f;
+		g_kodora[i].posY = 0.0f;
 	}
+
+	Kodora_Init();
 
 	// スケルトンの初期化
 	for (int i = 0; i < SKERETON_MAX; i++)
@@ -146,6 +152,8 @@ void Init()
 		g_slime[i].posX = 1000.0f;
 		g_slime[i].posY = 500.0f;
 	}
+
+	Slime_Init();
 
 	// 弾の初期化
 	for (int i = 0; i < BULLET_MAX; i++)

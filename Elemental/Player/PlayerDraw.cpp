@@ -30,35 +30,38 @@ void Player_Draw()
 
 	CUSTOMVERTEX playerdraw[4];
 
+
+	for (int i = 0; i < 4; i++)
+	{
+		playerdraw[i] = main_charcter[i];
+		playerdraw[i].x += g_player.posX;
+		playerdraw[i].y += g_player.posY;
+	}
+
+	animationtime++;
+
+	if (animationtime <= 30)
+	{
 		for (int i = 0; i < 4; i++)
 		{
-			playerdraw[i] = main_charcter[i];
-			playerdraw[i].x += g_player.posX;
-			playerdraw[i].y += g_player.posY;
+			playerdraw[i].tu += 0.5f;
 		}
-		animationtime++;
-
-		if (animationtime <= 30)
+	}
+	else if (animationtime >= 60)
+	{
+		for (int i = 0; i < 4; i++)
 		{
-			for (int i = 0; i < 4; i++)
-			{
-				playerdraw[i].tu += 0.5f;
-			}
-		}
-		else if (animationtime >= 60)
-		{
-			for (int i = 0; i < 4; i++)
-			{
-				playerdraw[i].tu -= 0.5f;
-			}
-
-			animationtime = 0;
+			playerdraw[i].tu -= 0.5f;
 		}
 
-		Player_Case_Draw(playerdraw);
+		animationtime = 0;
+	}
 
-	
+	Player_Case_Draw(playerdraw);
 }
+	
+	
+
 
 void Player_Sky_Draw()
 {
@@ -99,7 +102,7 @@ void Player_Bullet_Draw()
 	for (int i = 0; i < BULLET_MAX; i++)
 	{
 		// •`‰æ‚µ‚½’e‚Ì‘æ2’¸“_‚ÌXÀ•W‚ª‰æ–Ê¶’[‚ð’´‚¦‚ê‚Î•`‰æ‚µ‚È‚¢‚æ‚¤‚É‚·‚é
-		if (g_bullet[i].bullet[2].x <= 0.f)
+		if (g_bullet[i].bullet[2].x <= 0.0f)
 		{
 			g_bullet[i].drawFlag = false;
 			g_bullet[i].initFlag = true;
@@ -113,14 +116,14 @@ void Player_Bullet_Draw()
 		}
 
 		// ’e‚ª¶•ûŒü‚ÉáŠQ•¨‚ª‚È‚¢‚©ƒ`ƒFƒbƒN‚µ‚Ä‚¢‚é
-		if (Map_Collision_Check(g_bullet[i].posX - BULLET_SPEED, g_bullet[i].posY, 2, 2))
+		if (Map_Collision_Check(g_bullet[i].posX - BULLET_SPEED, g_bullet[i].posY, 2, (g_player.skyFlag) ? 2 : 1))
 		{
 			g_bullet[i].drawFlag = false;
 			g_bullet[i].initFlag = true;
 		}
 
 		// ’e‚ª‰E•ûŒü‚ÉáŠQ•¨‚ª‚È‚¢‚©ƒ`ƒFƒbƒN‚µ‚Ä‚¢‚é
-		if (Map_Collision_Check(g_bullet[i].posX + BULLET_SPEED, g_bullet[i].posY, 2, 2))
+		if (Map_Collision_Check(g_bullet[i].posX + BULLET_SPEED, g_bullet[i].posY, 2, (g_player.skyFlag) ? 2 : 1))
 		{
 			g_bullet[i].drawFlag = false;
 			g_bullet[i].initFlag = true;

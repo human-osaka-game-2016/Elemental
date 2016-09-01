@@ -46,21 +46,18 @@ void Kodora_Control()
 					g_kodora[i].posX += ENEMY_WALK;
 				}
 			}
-		}
-	}
 
-	for (int k = 0; k < KODORA_MAX; k++)
-	{
-		for (int i = 0; i < BULLET_MAX; i++)
-		{
-			for (int j = 0; j < 4; j++)
+			for (int k = 0; k < BULLET_MAX; k++)
 			{
-				if (Collision_Check(g_bullet[i].bullet[j].x, g_kodora[k].posX, g_bullet[i].bullet[j].y, g_kodora[k].posY, TIPSIZE))
+				for (int j = 0; j < 4; j++)
 				{
-					g_kodora[k].hitFlag = true;			// ”»’è‚µ‚½‹éŒ`‚Ì”ÍˆÍ‚É“ü‚Á‚Ä‚¢‚½‚ç’e‚É“–‚½‚Á‚½ƒtƒ‰ƒO‚ðtrue‚É‚µ‚Ä‚¢‚é
-					g_gimmick.drawFlag = true;
-					g_bullet[i].drawFlag = false;	// “–‚½‚ê‚Î‚à‚¤’e‚Ì•b‚ª“ü‚ç‚È‚¢‚Ì‚Åfalse‚É‚·‚é
-					g_bullet[i].initFlag = true;	// ‰Šú‰»ƒtƒ‰ƒO‚ðtrue‚É‚µ‚È‚¢‚ÆŽŸ‚Ì’e‚ªo‚È‚­‚È‚é
+					if (Collision_Check(g_bullet[k].bullet[j].x, g_kodora[i].posX, g_bullet[k].bullet[j].y, g_kodora[i].posY, TIPSIZE))
+					{
+						g_kodora[i].hitFlag = true;			// ”»’è‚µ‚½‹éŒ`‚Ì”ÍˆÍ‚É“ü‚Á‚Ä‚¢‚½‚ç’e‚É“–‚½‚Á‚½ƒtƒ‰ƒO‚ðtrue‚É‚µ‚Ä‚¢‚é
+						g_gimmick.drawFlag = true;
+						g_bullet[k].drawFlag = false;	// “–‚½‚ê‚Î‚à‚¤’e‚Ì•b‚ª“ü‚ç‚È‚¢‚Ì‚Åfalse‚É‚·‚é
+						g_bullet[k].initFlag = true;	// ‰Šú‰»ƒtƒ‰ƒO‚ðtrue‚É‚µ‚È‚¢‚ÆŽŸ‚Ì’e‚ªo‚È‚­‚È‚é
+					}
 				}
 			}
 		}
@@ -136,14 +133,56 @@ void Slime_Control()
 					g_slime[i].posX += ENEMY_WALK;
 				}
 			}
+			if (g_slime[i].directionID == Left)
+			{
+				if (g_windgimmick[1].x < g_slime[i].posX && g_gimmick.outdreakFlag == true && g_gimmick.drawFlag == true)
+				{
+					g_gimmick.hitFlag = true;
+				}
+			}
+			else if (g_slime[i].directionID == Right)
+			{
+				if (g_windgimmick[0].x < g_slime[i].posX && g_gimmick.outdreakFlag == true && g_gimmick.drawFlag == true)
+				{
+					g_gimmick.hitFlag = true;
+				}
+			}
 		}
 	}
+}
 
-	for (int i = 0; i < SLIME_MAX; i++)
+void Kodora_Init()
+{
+	for (int y = 0; y < MAP_HEIGHT; y++)
 	{
-		if (g_windgimmick[1].x < g_slime[i].posX && g_gimmick.outdreakFlag == true && g_gimmick.drawFlag == true)
+		for (int x = 0; x < MAP_WIDTH; x++)
 		{
-			g_gimmick.hitFlag = true;
+			if (map[y][x] == 10)
+			{
+				for (int i = 0; i < KODORA_MAX; i++)
+				{
+					g_kodora[i].posX = (float)(x * TIPSIZE);
+					g_kodora[i].posY = (float)(y * TIPSIZE);
+				}
+			}
+		}
+	}
+}
+
+void Slime_Init()
+{
+	for (int y = 0; y < MAP_HEIGHT; y++)
+	{
+		for (int x = 0; x < MAP_WIDTH; x++)
+		{
+			if (map[y][x] == 20)
+			{
+				for (int i = 0; i < SLIME_MAX; i++)
+				{
+					g_slime[i].posX = (float)(x * TIPSIZE);
+					g_slime[i].posY = (float)(y * TIPSIZE);
+				}
+			}
 		}
 	}
 }

@@ -33,4 +33,8 @@ void skeleton_Control();
  */
 void Slime_Control();
 
+void Kodora_Init();
+
+void Slime_Init();
+
 #endif
