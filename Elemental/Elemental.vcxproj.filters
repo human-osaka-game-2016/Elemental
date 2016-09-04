@@ -40,9 +40,6 @@
     <Filter Include="ソース ファイル\GIMMICK\ICE">
       <UniqueIdentifier>{cb5d7ec6-1f8f-4c73-9f97-d95bc5b702f7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\GIMMICK\WIND">
-      <UniqueIdentifier>{ff700b18-f8a2-4d7d-8130-5429e8831803}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ヘッダー ファイル\GIMMICK\FLAME">
       <UniqueIdentifier>{5fd05c15-e442-4f46-89cd-c8f6e1a5f93e}</UniqueIdentifier>
     </Filter>
@@ -54,6 +51,9 @@
     </Filter>
     <Filter Include="ヘッダー ファイル\ENEMY">
       <UniqueIdentifier>{9cf03b14-9468-473d-af85-ef5d059f2190}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GIMMICK\WIND">
+      <UniqueIdentifier>{ff700b18-f8a2-4d7d-8130-5429e8831803}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

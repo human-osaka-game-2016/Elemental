@@ -31,20 +31,26 @@ void Kodora_Control()
 				g_kodora[i].directionID = Left;
 			}
 
-			if (abs(g_kodora[i].posX - g_player.posX) < (TIPSIZE * 4))	// コドラは主人公の前方4マスまで移動してくる
+			if (abs(g_kodora[i].posX - g_player.posX) < (TIPSIZE * 4))		// コドラは主人公の前方4マスまで移動してくる
 			{
 				// 敵の攻撃処理をここに入れる予定
 			}
-			else if (abs(g_kodora[i].posX - g_player.posX) < (TIPSIZE * 8))// 主人公が前方8マス以内になると動く
+			else if (abs(g_kodora[i].posX - g_player.posX) < (TIPSIZE * 8))		// 主人公が前方8マス以内になると動く
 			{
 				if (g_kodora[i].directionID == Left)
 				{
 					g_kodora[i].posX -= ENEMY_WALK;
+					g_kodora[i].stateID = Move;
 				}
 				else if (g_kodora[i].directionID == Right)
 				{
 					g_kodora[i].posX += ENEMY_WALK;
+					g_kodora[i].stateID = Move;
 				}
+			}
+			else
+			{
+				g_kodora[i].stateID = Wait;
 			}
 
 			for (int k = 0; k < BULLET_MAX; k++)
@@ -69,32 +75,38 @@ void skeleton_Control()
 {
 	for (int i = 0; i < SKERETON_MAX; i++)
 	{
-		if (g_skereton[i].drawFlag == true)
+		if (g_skeleton[i].drawFlag == true)
 		{
 			//敵の方向を確認する
-			if (g_skereton[i].posX - g_player.posX < 0)
+			if (g_skeleton[i].posX - g_player.posX < 0)
 			{
-				g_skereton[i].directionID = Right;
+				g_skeleton[i].directionID = Right;
 			}
 			else
 			{
-				g_skereton[i].directionID = Left;
+				g_skeleton[i].directionID = Left;
 			}
 
-			if (abs(g_skereton[i].posX - g_player.posX) < (TIPSIZE * 4))	// コドラは主人公の前方4マスまで移動してくる
+			if (abs(g_skeleton[i].posX - g_player.posX) < (TIPSIZE * 4))	// スケルトンは主人公の前方4マスまで移動してくる
 			{
 				// 敵の攻撃処理をここに入れる予定
 			}
-			else if (abs(g_skereton[i].posX - g_player.posX) < (TIPSIZE * 8))// 主人公が前方8マス以内になると動く
+			else if (abs(g_skeleton[i].posX - g_player.posX) < (TIPSIZE * 8))// 主人公が前方8マス以内になると動く
 			{
-				if (g_skereton[i].directionID == Left)
+				if (g_skeleton[i].directionID == Left)
 				{
-					g_skereton[i].posX -= ENEMY_WALK;
+					g_skeleton[i].posX -= ENEMY_WALK;
+					g_skeleton[i].stateID = Move;
 				}
-				else if (g_skereton[i].directionID == Right)
+				else if (g_skeleton[i].directionID == Right)
 				{
-					g_skereton[i].posX += ENEMY_WALK;
+					g_skeleton[i].posX += ENEMY_WALK;
+					g_skeleton[i].stateID = Move;
 				}
+			}
+			else
+			{
+				g_skeleton[i].stateID = Wait;
 			}
 		}
 	}
@@ -118,7 +130,7 @@ void Slime_Control()
 				g_slime[i].directionID = Left;
 			}
 
-			if (abs(g_slime[i].posX - g_player.posX) < (TIPSIZE * 4))	// コドラは主人公の前方4マスまで移動してくる
+			if (abs(g_slime[i].posX - g_player.posX) < (TIPSIZE * 4))	// スライムは主人公の前方4マスまで移動してくる
 			{
 				// 敵の攻撃処理をここに入れる予定
 			}
@@ -127,62 +139,19 @@ void Slime_Control()
 				if (g_slime[i].directionID == Left)
 				{
 					g_slime[i].posX -= ENEMY_WALK;
+					g_slime[i].stateID = Move;
 				}
 				else if (g_slime[i].directionID == Right)
 				{
 					g_slime[i].posX += ENEMY_WALK;
+					g_slime[i].stateID = Move;
 				}
 			}
-			if (g_slime[i].directionID == Left)
+			else
 			{
-				if (g_windgimmick[1].x < g_slime[i].posX && g_gimmick.outdreakFlag == true && g_gimmick.drawFlag == true)
-				{
-					g_gimmick.hitFlag = true;
-				}
-			}
-			else if (g_slime[i].directionID == Right)
-			{
-				if (g_windgimmick[0].x < g_slime[i].posX && g_gimmick.outdreakFlag == true && g_gimmick.drawFlag == true)
-				{
-					g_gimmick.hitFlag = true;
-				}
+				g_slime[i].stateID = Wait;
 			}
 		}
 	}
 }
 
-void Kodora_Init()
-{
-	for (int y = 0; y < MAP_HEIGHT; y++)
-	{
-		for (int x = 0; x < MAP_WIDTH; x++)
-		{
-			if (map[y][x] == 10)
-			{
-				for (int i = 0; i < KODORA_MAX; i++)
-				{
-					g_kodora[i].posX = (float)(x * TIPSIZE);
-					g_kodora[i].posY = (float)(y * TIPSIZE);
-				}
-			}
-		}
-	}
-}
-
-void Slime_Init()
-{
-	for (int y = 0; y < MAP_HEIGHT; y++)
-	{
-		for (int x = 0; x < MAP_WIDTH; x++)
-		{
-			if (map[y][x] == 20)
-			{
-				for (int i = 0; i < SLIME_MAX; i++)
-				{
-					g_slime[i].posX = (float)(x * TIPSIZE);
-					g_slime[i].posY = (float)(y * TIPSIZE);
-				}
-			}
-		}
-	}
-}
