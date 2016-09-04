@@ -9,4 +9,6 @@
 #ifndef FLAMEGIMMICKCONTROL
 #define FLAMEGIMMICKCONTROL
 
+void FlameGimmick_Control();
+
 #endif
