@@ -9,7 +9,7 @@
 #ifndef GAMESCENECONTROL
 #define GAMESCENECONTROL
 
-
+#include <Direct_Draw.h>
 
 ////////////////////////////////////////////////
 // 使用する関数のプロトタイプ宣言
@@ -46,5 +46,8 @@ bool Map_Collision_Check(float _x, float _y, int _sx, int _sy);
 bool Collision_Check(float _rectAX, float _rectBX, float _rectAY, float _rectBY, int _size);
 
 bool Gimmick_Collision_Check(float _playerX, float _playerY);
+
+bool Collision_Check_CustomVertex(CUSTOMVERTEX* _AVertex, CUSTOMVERTEX* _BVertex);
+
 
 #endif

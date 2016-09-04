@@ -17,12 +17,13 @@
 #define FLAME_BLOCK 2
 #define WIND_BLOCK 3
 #define WIND_POS_BLOCK 4
+#define TREASURE_BOX 6
 #define ICESIZE 128		//! 氷のサイズ
 #define ICESIZE2 192
 #define ICESIZE3 256
 #define TIPSIZE 64		//! マップチップのサイズ
-#define MAP_HEIGHT 38	//! 描画するマップの縦の最大値
-#define MAP_WIDTH 128	//! 描画するマップの横の最大値
+#define MAP_HEIGHT 22	//! 描画するマップの縦の最大値
+#define MAP_WIDTH 100	//! 描画するマップの横の最大値
 
 #include <Direct_Draw.h>
 
@@ -78,12 +79,35 @@ enum GAMETEX
 	PLAYER_WIND_LEFT_JUMP_TEX,
 	PLAYER_WIND_LEFT_FALL_TEX,
 
+	KODORA_FLAME_RIGHT_STATE_TEX,	//!< 焔コドラの右に待機モーションしている画像を割り当てている
 	KODORA_FLAME_RIGHT_MOVE_TEX,	//!< 焔コドラの右に移動している画像を割り当てている
-	KODORA_FLAME_LEFT_MOVE_TEX,			//!< 焔コドラの移動している画像を割り当てている
+	KODORA_FLAME_LEFT_STATE_TEX,	//!< 焔コドラの待機モーションしている画像を割り当てている
+	KODORA_FLAME_LEFT_MOVE_TEX,		//!< 焔コドラの移動している画像を割り当てている
 
+	KODORA_ICE_RIGHT_STATE_TEX,		//!< 氷コドラの右に待機モーションしている画像を割り当てている
+	KODORA_ICE_RIGHT_MOVE_TEX,		//!< 氷コドラの右に移動している画像を割り当てている
+	KODORA_ICE_LEFT_STATE_TEX,		//!< 氷コドラの待機モーションしている画像を割り当てている
+	KODORA_ICE_LEFT_MOVE_TEX,		//!< 氷コドラの移動している画像を割り当てている
 
+	KODORA_WIND_RIGHT_STATE_TEX,	//!< 風コドラの右に待機モーションしている画像を割り当てている
+	KODORA_WIND_RIGHT_MOVE_TEX,		//!< 風コドラの右に移動している画像を割り当てている
+	KODORA_WIND_LEFT_STATE_TEX,		//!< 風コドラの待機モーションしている画像を割り当てている
+	KODORA_WIND_LEFT_MOVE_TEX,		//!< 風コドラの移動している画像を割り当てている
+
+	SLIME_FLAME_RIGHT_STATE_TEX,	//!< 焔スライムの右に待機モーションしている画像を割り当てている
 	SLIME_FLAME_RIGHT_MOVE_TEX,		//!< 焔スライムの右に移動している画像を割り当てている
-	SLIME_FLAME_LEFT_MOVE_TEX,			//!< 焔スライムの移動している画像を割り当てている
+	SLIME_FLAME_LEFT_STATE_TEX,		//!< 焔スライムの待機モーションしている画像を割り当てている
+	SLIME_FLAME_LEFT_MOVE_TEX,		//!< 焔スライムの移動している画像を割り当てている
+
+	SLIME_ICE_RIGHT_STATE_TEX,		//!< 氷スライムの右に待機モーションしている画像を割り当てている
+	SLIME_ICE_RIGHT_MOVE_TEX,		//!< 氷スライムの右に移動している画像を割り当てている
+	SLIME_ICE_LEFT_STATE_TEX,		//!< 氷スライムの待機モーションしている画像を割り当てている
+	SLIME_ICE_LEFT_MOVE_TEX,		//!< 氷スライムの移動している画像を割り当てている
+
+	SLIME_WIND_RIGHT_STATE_TEX,		//!< 風スライムの右に待機モーションしている画像を割り当てている
+	SLIME_WIND_RIGHT_MOVE_TEX,		//!< 風スライムの右に移動している画像を割り当てている
+	SLIME_WIND_LEFT_STATE_TEX,		//!< 風スライムの待機モーションしている画像を割り当てている
+	SLIME_WIND_LEFT_MOVE_TEX,		//!< 風スライムの移動している画像を割り当てている
 
 
 	PLAYER_FLAME_RIGHT_BULLET_TEX,
@@ -93,8 +117,10 @@ enum GAMETEX
 	PLAYER_WIND_RIGHT_BULLET_TEX,
 	PLAYER_WIND_LEFT_BULLET_TEX,
 
-
+	FLAMEGIMMICK_TEX,
 	WINDGIMMICK_TEX,				//!< 風のギミックの画像を割り当てる
+
+	GOAL,
 
 	TEX_MAX,						//!< 画像枚数の最大値
 };		
@@ -112,7 +138,14 @@ enum Direction
 {
 	Right,		//!< 右
 	Left,		//!< 左
-	Normal,		//!< 通常状態
+	Up,
+	Down,
+};
+
+enum STATE
+{
+	Wait,		//!< 敵の待機状態
+	Move,		//!< 敵の動き
 };
 
 ////////////////////////////////////////////////
@@ -146,6 +179,8 @@ void Load_Map(const char* _mapdata);
  */
 void Draw_Obj(LPDIRECT3DTEXTURE9   _pTexture, CUSTOMVERTEX _setdraw[]);
 
+void Goal_Draw();
+
 /// テクスチャの解放関数
 /**
  * @return なし
@@ -160,5 +195,6 @@ extern float g_ScreenOriginX;					//!< 画面の左上のｘ座標
 extern float g_ScreenOriginY;					//!< 画面の左上のｙ座標
 extern int map[MAP_HEIGHT][MAP_WIDTH];			//!< csvで読み込んだマップの2次元配列
 extern LPDIRECT3DTEXTURE9 g_pTexture[TEX_MAX];	//!< DirectXテクスチャ・オブジェクトへのポインタ
+extern CUSTOMVERTEX g_Maptip[4];
 
 #endif

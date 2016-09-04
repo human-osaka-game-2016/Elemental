@@ -22,6 +22,16 @@ LPDIRECT3DTEXTURE9 g_pTexture[TEX_MAX];
 // csvで読み込む範囲
 int map[MAP_HEIGHT][MAP_WIDTH];
 
+// マップチップの頂点情報
+CUSTOMVERTEX g_Maptip[4] =
+{
+	{ 0.0f, 0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 0.0f },
+	{ TIPSIZE, 0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 1.0f, 0.0f },
+	{ TIPSIZE, TIPSIZE, 0.5f, 1.0f, 0xFFFFFFFF, 1.0f, 1.0f },
+	{ 0.0f, TIPSIZE, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 1.0f },
+
+};
+
 // 描画関数
 void Render()
 {
@@ -29,9 +39,9 @@ void Render()
 	CUSTOMVERTEX background[4] =
 	{
 		{ 0.0f, 0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 0.0f },
-		{ 2880.f, 0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 1.0f, 0.0f },
-		{ 2880.f, 2430.f, 0.5f, 1.0f, 0xFFFFFFFF, 1.0f, 1.0f },
-		{ 0.0f, 2430.f, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 1.0f },
+		{ 6400.f, 0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 1.0f, 0.0f },
+		{ 6400.f, 1408.f, 0.5f, 1.0f, 0xFFFFFFFF, 1.0f, 1.0f },
+		{ 0.0f, 1408.f, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 1.0f },
 
 	};
 	
@@ -41,7 +51,8 @@ void Render()
 	Draw_Obj(g_pTexture[BACKGROUND_TEX], background);
 	Draw_Map();
 
-	Kodora_Draw();
+	Kodora_Walk_Draw();
+	Kodora_Stay_Draw();
 	Skeleton_Draw();
 	Slime_Draw();
 
@@ -50,6 +61,8 @@ void Render()
 	Player_Bullet_Draw();
 
 	WindGimmick_Draw();
+
+	Goal_Draw();
 
 	Draw_End();
 }
@@ -67,7 +80,7 @@ void Load_Map(const char* _mapdata)
 	{
 		for (int j = 0; j < MAP_WIDTH; j++)
 		{
-			fscanf_s(fp, "%d,", &map[i][j], _countof(map));		
+			fscanf_s(fp, "%d,", &map[i][j], _countof(map));	
 		}
 	}
 }
@@ -75,16 +88,6 @@ void Load_Map(const char* _mapdata)
 // csvに書いたマップ情報を反映させている
 void Draw_Map()
 {
-	// マップチップの頂点情報
-	CUSTOMVERTEX Maptip[4] =
-	{
-		{ 0.0f, 0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 0.0f },
-		{ TIPSIZE, 0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 1.0f, 0.0f },
-		{ TIPSIZE, TIPSIZE, 0.5f, 1.0f, 0xFFFFFFFF, 1.0f, 1.0f },
-		{ 0.0f, TIPSIZE, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 1.0f },
-
-	};
-
 	for (int y = 0; y < MAP_HEIGHT; y++)
 	{
 		for (int x = 0; x < MAP_WIDTH; x++)
@@ -94,7 +97,7 @@ void Draw_Map()
 				CUSTOMVERTEX drawmap[4];			// 空のCUSTOMVERTEX用意
 				for (int i = 0; i < 4; i++)
 				{
-					drawmap[i] = Maptip[i];		// マップチップの頂点情報を空のCUSTOMVERTEXに代入している
+					drawmap[i] = g_Maptip[i];		// マップチップの頂点情報を空のCUSTOMVERTEXに代入している
 				}
 
 				// このままだと1個しか描画されないので下の処理で指定した範囲分すべて描画するようにしている
@@ -110,7 +113,7 @@ void Draw_Map()
 				CUSTOMVERTEX drawmap[4];			// 空のCUSTOMVERTEX用意
 				for (int i = 0; i < 4; i++)
 				{
-					drawmap[i] = Maptip[i];		// マップチップの頂点情報を空のCUSTOMVERTEXに代入している
+					drawmap[i] = g_Maptip[i];		// マップチップの頂点情報を空のCUSTOMVERTEXに代入している
 				}
 
 				for (int i = 0; i < 4; i++)
@@ -125,7 +128,7 @@ void Draw_Map()
 				CUSTOMVERTEX drawmap[4];			// 空のCUSTOMVERTEX用意
 				for (int i = 0; i < 4; i++)
 				{
-					drawmap[i] = Maptip[i];		// マップチップの頂点情報を空のCUSTOMVERTEXに代入している
+					drawmap[i] = g_Maptip[i];		// マップチップの頂点情報を空のCUSTOMVERTEXに代入している
 				}
 
 				for (int i = 0; i < 4; i++)
@@ -140,7 +143,7 @@ void Draw_Map()
 				CUSTOMVERTEX drawmap[4];			// 空のCUSTOMVERTEX用意
 				for (int i = 0; i < 4; i++)
 				{
-					drawmap[i] = Maptip[i];		// マップチップの頂点情報を空のCUSTOMVERTEXに代入している
+					drawmap[i] = g_Maptip[i];		// マップチップの頂点情報を空のCUSTOMVERTEXに代入している
 				}
 
 				for (int i = 0; i < 4; i++)
@@ -149,6 +152,35 @@ void Draw_Map()
 					drawmap[i].y += (y * TIPSIZE);	// 上に同じ
 				}
 				Draw_Obj(g_pTexture[WIND_POS_BLOCK_TEX], drawmap);
+			}
+		}
+	}
+}
+
+void Goal_Draw()
+{
+	CUSTOMVERTEX goal[4] =
+	{
+		{ 0.0f, 0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 0.0f },
+		{ 128, 0.0f, 0.5f, 1.0f, 0xFFFFFFFF, 0.25f, 0.0f },
+		{ 128, 128, 0.5f, 1.0f, 0xFFFFFFFF, 0.25f, 1.0f },
+		{ 0.0f, 128, 0.5f, 1.0f, 0xFFFFFFFF, 0.0f, 1.0f },
+
+	};
+
+	for (int y = 0; y < MAP_HEIGHT; y++)
+	{
+		for (int x = 0; x < MAP_WIDTH; x++)
+		{
+			if (map[y][x] == TREASURE_BOX)
+			{
+				for (int i = 0; i < 4; i++)
+				{
+					goal[i].x += (x * TIPSIZE);	
+					goal[i].y += (y * TIPSIZE);
+				}
+
+				Draw_Obj(g_pTexture[GOAL], goal);
 			}
 		}
 	}

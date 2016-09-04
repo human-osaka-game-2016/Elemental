@@ -19,6 +19,8 @@
 #include "../Enemy/EnemyControl.h"
 #include "../Gmmick/WindGimmick_Control.h"
 
+void map_control();
+
 // ëÄçÏä÷êî
 void Control()
 {
@@ -28,24 +30,46 @@ void Control()
 	Check_Key(DIK_RIGHT, RIGHT);
 	Check_Key(DIK_UP, UP);
 	Check_Key(DIK_DOWN, DOWN);
-	Check_Key(DIK_A, A);
+	Check_Key(DIK_SPACE, SPACE);
 	Check_Key(DIK_Z, Z);
 	Check_Key(DIK_X, X);
 	Check_Key(DIK_C, C);
-	Check_Key(DIK_SPACE, SPACE);
+
 
 	Player_Control();
 	Player_Aura_Control();
 	Player_Bullet_Control();
 
 	Kodora_Control();
-	skeleton_Control();
+//	skeleton_Control();
 	Slime_Control();
 
+//	map_control();
 
 	WindGimmick_Control();
 	
 }
+
+void map_control()
+{
+	if (g_Key[LEFT] == ON)
+	{
+		g_ScreenOriginX -= 10;
+	}
+	if (g_Key[RIGHT] == ON)
+	{
+		g_ScreenOriginX += 10;
+	}
+	if (g_Key[UP] == ON)
+	{
+		g_ScreenOriginY -= 10;
+	}
+	if (g_Key[DOWN] == ON)
+	{
+		g_ScreenOriginY += 10;
+	}
+}
+
 
 bool Map_Collision_Check(float _x, float _y, int _sx, int _sy)
 {
@@ -119,4 +143,25 @@ bool Gimmick_Collision_Check(float _playerX, float _playerY)
 
 	}
 	return false;
+}
+
+bool Collision_Check_CustomVertex(CUSTOMVERTEX* _AVertex, CUSTOMVERTEX* _BVertex)
+{
+	bool hit = false;
+
+	if (_AVertex[0].x < _BVertex[0].x)
+	{
+		if (_AVertex[1].x > _BVertex[0].x)
+		{
+			if (_AVertex[1].y < _BVertex[3].y)
+			{
+				if (_AVertex[2].y > _BVertex[1].y)
+				{
+					hit = true;
+				}
+			}
+		}
+	}
+
+	return hit;
 }
