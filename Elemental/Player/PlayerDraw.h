@@ -10,13 +10,13 @@
 #define PLAYERDRAW
 
 #include <Direct_Draw.h>
-#include "../GameScene/GameSceneDraw.h"
 
 ////////////////////////////////////////////////
 // 定義
 ////////////////////////////////////////////////
 
 #define BULLET_MAX 3	//!< 攻撃できる最大値
+#define BULLET_DISTAMCE 256//!< 弾の距離の上限
 
 ////////////////////////////////////////////////
 // 使用する関数のプロトタイプ宣言
@@ -24,10 +24,6 @@
 
 /// 主人公がオーラをまとっている状態の描画関数
 /**
- * @param [in] _auraFlag どのオーラを描画するか
- * @param [in] _moveflag 主人公が動いたかどうかのフラグ
- * @param [in] _leftflag 主人公が左を向いてるかどうかのフラグ
- * @param [in] _auratex　どのオーラに画像を割り当てるか
  * @return なし
  */
 void Player_Draw();
@@ -38,10 +34,24 @@ void Player_Draw();
 */
 void Player_Bullet_Draw();
 
+/// 空中にいるときの主人公を描画する
+/**
+ * @return なし
+ */
 void Player_Sky_Draw();
 
+/// 主人公の状態に合わせて描画する関数
+/**
+ * @return なし
+ */
 void Player_Case_Draw(CUSTOMVERTEX playerdraw[]);
 
+/// 空中にいるときの状態に合わせて描画する関数
+/*
+ 
+ */
 void Player_Sky_Case_Draw(CUSTOMVERTEX playerskydraw[]);
+
+void Player_Init();
 
 #endif

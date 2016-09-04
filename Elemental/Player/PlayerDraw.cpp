@@ -102,14 +102,14 @@ void Player_Bullet_Draw()
 	for (int i = 0; i < BULLET_MAX; i++)
 	{
 		// •`‰æ‚µ‚½’e‚Ì‘æ2’¸“_‚ÌXÀ•W‚ª‰æ–Ê¶’[‚ð’´‚¦‚ê‚Î•`‰æ‚µ‚È‚¢‚æ‚¤‚É‚·‚é
-		if (g_bullet[i].bullet[2].x <= 0.0f)
+		if (g_bullet[i].bullet[0].x == g_player.posX + BULLET_DISTAMCE)
 		{
 			g_bullet[i].drawFlag = false;
 			g_bullet[i].initFlag = true;
 		}
 
 		// •`‰æ‚µ‚½’e‚Ì‘æ0’¸“_‚ÌXÀ•W‚ª‰æ–Ê‰E’[‚ð’´‚¦‚ê‚Î•`‰æ‚µ‚È‚¢‚æ‚¤‚É‚·‚é
-		if (g_bullet[i].bullet[0].x >= 1440.f)
+		if (g_bullet[i].bullet[0].x == g_player.posX - BULLET_DISTAMCE)
 		{
 			g_bullet[i].drawFlag = false;
 			g_bullet[i].initFlag = true;
@@ -137,6 +137,7 @@ void Player_Bullet_Draw()
 			for (int j = 0; j < 4; j++)
 			{
 				g_bullet[i].bullet[j] = bullet[j];
+				g_bullet[i].animationFlag = false;
 				g_bullet[i].bullet[j].x += g_player.posX;
 				g_bullet[i].bullet[j].y += g_player.posY;
 			}
@@ -149,7 +150,7 @@ void Player_Bullet_Draw()
 
 		if ((animatime % 10) == 0)
 		{
-			if (g_player.animationFlag == true)
+			if (g_bullet[i].animationFlag == true)
 			{
 				for (int j = 0; j < 4; j++)
 				{
@@ -164,13 +165,13 @@ void Player_Bullet_Draw()
 				}
 			}
 
-			if (g_bullet[i].bullet[2].tu == 1.0f && g_player.animationFlag == false)
+			if (g_bullet[i].bullet[2].tu == 1.0f && g_bullet[i].animationFlag == false)
 			{
-				g_player.animationFlag = true;
+				g_bullet[i].animationFlag = true;
 			}
-			else if (g_bullet[i].bullet[0].tu == 0.0f && g_player.animationFlag == true)
+			else if (g_bullet[i].bullet[0].tu == 0.25f && g_bullet[i].animationFlag == true)
 			{
-				g_player.animationFlag = false;
+				g_bullet[i].animationFlag = false;
 			}
 		}
 
@@ -531,5 +532,20 @@ void Player_Sky_Case_Draw(CUSTOMVERTEX playerskydraw[])
 
 		break;
 
+	}
+}
+
+void Player_Init()
+{
+	for (int y = 0; y < MAP_HEIGHT; y++)
+	{
+		for (int x = 0; x < MAP_WIDTH; x++)
+		{
+			if (map[y][x] == PLAYER_START)
+			{
+				g_player.posX = (float)(x * TIPSIZE);
+				g_player.posY = (float)(y * TIPSIZE);
+			}
+		}
 	}
 }

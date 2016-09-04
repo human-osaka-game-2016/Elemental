@@ -64,7 +64,6 @@ void Player_Control()
 			{
 				// なければ移動を続ける
 				g_player.posX -= WALK_SPEED;
-				g_ScreenOriginX -= WALK_SPEED;
 			}
 		}
 	}
@@ -115,7 +114,6 @@ void Player_Control()
 			{
 				// なければ移動を続ける
 				g_player.posX += WALK_SPEED;
-				g_ScreenOriginX += WALK_SPEED;
 			}
 		}
 	}
@@ -147,18 +145,6 @@ void Player_Control()
 	}
 
 	g_player.posY += g_player.acceleration;
-	
-
-	if (g_Key[DOWN] == ON)
-	{
-		// 次に動いた値で下にブロックがあるかどうか先に調べている
-		if (!Map_Collision_Check(g_player.posX, g_player.posY + WALK_SPEED, 2, 2))
-		{
-			// なければ移動を続ける
-			g_player.posY += WALK_SPEED;	
-			
-		}
-	}
 }
 
 void Player_Aura_Control()
@@ -244,20 +230,5 @@ void Player_Bullet_Control()
 	}
 }
 
-void Player_Init()
-{
-	for (int y = 0; y < MAP_HEIGHT; y++)
-	{
-		for (int x = 0; x < MAP_WIDTH; x++)
-		{
-			if (map[y][x] == PLAYER_START)
-			{
-				g_player.posX = (float)(x * TIPSIZE);
-				g_player.posY = (float)(y * TIPSIZE);
 
-				g_ScreenOriginY = g_player.posY - 597;
-			}			
-		}
-	}
-}
 

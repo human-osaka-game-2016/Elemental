@@ -38,6 +38,6 @@ void Player_Aura_Control();
 */
 void Player_Bullet_Control();
 
-void Player_Init();
+
 
 #endif
